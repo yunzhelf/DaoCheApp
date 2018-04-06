@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.yifactory.daocheapp.widget.BaseSwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeRefreshLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.yifactory.daocheapp.biz.discover_function.activity.DiscoverAnswersDetailsActivity">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/rootLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+        <View
+            android:id="@+id/top_line"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/top_line_color"/>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/head_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/top_line"
+            android:orientation="vertical"
+            android:paddingLeft="22px"
+            android:paddingRight="22px">
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="80px"
+                android:layout_marginTop="32px">
+
+                <com.yifactory.daocheapp.widget.CircleImageView
+                    android:id="@+id/head_iv"
+                    android:layout_width="80px"
+                    android:layout_height="80px"
+                    android:src="@drawable/touxiang"/>
+
+                <TextView
+                    android:id="@+id/nickname_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginTop="9px"
+                    android:layout_toRightOf="@id/head_iv"
+                    android:text="王三"
+                    android:textColor="#000"
+                    android:textSize="27px"/>
+
+                <TextView
+                    android:id="@+id/job_attr_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="9px"
+                    android:layout_marginLeft="15px"
+                    android:layout_toRightOf="@id/head_iv"
+                    android:text="4S店"
+                    android:textColor="#666666"
+                    android:textSize="24px"/>
+
+                <TextView
+                    android:id="@+id/grade_tv"
+                    android:layout_width="78px"
+                    android:layout_height="45px"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/shape_discover_mood_outer_view_grade"
+                    android:gravity="center"
+                    android:text="一级"
+                    android:textColor="#000"
+                    android:textSize="24px"/>
+
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+            <TextView
+                android:id="@+id/question_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="33px"
+                android:layout_marginTop="20px"
+                android:text="大学之道在明明德，在止于至善，在亲民，古之欲明德于天下者必先治国，欲治国者必先齐家。"
+                android:textColor="#000"
+                android:textSize="27px"/>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25px"
+                android:gravity="right"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/give_him_advice_tv"
+                    android:layout_width="146px"
+                    android:layout_height="52px"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/shape_bule"
+                    android:gravity="center"
+                    android:text="给他建议"
+                    android:textColor="#FFFFFF"
+                    android:textSize="25px"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <View
+            android:id="@+id/bottom_line"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@id/head_layout"
+            android:layout_marginTop="23px"
+            android:background="#eeeeee"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/comment_detail_rv"
+            android:layout_width="match_parent"
+            android:layout_below="@id/bottom_line"
+            android:layout_height="wrap_content">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            layout="@layout/include_comment_layout"/>
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+</com.yifactory.daocheapp.widget.BaseSwipeRefreshLayout>
+

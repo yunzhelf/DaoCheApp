@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/editTextBodyLl"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fitsSystemWindows="true"
+    android:visibility="gone"
+    android:background="@color/white">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100px">
+
+        <View
+            android:id="@+id/view_top"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#dfdfdf"/>
+
+        <ImageView
+            android:id="@+id/comment_iv"
+            android:layout_width="84px"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/view_top"
+            android:paddingLeft="22px"
+            android:paddingRight="22px"
+            android:src="@drawable/fabupinglun"/>
+
+        <View
+            android:id="@+id/view_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10px"
+            android:layout_marginLeft="12px"
+            android:layout_marginRight="12px"
+            android:layout_toLeftOf="@id/comment_iv"
+            android:background="@color/theme_color"/>
+
+        <EditText
+            android:id="@+id/comment_et"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/view_bottom"
+            android:layout_below="@id/view_top"
+            android:layout_toLeftOf="@id/comment_iv"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint=""
+            android:paddingLeft="22px"
+            android:paddingRight="22px"
+            android:textColor="#333333"
+            android:textColorHint="#a3a3a3"
+            android:textCursorDrawable="@null"
+            android:textSize="30px"/>
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

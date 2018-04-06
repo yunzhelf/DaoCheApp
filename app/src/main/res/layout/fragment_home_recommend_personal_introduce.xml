@@ -1,0 +1,107 @@
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    android:background="@color/white"
+    tools:context="com.yifactory.daocheapp.biz.home_function.home_recommend_tab.fragment.HomeRecommendPersonalIntroduceFragment">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="260px"
+            android:layout_marginTop="34px"
+            android:paddingLeft="35px"
+            android:paddingRight="30px">
+
+            <ImageView
+                android:id="@+id/photo_iv"
+                android:layout_width="220px"
+                android:layout_height="260px"
+                android:src="@drawable/lecturer_photo"/>
+
+            <TextView
+                android:id="@+id/creator_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="26px"
+                android:layout_marginTop="8px"
+                android:layout_toRightOf="@id/photo_iv"
+                android:text="张三 | 讲师"
+                android:textColor="#333333"
+                android:textSize="26px"/>
+
+            <TextView
+                android:id="@+id/jian_jie"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/creator_tv"
+                android:layout_marginLeft="26px"
+                android:layout_marginTop="14px"
+                android:layout_toRightOf="@id/photo_iv"
+                android:lineSpacingExtra="1px"
+                android:text="        介简"
+                android:textColor="#333333"
+                android:textSize="24px"/>
+
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginTop="33px"
+            android:background="#f5f5f5"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="23px"
+            android:layout_marginTop="34px"
+            android:text="过往成就"
+            android:textColor="#333333"
+            android:textSize="26px"/>
+
+
+        <TextView
+            android:id="@+id/chengjiu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="23px"
+            android:layout_marginRight="30px"
+            android:layout_marginTop="20px"
+            android:text="        成就"
+            android:textColor="#666666"
+            android:textSize="24px"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="23px"
+            android:layout_marginTop="45px"
+            android:text="就业经历"
+            android:textColor="#333333"
+            android:textSize="26px"/>
+
+
+        <TextView
+            android:id="@+id/jing_li"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="23px"
+            android:layout_marginRight="30px"
+            android:layout_marginTop="20px"
+            android:text="        经历"
+            android:textColor="#666666"
+            android:textSize="24px"/>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

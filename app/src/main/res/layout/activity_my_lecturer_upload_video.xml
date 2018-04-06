@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:id="@+id/rootLayout"
+    tools:context="com.yifactory.daocheapp.biz.my_function.activity.MyLecturerUploadVideoActivity">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/top_line_color"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="98px"
+                android:layout_gravity="center_vertical"
+                android:background="#FFFFFF"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40px"
+                    android:text="标题"
+                    android:textColor="#000000"
+                    android:textSize="30px"/>
+
+                <EditText
+                    android:id="@+id/upload_video_title_ev"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:hint="视频标题"
+                    android:paddingLeft="29px"
+                    android:textColor="#000000"
+                    android:textColorHint="#999999"
+                    android:textCursorDrawable="@null"
+                    android:textSize="30px"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#f3f3f3"/>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="98px"
+                android:layout_gravity="center_vertical"
+                android:background="#FFFFFF"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40px"
+                    android:text="副标题"
+                    android:textColor="#000000"
+                    android:textSize="30px"/>
+
+                <EditText
+                    android:id="@+id/upload_video_second_title_ev"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:hint="视频副标题"
+                    android:paddingLeft="29px"
+                    android:textColor="#000000"
+                    android:textColorHint="#999999"
+                    android:textCursorDrawable="@null"
+                    android:textSize="30px"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#f3f3f3"/>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="98px"
+                android:background="#FFFFFF"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40px"
+                    android:text="金币"
+                    android:textColor="#000000"
+                    android:textSize="30px"/>
+
+                <EditText
+                    android:id="@+id/upload_video_gold_et"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="为你的知识开价"
+                    android:paddingLeft="29px"
+                    android:textColor="#000000"
+                    android:textColorHint="#999999"
+                    android:textCursorDrawable="@null"
+                    android:textSize="30px"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="个"
+                    android:textColor="#000000"
+                    android:textSize="30px"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="34px"
+                    android:layout_marginRight="22px"
+                    android:src="@drawable/mianfei"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#f3f3f3"/>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/upload_video_type_ly"
+                android:layout_width="match_parent"
+                android:layout_height="98px"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tvSex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40px"
+                    android:text="视频类型"
+                    android:textColor="#000000"
+                    android:textSize="30px"/>
+
+                <TextView
+                    android:id="@+id/etSex"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textSize="30px"
+                    android:gravity="center_vertical"
+                    android:textColor="#000000"
+                    android:paddingLeft="29px"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="22px"
+                    android:src="@drawable/gengduo"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#f3f3f3"/>
+
+            <EditText
+                android:id="@+id/upload_video_introduction_et"
+                android:layout_width="match_parent"
+                android:layout_height="224px"
+                android:layout_weight="1"
+                android:background="@null"
+                android:gravity="top"
+                android:hint="视频简介"
+                android:paddingLeft="40px"
+                android:paddingTop="36px"
+                android:textColor="#000000"
+                android:textColorHint="#999999"
+                android:textCursorDrawable="@null"
+                android:textSize="30px"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#f3f3f3"/>
+
+            <EditText
+                android:id="@+id/upload_video_content_et"
+                android:layout_width="match_parent"
+                android:layout_height="224px"
+                android:layout_weight="1"
+                android:background="@null"
+                android:gravity="top"
+                android:hint="视频内容"
+                android:paddingLeft="40px"
+                android:paddingTop="36px"
+                android:textColor="#000000"
+                android:textColorHint="#999999"
+                android:textCursorDrawable="@null"
+                android:textSize="30px"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#f3f3f3"/>
+
+            <EditText
+                android:id="@+id/upload_video_suitPerson_et"
+                android:layout_width="match_parent"
+                android:layout_height="224px"
+                android:layout_weight="1"
+                android:background="@null"
+                android:gravity="top"
+                android:hint="请描述适合人群"
+                android:paddingLeft="40px"
+                android:paddingTop="36px"
+                android:textColor="#000000"
+                android:textColorHint="#999999"
+                android:textCursorDrawable="@null"
+                android:textSize="30px"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#f3f3f3"/>
+
+            <EditText
+                android:id="@+id/upload_video_harvest_et"
+                android:layout_width="match_parent"
+                android:layout_height="224px"
+                android:layout_weight="1"
+                android:background="@null"
+                android:gravity="top"
+                android:hint="观看获得哪些收获"
+                android:paddingLeft="40px"
+                android:paddingTop="36px"
+                android:textColor="#000000"
+                android:textColorHint="#999999"
+                android:textCursorDrawable="@null"
+                android:textSize="30px"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#f3f3f3"/>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="224px"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingTop="36px">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40px"
+                    android:text="上传视频"
+                    android:textColor="#000000"
+                    android:textSize="30px"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+
+                <ImageView
+                    android:id="@+id/upload_video_choose_iv"
+                    android:layout_width="214px"
+                    android:layout_height="151px"
+                    android:layout_marginRight="22px"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/shangchuantupian"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_width="match_parent"
+                android:background="#ebebeb"
+                android:layout_height="395px">
+
+                <Button
+                    android:id="@+id/upload_video_btn"
+                    android:layout_width="340px"
+                    android:layout_height="90px"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/shape_bule"
+                    android:gravity="center"
+                    android:text="上传"
+                    android:textColor="#FFFFFF"
+                    android:textSize="30px"/>
+
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+    </ScrollView>
+
+</com.zhy.autolayout.AutoLinearLayout>

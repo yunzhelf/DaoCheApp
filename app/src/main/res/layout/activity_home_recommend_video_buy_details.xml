@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f3f5"
+    android:gravity=""
+    android:orientation="vertical"
+    tools:context="com.yifactory.daocheapp.biz.home_function.home_recommend_tab.activity.HomeRecommendVideoBuyDetailsActivity">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#f3f3f3"/>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="225px"
+        android:layout_marginLeft="11px"
+        android:layout_marginRight="11px"
+        android:layout_marginTop="11px"
+        android:background="@drawable/shape_white_corner"
+        android:orientation="vertical"
+        android:paddingBottom="37px"
+        android:paddingLeft="11px"
+        android:paddingRight="11px"
+        android:paddingTop="37px">
+
+        <ImageView
+            android:id="@+id/video_iv"
+            android:layout_width="214px"
+            android:layout_height="151px"
+            android:layout_centerVertical="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/shipin"/>
+
+        <ImageView
+            android:id="@+id/btn_iv"
+            android:layout_width="214px"
+            android:layout_height="151px"
+            android:layout_centerVertical="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/shipinx"/>
+
+        <TextView
+            android:id="@+id/title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32px"
+            android:layout_marginTop="10px"
+            android:layout_toRightOf="@id/video_iv"
+            android:text="人为什么要努力"
+            android:textColor="#000000"
+            android:textSize="28px"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/content_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title_tv"
+            android:layout_marginLeft="32px"
+            android:layout_marginTop="20px"
+            android:layout_toRightOf="@id/video_iv"
+            android:text="如何做好新员工培训"
+            android:textColor="#333333"
+            android:textSize="24px"/>
+
+        <TextView
+            android:id="@+id/play_count_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10px"
+            android:layout_marginLeft="32px"
+            android:layout_toRightOf="@id/video_iv"
+            android:drawableLeft="@drawable/bofangshu"
+            android:drawablePadding="8px"
+            android:text="3829次"
+            android:textColor="#666666"
+            android:textSize="20px"/>
+
+        <TextView
+            android:id="@+id/time_long"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10px"
+            android:layout_marginLeft="59px"
+            android:layout_toRightOf="@id/play_count_tv"
+            android:text="时长: 5:40"
+            android:textColor="#666666"
+            android:textSize="20px"/>
+
+        <TextView
+            android:id="@+id/price_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="10px"
+            android:text="免费"
+            android:textColor="@color/theme_color"
+            android:textSize="20px"/>
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/you_hui_layout"
+        android:layout_width="match_parent"
+        android:layout_height="99px"
+        android:layout_marginLeft="11px"
+        android:layout_marginRight="11px"
+        android:layout_marginTop="20px"
+        android:background="@drawable/shape_white_corner"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25px"
+            android:text="优惠券"
+            android:textColor="#000000"
+            android:textSize="27px"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/is_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="无可用"
+            android:textColor="#333333"
+            android:textSize="27px"/>
+
+        <ImageView
+            android:layout_width="14px"
+            android:layout_height="25px"
+            android:layout_marginLeft="15px"
+            android:layout_marginRight="23px"
+            android:src="@drawable/gengduo"/>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22px"
+        android:layout_marginTop="59px"
+        android:text="支付方式"
+        android:textColor="#000000"
+        android:textSize="27px"/>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="99px"
+        android:layout_marginLeft="11px"
+        android:layout_marginRight="11px"
+        android:layout_marginTop="17px"
+        android:background="@drawable/shape_white_corner"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25px"
+            android:text="余额"
+            android:textColor="#000000"
+            android:textSize="27px"/>
+
+        <TextView
+            android:id="@+id/yu_e"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20px"
+            android:text="200.00"
+            android:textColor="@color/theme_color"
+            android:textSize="25px"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="金币"
+            android:textColor="@color/theme_color"
+            android:textSize="25px"/>
+
+        <TextView
+            android:id="@+id/is_can_pay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10px"
+            android:text="(不足支付)"
+            android:textColor="@color/theme_color"
+            android:textSize="25px"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/chong"
+            android:layout_width="93px"
+            android:layout_height="53px"
+            android:layout_marginRight="30px"
+            android:background="@drawable/shape_bule"
+            android:gravity="center"
+            android:text="充值"
+            android:textColor="@color/white"
+            android:textSize="25px"/>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/que_ren"
+            android:layout_width="338px"
+            android:layout_height="90px"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="274px"
+            android:gravity="center"
+            android:text="确认支付"
+            android:textColor="@color/white"
+            android:background="@drawable/shape_bule"
+            android:textSize="30px"/>
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

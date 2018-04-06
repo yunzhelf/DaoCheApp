@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#f4f4f4"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="402px"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="11px">
+
+        <com.zhy.autolayout.AutoFrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="233px">
+
+            <ImageView
+                android:layout_width="331px"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                android:src="@drawable/shipin"/>
+
+            <ImageView
+                android:id="@+id/other_img_iv"
+                android:layout_width="331px"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                android:src="@drawable/shipinx"/>
+
+        </com.zhy.autolayout.AutoFrameLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="331px"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvTextone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="11px"
+                android:layout_marginTop="22px"
+                android:text="人为什么要努力"
+                android:textColor="#000000"
+                android:textSize="26px"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tvTexttwo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="11px"
+                android:layout_marginTop="16px"
+                android:text="如何做好新员工培训"
+                android:textColor="#333333"
+                android:textSize="24px"/>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20px"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/ivImage"
+                    android:layout_width="22px"
+                    android:layout_height="22px"
+                    android:layout_marginLeft="11px"
+                    android:src="@drawable/bofangshu"/>
+
+                <TextView
+                    android:id="@+id/tvFrequency"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="14px"
+                    android:text="3829次"
+                    android:textColor="#999999"
+                    android:textSize="22px"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:id="@+id/tvTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="11px"
+                    android:text="时长:5:40"
+                    android:textColor="#999999"
+                    android:textSize="22px"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

@@ -1,0 +1,111 @@
+<com.yifactory.daocheapp.widget.BaseSwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeRefreshLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.yifactory.daocheapp.biz.home_function.home_tab.HomeShareFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
+
+            <cn.bingoogolapple.bgabanner.BGABanner
+                android:id="@+id/banner"
+                style="@style/BannerDefaultStyle"
+                android:layout_width="match_parent"
+                android:layout_height="225px"/>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/select_layout"
+                android:layout_width="match_parent"
+                android:layout_height="79px"
+                android:background="#3f88fc"
+                android:gravity="center_vertical">
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:id="@+id/time_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="42px"
+                        android:layout_height="42px"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15px"
+                        android:text="时间"
+                        android:textColor="@color/white"
+                        android:textSize="28px"/>
+
+                    <ImageView
+                        android:layout_width="23px"
+                        android:layout_height="13px"
+                        android:layout_marginLeft="15px"/>
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <View android:layout_width="1px"
+                      android:layout_height="57px"
+                      android:background="@color/white"/>
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:id="@+id/type_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="42px"
+                        android:layout_height="42px"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15px"
+                        android:text="分类"
+                        android:textColor="@color/white"
+                        android:textSize="28px"/>
+
+                    <ImageView
+                        android:layout_width="23px"
+                        android:layout_height="13px"
+                        android:layout_marginLeft="15px"/>
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.yifactory.daocheapp.widget.MaxRecyclerView
+                    android:id="@+id/video_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="21px">
+
+                </com.yifactory.daocheapp.widget.MaxRecyclerView>
+
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+    </ScrollView>
+
+</com.yifactory.daocheapp.widget.BaseSwipeRefreshLayout>

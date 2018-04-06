@@ -1,0 +1,781 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.yifactory.daocheapp.biz.my_function.activity.MyGradeExplainActivity">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/top_line_color"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="360px">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/dengjibackground"/>
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="已观看视频"
+                        android:textColor="#333333"
+                        android:textSize="26px"/>
+
+                    <TextView
+                        android:id="@+id/watch_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="#333333"
+                        android:textSize="26px"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="分钟，"
+                        android:textColor="#333333"
+                        android:textSize="26px"/>
+
+                    <TextView
+                        android:id="@+id/upgrade_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="#333333"
+                        android:textSize="26px"/>
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px">
+
+                <TextView
+                    android:id="@+id/left_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/dengjizhishi_left"
+                    android:gravity="center_horizontal"
+                    android:paddingTop="5px"
+                    android:layout_marginLeft="35px"
+                    android:text=""
+                    android:visibility="gone"
+                    android:textColor="#ffffff"
+                    android:textSize="20px"/>
+
+                <TextView
+                    android:id="@+id/middle1_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/dengjitishi"
+                    android:gravity="center_horizontal"
+                    android:paddingTop="5px"
+                    android:layout_marginLeft="67px"
+                    android:visibility="gone"
+                    android:text=""
+                    android:textColor="#ffffff"
+                    android:textSize="20px"/>
+
+                <TextView
+                    android:id="@+id/middle2_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/dengjitishi"
+                    android:gravity="center_horizontal"
+                    android:paddingTop="5px"
+                    android:layout_marginLeft="156px"
+                    android:text=""
+                    android:visibility="gone"
+                    android:textColor="#ffffff"
+                    android:textSize="20px"/>
+
+                <TextView
+                    android:id="@+id/middle3_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/dengjitishi"
+                    android:gravity="center_horizontal"
+                    android:paddingTop="5px"
+                    android:layout_marginLeft="247px"
+                    android:text=""
+                    android:visibility="gone"
+                    android:textColor="#ffffff"
+                    android:textSize="20px"/>
+
+                <TextView
+                    android:id="@+id/middle4_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/dengjitishi"
+                    android:gravity="center_horizontal"
+                    android:paddingTop="5px"
+                    android:layout_marginLeft="338px"
+                    android:visibility="gone"
+                    android:text=""
+                    android:textColor="#ffffff"
+                    android:textSize="20px"/>
+
+                <TextView
+                    android:id="@+id/middle5_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/dengjitishi"
+                    android:gravity="center_horizontal"
+                    android:paddingTop="5px"
+                    android:visibility="gone"
+                    android:layout_marginLeft="430px"
+                    android:text=""
+                    android:textColor="#ffffff"
+                    android:textSize="20px"/>
+
+                <TextView
+                    android:id="@+id/right_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/dengjizhishi_right"
+                    android:gravity="center_horizontal"
+                    android:paddingTop="5px"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="70px"
+                    android:text=""
+                    android:visibility="gone"
+                    android:textColor="#ffffff"
+                    android:textSize="20px"/>
+
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10px"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingLeft="13px"
+                android:paddingRight="13px">
+
+                <ImageView
+                    android:id="@+id/xiaobai_iv"
+                    android:layout_width="0dp"
+                    android:layout_height="40px"
+                    android:layout_weight="54"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/xiaobai"/>
+
+                <ProgressBar
+                    android:id="@+id/xiaobai_progressbar"
+                    style="@style/InitProgressBar"
+                    android:layout_width="0dp"
+                    android:layout_height="5px"
+                    android:layout_toRightOf="@id/xiaobai_iv"
+                    android:layout_weight="32"
+                    android:max="100"
+                    android:progress="0"/>
+
+                <ImageView
+                    android:id="@+id/xiaoxue_iv"
+                    android:layout_width="0dp"
+                    android:layout_height="40px"
+                    android:layout_toRightOf="@id/xiaobai_progressbar"
+                    android:layout_weight="54"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/xiaoxue"/>
+
+                <ProgressBar
+                    android:id="@+id/xiaoxue_progressbar"
+                    style="@style/InitProgressBar"
+                    android:layout_width="0dp"
+                    android:layout_height="5px"
+                    android:layout_toRightOf="@id/xiaoxue_iv"
+                    android:layout_weight="32"
+                    android:max="100"
+                    android:progress="0"/>
+
+                <ImageView
+                    android:id="@+id/zhongxue_iv"
+                    android:layout_width="0dp"
+                    android:layout_height="40px"
+                    android:layout_toRightOf="@id/xiaoxue_progressbar"
+                    android:layout_weight="54"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/zhongxue"/>
+
+                <ProgressBar
+                    android:id="@+id/zhongxue_progressbar"
+                    style="@style/InitProgressBar"
+                    android:layout_width="0dp"
+                    android:layout_height="5px"
+                    android:layout_toRightOf="@id/zhongxue_iv"
+                    android:layout_weight="32"
+                    android:max="100"
+                    android:progress="0"/>
+
+                <ImageView
+                    android:id="@+id/gaozhong_iv"
+                    android:layout_width="0dp"
+                    android:layout_height="40px"
+                    android:layout_toRightOf="@id/zhongxue_progressbar"
+                    android:layout_weight="54"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/gaozhong"/>
+
+                <ProgressBar
+                    android:id="@+id/gaozhong_progressbar"
+                    style="@style/InitProgressBar"
+                    android:layout_width="0dp"
+                    android:layout_height="5px"
+                    android:layout_toRightOf="@id/gaozhong_iv"
+                    android:layout_weight="32"
+                    android:max="100"
+                    android:progress="0"/>
+
+                <ImageView
+                    android:id="@+id/xueshi_iv"
+                    android:layout_width="0dp"
+                    android:layout_height="40px"
+                    android:layout_toRightOf="@id/gaozhong_progressbar"
+                    android:layout_weight="54"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/xueshi"/>
+
+                <ProgressBar
+                    android:id="@+id/xueshi_progressbar"
+                    style="@style/InitProgressBar"
+                    android:layout_width="0dp"
+                    android:layout_height="5px"
+                    android:layout_toRightOf="@id/xueshi_iv"
+                    android:layout_weight="32"
+                    android:max="100"
+                    android:progress="0"/>
+
+                <ImageView
+                    android:id="@+id/shuoshi_iv"
+                    android:layout_width="0dp"
+                    android:layout_height="40px"
+                    android:layout_toRightOf="@id/xueshi_progressbar"
+                    android:layout_weight="54"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/shuoshi"/>
+
+                <ProgressBar
+                    android:id="@+id/shuoshi_progressbar"
+                    style="@style/InitProgressBar"
+                    android:layout_width="0dp"
+                    android:layout_height="5px"
+                    android:layout_toRightOf="@id/shuoshi_iv"
+                    android:layout_weight="32"
+                    android:max="100"
+                    android:progress="0"/>
+
+                <ImageView
+                    android:id="@+id/boshi_iv"
+                    android:layout_width="0dp"
+                    android:layout_height="40px"
+                    android:layout_toRightOf="@id/shuoshi_progressbar"
+                    android:layout_weight="54"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/boshi"/>
+
+                <ProgressBar
+                    android:id="@+id/boshi_progressbar"
+                    style="@style/InitProgressBar"
+                    android:layout_width="0dp"
+                    android:layout_height="5px"
+                    android:layout_toRightOf="@id/boshi_iv"
+                    android:layout_weight="32"
+                    android:max="100"
+                    android:progress="0"/>
+
+                <ImageView
+                    android:id="@+id/wangzhe_iv"
+                    android:layout_width="0dp"
+                    android:layout_height="40px"
+                    android:layout_toRightOf="@id/boshi_progressbar"
+                    android:layout_weight="54"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/wangzhe"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="27px"
+                android:paddingLeft="13px"
+                android:paddingRight="13px">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="54"
+                    android:gravity="center"
+                    android:text="小白"
+                    android:textColor="#333333"
+                    android:textSize="26px"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="32"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#333333"
+                    android:textSize="26px"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="54"
+                    android:gravity="center"
+                    android:text="小学"
+                    android:textColor="#333333"
+                    android:textSize="26px"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="32"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#333333"
+                    android:textSize="26px"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="54"
+                    android:gravity="center"
+                    android:text="中学"
+                    android:textColor="#333333"
+                    android:textSize="26px"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="32"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#333333"
+                    android:textSize="26px"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="54"
+                    android:gravity="center"
+                    android:text="高中"
+                    android:textColor="#333333"
+                    android:textSize="26px"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="32"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#333333"
+                    android:textSize="26px"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="54"
+                    android:gravity="center"
+                    android:text="学士"
+                    android:textColor="#333333"
+                    android:textSize="26px"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="32"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#333333"
+                    android:textSize="26px"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="54"
+                    android:gravity="center"
+                    android:text="硕士"
+                    android:textColor="#333333"
+                    android:textSize="26px"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="32"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#333333"
+                    android:textSize="26px"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="54"
+                    android:gravity="center"
+                    android:text="博士"
+                    android:textColor="#333333"
+                    android:textSize="26px"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="32"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#333333"
+                    android:textSize="26px"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="54"
+                    android:gravity="center"
+                    android:text="王者"
+                    android:textColor="#333333"
+                    android:textSize="26px"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="34px"
+                android:layout_marginTop="59px"
+                android:background="#f4f4f4"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="26px"
+                android:layout_marginTop="22px"
+                android:text="等级说明"
+                android:textColor="#333333"
+                android:textSize="28px"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="26px"
+                android:layout_marginRight="26px"
+                android:layout_marginTop="37px"
+                android:text="1.每个用户的购买视频播放时长（包括快进）抓取播放停止的时间点"
+                android:textColor="#999999"
+                android:textSize="22px"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="26px"
+                android:layout_marginRight="26px"
+                android:layout_marginTop="22px"
+                android:text="2.同一视频重复播放不予计算，仅计算购买视频的时长（如：一个视频15分钟，最多记录学习时长15分钟）"
+                android:textColor="#999999"
+                android:textSize="22px"/>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="520px"
+                android:orientation="vertical">
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="70px">
+
+                    <com.zhy.autolayout.AutoLinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="77px"
+                            android:layout_height="56px"
+                            android:src="@drawable/xiaobai_bottom"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20px"
+                            android:text="小白"
+                            android:textColor="#333333"
+                            android:textSize="25px"/>
+
+                        <TextView
+                            android:id="@+id/xiaobai_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12px"
+                            android:text="0分钟"
+                            android:textColor="#999999"
+                            android:textSize="25px"/>
+
+                    </com.zhy.autolayout.AutoLinearLayout>
+
+                    <com.zhy.autolayout.AutoLinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="77px"
+                            android:layout_height="56px"
+                            android:src="@drawable/xiaoxie_bottom"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20px"
+                            android:text="小学"
+                            android:textColor="#333333"
+                            android:textSize="25px"/>
+
+                        <TextView
+                            android:id="@+id/xiaoxue_time"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12px"
+                            android:text="0分钟"
+                            android:textColor="#999999"
+                            android:textSize="25px"/>
+
+                    </com.zhy.autolayout.AutoLinearLayout>
+
+                    <com.zhy.autolayout.AutoLinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="77px"
+                            android:layout_height="56px"
+                            android:src="@drawable/zhongxue_bottom"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20px"
+                            android:text="中学"
+                            android:textColor="#333333"
+                            android:textSize="25px"/>
+
+                        <TextView
+                            android:id="@+id/zhongxue_time"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12px"
+                            android:text="0分钟"
+                            android:textColor="#999999"
+                            android:textSize="25px"/>
+
+                    </com.zhy.autolayout.AutoLinearLayout>
+
+                    <com.zhy.autolayout.AutoLinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="77px"
+                            android:layout_height="56px"
+                            android:src="@drawable/gaozhong_bottom"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20px"
+                            android:text="高中"
+                            android:textColor="#333333"
+                            android:textSize="25px"/>
+
+                        <TextView
+                            android:id="@+id/gaozhong_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12px"
+                            android:text="0分钟"
+                            android:textColor="#999999"
+                            android:textSize="25px"/>
+
+                    </com.zhy.autolayout.AutoLinearLayout>
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="70px">
+
+                    <com.zhy.autolayout.AutoLinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="77px"
+                            android:layout_height="56px"
+                            android:src="@drawable/xueshi_bottom"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20px"
+                            android:text="学士"
+                            android:textColor="#333333"
+                            android:textSize="25px"/>
+
+                        <TextView
+                            android:id="@+id/xueshi_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12px"
+                            android:text="0分钟"
+                            android:textColor="#999999"
+                            android:textSize="25px"/>
+
+                    </com.zhy.autolayout.AutoLinearLayout>
+
+                    <com.zhy.autolayout.AutoLinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="77px"
+                            android:layout_height="56px"
+                            android:src="@drawable/shuoshi_bottom"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20px"
+                            android:text="硕士"
+                            android:textColor="#333333"
+                            android:textSize="25px"/>
+
+                        <TextView
+                            android:id="@+id/shuoshi_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12px"
+                            android:text="0分钟"
+                            android:textColor="#999999"
+                            android:textSize="25px"/>
+
+                    </com.zhy.autolayout.AutoLinearLayout>
+
+                    <com.zhy.autolayout.AutoLinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="77px"
+                            android:layout_height="56px"
+                            android:src="@drawable/boshi_bottom"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20px"
+                            android:text="博士"
+                            android:textColor="#333333"
+                            android:textSize="25px"/>
+
+                        <TextView
+                            android:id="@+id/boshi_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12px"
+                            android:text="0分钟"
+                            android:textColor="#999999"
+                            android:textSize="25px"/>
+
+                    </com.zhy.autolayout.AutoLinearLayout>
+
+                    <com.zhy.autolayout.AutoLinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="77px"
+                            android:layout_height="56px"
+                            android:src="@drawable/wangzhe_bottom"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20px"
+                            android:text="王者"
+                            android:textColor="#333333"
+                            android:textSize="25px"/>
+
+                        <TextView
+                            android:id="@+id/wangzhe_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12px"
+                            android:text="0分钟"
+                            android:textColor="#999999"
+                            android:textSize="25px"/>
+
+                    </com.zhy.autolayout.AutoLinearLayout>
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+    </ScrollView>
+
+</com.zhy.autolayout.AutoLinearLayout>

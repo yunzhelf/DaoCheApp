@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title_tv"
+            android:layout_width="match_parent"
+            android:layout_height="79px"
+            android:gravity="center_vertical"
+            android:paddingLeft="22px"
+            android:text=""
+            android:textColor="@color/theme_color"
+            android:textSize="30px"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/child_management_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F7F7F7"
+            android:paddingBottom="15px"
+            android:paddingTop="15px">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.yifactory.daocheapp">
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true"/>
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <application
+        android:name=".app.AppCtx"
+        android:allowBackup="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan">
+
+            <!--
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            -->
+        </activity>
+        <activity
+            android:name=".SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/GuideTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="design_width"
+            android:value="720"/>
+        <meta-data
+            android:name="design_height"
+            android:value="1280"/>
+
+        <activity android:name=".biz.my_function.activity.MyLecturerApplyActivity"/>
+        <activity android:name=".biz.my_function.activity.MyShareApplyActivity"/>
+        <activity android:name=".biz.home_function.activity.HomeSearchActivity"/>
+        <activity
+            android:name=".biz.home_function.home_recommend_tab.activity.HomeRecommendJsListActivity"/>
+        <activity android:name=".biz.video_function.activity.VideoAuthorHomePageActivity"/>
+        <activity android:name=".biz.discover_function.activity.DiscoverPublishMoodActivity"/>
+        <activity android:name=".biz.discover_function.activity.DiscoverPublishAnswersActivity"/>
+        <activity android:name=".biz.home_function.activity.HomeMsgActivity"/>
+        <activity
+            android:name=".biz.home_function.home_recommend_tab.activity.HomeRecommendHeadLineActivity"/>
+        <activity
+            android:name=".biz.home_function.home_recommend_tab.activity.HomeRecommendInterviewVideoDetailsActivity"/>
+        <activity
+            android:name=".biz.home_function.home_recommend_tab.activity.HomeRecommendVideoBuyDetailsActivity"/>
+        <activity android:name=".biz.studyCen_function.activity.StudyCenterMyBuyVideoListActivity"/>
+        <activity android:name=".biz.my_function.activity.MySetActivity"/>
+        <activity android:name=".biz.my_function.activity.MyBankCardActivity"/>
+        <activity android:name=".biz.my_function.activity.MyAddBankCardActivity"/>
+        <activity android:name=".biz.my_function.activity.MyUserInfoActivity"/>
+        <activity android:name=".biz.my_function.activity.MyUserInfoEditActivity"/>
+        <activity android:name=".biz.my_function.activity.MyGradeExplainActivity"/>
+        <activity android:name=".biz.my_function.activity.MyTiXianActivity"/>
+        <activity android:name=".biz.my_function.activity.MyTopUpActivity"/>
+        <activity android:name=".biz.my_function.activity.MyCouponActivity"/>
+        <activity android:name=".biz.my_function.activity.MyFocusActivity"/>
+        <activity android:name=".biz.my_function.activity.MyQuestionActivity"/>
+        <activity android:name=".biz.my_function.activity.MyAnswerActivity"/>
+        <activity android:name=".biz.my_function.activity.MyTopUpDetailsActivity"/>
+        <activity android:name=".biz.my_function.activity.MyLecturerApplyUploadVideoActivity"/>
+        <activity android:name=".biz.my_function.activity.MyLecturerInfoActivity"/>
+        <activity
+            android:name=".biz.my_function.activity.MyLecturerUploadVideoActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name=".biz.my_function.activity.MyEditLecturerInfoActivity"/>
+        <activity android:name=".biz.my_function.activity.MyBuyActivity"/>
+        <activity android:name=".biz.my_function.activity.MyStudyActivity"/>
+        <activity android:name=".biz.my_function.activity.MyLoginActivity"/>
+        <activity
+            android:name=".biz.my_function.activity.MyResetPasswordActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity
+            android:name=".biz.my_function.activity.MyRegisterActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:windowSoftInputMode="stateHidden|adjustPan|adjustResize"/>
+        <activity android:name=".biz.my_function.activity.MyRegisterNextActivity"/>
+        <activity
+            android:name=".biz.home_function.home_recommend_tab.activity.HomeRecommendOperateManagerActivity"/>
+        <activity
+            android:name="me.iwf.photopicker.PhotoPickerActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity
+            android:name="me.iwf.photopicker.PhotoPagerActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity
+            android:name=".biz.discover_function.activity.DiscoverAnswersDetailsActivity"
+            android:configChanges="keyboard"/>
+        <activity android:name=".biz.discover_function.activity.DiscoverMoodDetailsActivity"/>
+        <activity android:name=".biz.home_function.activity.HomeSearchJieGuo"/>
+        <activity android:name=".biz.my_function.activity.MyVideoTypeListActivity"/>
+        <activity android:name=".biz.my_function.activity.MyVideoTypeSecondListActivity"/>
+        <activity
+            android:name=".wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop"/>
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:exported="true"/>
+
+    </application>
+
+</manifest>

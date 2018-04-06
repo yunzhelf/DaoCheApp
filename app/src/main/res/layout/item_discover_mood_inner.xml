@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/inner_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="30px"
+        android:paddingLeft="22px">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/top_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10px"
+            android:paddingRight="22px"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/creator_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="王三"
+                android:textColor="#999"
+                android:textSize="27px"/>
+
+            <TextView
+                android:id="@+id/reply_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="回复"
+                android:textColor="@color/theme_color"
+                android:textSize="27px"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/reciver_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="某某"
+                android:textColor="#999"
+                android:textSize="27px"
+                android:visibility="gone"/>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <TextView
+            android:id="@+id/answerBody_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/top_layout"
+            android:layout_marginTop="20px"
+            android:paddingRight="22px"
+            android:text="我能想到最浪漫的事就是和你一起慢慢变老，等到我们哪也去不了。。。"
+            android:textColor="#000"
+            android:textSize="27px"/>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/operate_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingRight="22px"
+            android:layout_below="@id/answerBody_tv"
+            android:layout_marginTop="20px"
+            android:gravity="center_vertical">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:id="@+id/huifu_iv"
+                android:layout_width="46px"
+                android:layout_height="46px"
+                android:padding="8px"
+                android:src="@drawable/huifu"
+                android:visibility="visible"/>
+
+            <TextView
+                android:id="@+id/huifu_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="回复"
+                android:textColor="#999999"
+                android:textSize="20px"
+                android:visibility="visible"/>
+
+            <ImageView
+                android:id="@+id/shang_iv"
+                android:layout_width="46px"
+                android:layout_height="46px"
+                android:layout_marginLeft="48px"
+                android:padding="8px"
+                android:src="@drawable/hongbao"
+                android:visibility="visible"/>
+
+            <TextView
+                android:id="@+id/shang_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="打赏"
+                android:textColor="#999999"
+                android:textSize="20px"
+                android:visibility="visible"/>
+
+            <ImageView
+                android:id="@+id/zan_iv"
+                android:layout_width="46px"
+                android:layout_height="46px"
+                android:layout_marginLeft="48px"
+                android:padding="8px"
+                android:src="@drawable/zan"/>
+
+            <TextView
+                android:id="@+id/zan_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#999999"
+                android:textSize="20px"/>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <View
+            android:layout_below="@id/operate_layout"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginTop="10px"
+            android:background="#eeeeee"/>
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

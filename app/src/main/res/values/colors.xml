@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#4087fd</color>
+    <color name="colorPrimaryDark">#FFFFFF</color>
+    <color name="colorAccent">#4087fd</color>
+
+    <color name="theme_color">#4087fd</color>
+    <color name="white">#FFFFFF</color>
+    <color name="tab_normal_color">#666666</color>
+    <color name="tab_selected_color">#4087fd</color>
+    <color name="top_line_color">#d9d9d9</color>
+
+    <color name="praise_item_default">#333333</color>
+    <color name="praise_item_selector_default">#cccccc</color>
+    <color name="transparent">#00000000</color>
+    <color name="default_clickable_color">#cccccc</color>
+    <color name="color_8290AF">#8290AF</color>
+
+    <color name="home_title_color">#333333</color>
+</resources>

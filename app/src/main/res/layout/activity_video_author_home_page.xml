@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/author_home_page_bg"
+    android:orientation="vertical"
+    tools:context="com.yifactory.daocheapp.biz.video_function.activity.VideoAuthorHomePageActivity">
+
+    <ImageView
+        android:id="@+id/back_iv"
+        android:layout_width="63px"
+        android:layout_height="77px"
+        android:layout_marginLeft="9px"
+        android:layout_marginTop="78px"
+        android:padding="20px"
+        android:src="@drawable/fanhuiwhite"/>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/author_head_iv"
+            android:layout_width="192px"
+            android:layout_height="192px"
+            android:src="@drawable/touxiang"/>
+
+        <TextView
+            android:id="@+id/author_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="33px"
+            android:text="张思远"
+            android:textColor="@color/white"
+            android:textSize="44px"
+            android:textStyle="bold"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3px"
+            android:layout_marginLeft="76px"
+            android:layout_marginRight="76px"
+            android:layout_marginTop="22px"
+            android:background="@color/white"/>
+
+        <TextView
+            android:id="@+id/author_introduction_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16px"
+            android:text="资深培训老师"
+            android:textColor="@color/white"
+            android:textSize="30px"
+            android:textStyle="bold"/>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="11px"
+        android:layout_marginLeft="22px"
+        android:layout_marginRight="22px"
+        android:layout_marginTop="40px"
+        android:background="@drawable/author_info_bg">
+
+        <TextView
+            android:id="@+id/author_detail_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="        张思远，前端学院创始人、曾担任电商学院CEO、目前担任软件VIp师范学院院长。从事在线授课期间，严格要求学员认真学习，对缺乏信心的同学给予帮助与鼓励，是一位富有细心、耐心、责任心的老师，深受同学们的喜欢与爱戴，故有“代码女神”之称！专门攻破高难度技术，一直热忠于对新技术的研发和课程体系的改革，目前正研发新的div+css ,js ,html5教案书集。"
+            android:paddingLeft="40px"
+            android:paddingRight="40px"
+            android:paddingTop="40px"
+            android:textColor="@color/white"
+            android:textSize="30px"/>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

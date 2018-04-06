@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:id="@+id/rootLayout"
+    tools:context="com.yifactory.daocheapp.biz.my_function.activity.MyEditLecturerInfoActivity">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/top_line_color"/>
+
+    <ImageView
+        android:id="@+id/edit_phone_iv"
+        android:layout_width="248px"
+        android:layout_height="293px"
+        android:layout_marginTop="34px"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="9px"
+        android:text="点击更换照片"
+        android:textColor="#b1b1b1"
+        android:textSize="22px"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="34px"
+        android:background="@color/top_line_color"/>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="265px"
+        android:orientation="vertical"
+        android:paddingBottom="49px">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18px"
+            android:paddingLeft="23px"
+            android:text="自我介绍"
+            android:textColor="#333333"
+            android:textSize="26px"/>
+
+        <EditText
+            android:id="@+id/edit_introduce_et"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="15px"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="top"
+            android:lineSpacingExtra="2dp"
+            android:paddingLeft="23px"
+            android:text="哈哈哈哈哈哈哈哈见哈急啊急急啊急啊家就阿九阿九急啊急啊家急啊急啊纠结啊纠结啊就阿九阿九急啊急啊家就阿九阿九急啊急啊急啊急急啊急啊家急啊急啊急急急阿九阿九急啊急啊家就阿九阿九急啊急啊急啊经济就阿九阿九急啊急啊急啊家急啊急啊急啊急啊急啊急啊急啊纠结啊纠结啊就急啊急啊纠结啊急啊解决急啊纠结啊纠结啊酒啊就急啊急啊急啊纠结啊纠结啊酒啊就酒啊就解决 啊姐姐酒啊就"
+            android:textColor="#b1b1b1"
+            android:textCursorDrawable="@null" android:textSize="23px"/>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/top_line_color"/>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="201px"
+        android:orientation="vertical"
+        android:paddingBottom="49px">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18px"
+            android:paddingLeft="23px"
+            android:text="过往成就"
+            android:textColor="#333333"
+            android:textSize="26px"/>
+
+        <EditText
+            android:id="@+id/edit_achievement_et"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="15px"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="top"
+            android:lineSpacingExtra="2dp"
+            android:textSize="23px"
+            android:textColor="#b1b1b1"
+            android:textCursorDrawable="@null"
+            android:paddingLeft="23px"
+            android:text="哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈啊哈哈哈哈哈啊哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈和哈哈啊哈"/>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/top_line_color"/>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="201px"
+        android:orientation="vertical"
+        android:paddingBottom="49px">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18px"
+            android:paddingLeft="23px"
+            android:text="就业经历"
+            android:textColor="#333333"
+            android:textSize="26px"/>
+
+        <EditText
+            android:id="@+id/edit_experience_et"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="15px"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="top"
+            android:lineSpacingExtra="2dp"
+            android:textSize="23px"
+            android:textColor="#b1b1b1"
+            android:textCursorDrawable="@null"
+            android:paddingLeft="23px"
+            android:text="哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈啊哈哈哈哈哈啊哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈和哈哈啊哈"/>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>
+

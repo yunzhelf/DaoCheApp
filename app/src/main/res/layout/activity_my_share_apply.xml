@@ -1,0 +1,779 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.yifactory.daocheapp.biz.my_function.activity.MyShareApplyActivity">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#f5f5f5"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="98px"
+                android:layout_gravity="center_vertical"
+                android:background="#FFFFFF"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40px"
+                    android:text="姓名"
+                    android:textColor="#000000"
+                    android:textSize="30px"/>
+
+                <EditText
+                    android:id="@+id/name_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:hint="请输入姓名"
+                    android:maxLines="1"
+                    android:paddingLeft="29px"
+                    android:textColor="#000000"
+                    android:textColorHint="#999999"
+                    android:textCursorDrawable="@null"
+                    android:textSize="30px"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#f3f3f3"/>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="158px"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40px"
+                    android:text="照片"
+                    android:textColor="#000000"
+                    android:textSize="30px"/>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/pic_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="29px">
+
+                </android.support.v7.widget.RecyclerView>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#f3f3f3"/>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/sex_selected_layout"
+                android:layout_width="match_parent"
+                android:layout_height="98px"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40px"
+                    android:text="性别"
+                    android:textColor="#000000"
+                    android:textSize="30px"/>
+
+                <TextView
+                    android:id="@+id/sex_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="29px"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:hint="请选择性别"
+                    android:textColor="#000000"
+                    android:textColorHint="#999999"
+                    android:textSize="30px"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="22px"
+                    android:src="@drawable/gengduo"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#f3f3f3"/>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="98px"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40px"
+                    android:text="年龄"
+                    android:textColor="#000000"
+                    android:textSize="30px"/>
+
+                <EditText
+                    android:id="@+id/age_et"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="请输入年龄"
+                    android:paddingLeft="29px"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:maxLength="3"
+                    android:textColor="#000000"
+                    android:textColorHint="#999999"
+                    android:textCursorDrawable="@null"
+                    android:textSize="30px"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#f3f3f3"/>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/address_layout"
+                android:layout_width="match_parent"
+                android:layout_height="98px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40px"
+                    android:text="住址"
+                    android:textColor="#000000"
+                    android:textSize="30px"/>
+
+                <TextView
+                    android:id="@+id/address_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="29px"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:hint="请选择省市"
+                    android:textColor="#000000"
+                    android:textColorHint="#999999"
+                    android:textSize="30px"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#f3f3f3"/>
+
+            <EditText
+                android:id="@+id/details_address_et"
+                android:layout_width="match_parent"
+                android:layout_height="98px"
+                android:background="@null"
+                android:hint="请输入详细住址"
+                android:paddingLeft="40px"
+                android:textColor="#000000"
+                android:maxLines="1"
+                android:textColorHint="#999999"
+                android:textCursorDrawable="@null"
+                android:textSize="30px"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#f3f3f3"/>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="98px"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40px"
+                    android:text="联系电话"
+                    android:textColor="#000000"
+                    android:textSize="30px"/>
+
+                <EditText
+                    android:id="@+id/phone_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:hint="请输入联系电话"
+                    android:paddingLeft="29px"
+                    android:maxLength="11"
+                    android:maxLines="1"
+                    android:textColor="#000000"
+                    android:textColorHint="#999999"
+                    android:textCursorDrawable="@null"
+                    android:textSize="30px"/>
+
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#f3f3f3"/>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="98px"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40px"
+                    android:text="品牌"
+                    android:textColor="#000000"
+                    android:textSize="30px"/>
+
+                <EditText
+                    android:id="@+id/pinpai_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:hint="请输入品牌"
+                    android:paddingLeft="29px"
+                    android:textColor="#000000"
+                    android:maxLines="1"
+                    android:textColorHint="#999999"
+                    android:textCursorDrawable="@null"
+                    android:textSize="30px"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#f3f3f3"/>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="98px"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40px"
+                    android:text="岗位"
+                    android:textColor="#000000"
+                    android:textSize="30px"/>
+
+                <EditText
+                    android:id="@+id/gangwei_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:hint="请输入岗位"
+                    android:paddingLeft="29px"
+                    android:textColor="#000000"
+                    android:maxLines="1"
+                    android:textColorHint="#999999"
+                    android:textCursorDrawable="@null"
+                    android:textSize="30px"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#f3f3f3"/>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="98px"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40px"
+                    android:text="在职公司"
+                    android:textColor="#000000"
+                    android:textSize="30px"/>
+
+                <EditText
+                    android:id="@+id/now_company_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:hint="请输入在职公司(公司和自由职业)"
+                    android:paddingLeft="29px"
+                    android:textColor="#000000"
+                    android:textColorHint="#999999"
+                    android:maxLines="1"
+                    android:textCursorDrawable="@null"
+                    android:textSize="30px"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#f3f3f3"/>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="98px"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40px"
+                    android:text="从业年限"
+                    android:textColor="#000000"
+                    android:textSize="30px"/>
+
+                <EditText
+                    android:id="@+id/working_year_et"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="请输入从业年限"
+                    android:inputType="numberDecimal"
+                    android:maxLines="1"
+                    android:maxLength="10"
+                    android:paddingLeft="29px"
+                    android:textColor="#000000"
+                    android:textColorHint="#999999"
+                    android:textCursorDrawable="@null"
+                    android:textSize="30px"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="22px"
+                    android:text="年"
+                    android:textColor="#000000"
+                    android:textSize="30px"/>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#f3f3f3"/>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="224px"
+                android:orientation="horizontal"
+                android:paddingTop="36px">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40px"
+                    android:text="从业经历"
+                    android:textColor="#000000"
+                    android:textSize="30px"/>
+
+                <EditText
+                    android:id="@+id/working_experience_et"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="top"
+                    android:hint="请输入从业经历"
+                    android:paddingLeft="29px"
+                    android:textColor="#000000"
+                    android:textColorHint="#999999"
+                    android:textCursorDrawable="@null"
+                    android:textSize="30px"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#f3f3f3"/>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="224px"
+                android:orientation="horizontal"
+                android:paddingTop="36px">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40px"
+                    android:text="培训经历"
+                    android:textColor="#000000"
+                    android:textSize="30px"/>
+
+                <EditText
+                    android:id="@+id/peixun_experience_et"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="top"
+                    android:hint="请输入培训经历"
+                    android:paddingLeft="29px"
+                    android:textColor="#000000"
+                    android:textColorHint="#999999"
+                    android:textCursorDrawable="@null"
+                    android:textSize="30px"/>
+
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#f3f3f3"/>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="224px"
+                android:orientation="horizontal"
+                android:paddingTop="36px">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40px"
+                    android:text="曾经荣誉"
+                    android:textColor="#000000"
+                    android:textSize="30px"/>
+
+                <EditText
+                    android:id="@+id/previous_honor_et"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="top"
+                    android:hint="请输入曾经荣誉"
+                    android:paddingLeft="29px"
+                    android:textColor="#000000"
+                    android:textColorHint="#999999"
+                    android:textCursorDrawable="@null"
+                    android:textSize="30px"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#f3f3f3"/>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="224px"
+                android:orientation="horizontal"
+                android:paddingTop="36px">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40px"
+                    android:text="擅长领域"
+                    android:textColor="#000000"
+                    android:textSize="30px"/>
+
+                <EditText
+                    android:id="@+id/field_expertise_et"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="top"
+                    android:hint="请输入擅长领域"
+                    android:paddingLeft="29px"
+                    android:textColor="#000000"
+                    android:textColorHint="#999999"
+                    android:textCursorDrawable="@null"
+                    android:textSize="30px"/>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#f3f3f3"/>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="224px"
+                android:orientation="horizontal"
+                android:paddingTop="36px">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40px"
+                    android:text="自我评价"
+                    android:textColor="#000000"
+                    android:textSize="30px"/>
+
+                <EditText
+                    android:id="@+id/introduce_myself_et"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="top"
+                    android:hint="请输入自我评价"
+                    android:paddingLeft="29px"
+                    android:textColor="#000000"
+                    android:textColorHint="#999999"
+                    android:textCursorDrawable="@null"
+                    android:textSize="30px"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#f3f3f3"/>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="98px"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40px"
+                    android:text="银行卡号"
+                    android:textColor="#000000"
+                    android:textSize="30px"/>
+
+                <EditText
+                    android:id="@+id/bank_card_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:hint="请输入银行卡号"
+                    android:gravity="right|center_vertical"
+                    android:paddingLeft="29px"
+                    android:paddingRight="40px"
+                    android:maxLines="1"
+                    android:textColor="#000000"
+                    android:textColorHint="#999999"
+                    android:textCursorDrawable="@null"
+                    android:textSize="30px"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#f3f3f3"/>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="98px"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40px"
+                    android:text="开户行"
+                    android:textColor="#000000"
+                    android:textSize="30px"/>
+
+                <TextView
+                    android:id="@+id/bank_name_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:hint="银行卡开户行"
+                    android:gravity="right|center_vertical"
+                    android:paddingLeft="29px"
+                    android:paddingRight="40px"
+                    android:textColor="#000000"
+                    android:maxLines="1"
+                    android:textColorHint="#999999"
+                    android:textCursorDrawable="@null"
+                    android:textSize="30px"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#f3f3f3"/>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="98px"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40px"
+                    android:text="开户行地址"
+                    android:textColor="#000000"
+                    android:textSize="30px"/>
+
+                <EditText
+                    android:id="@+id/bank_adderss_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:hint="银行卡开户行地址"
+                    android:gravity="right|center_vertical"
+                    android:paddingLeft="29px"
+                    android:paddingRight="40px"
+                    android:maxLines="1"
+                    android:textColor="#000000"
+                    android:textColorHint="#999999"
+                    android:textCursorDrawable="@null"
+                    android:textSize="30px"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#f3f3f3"/>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="98px"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40px"
+                    android:text="姓名"
+                    android:textColor="#000000"
+                    android:textSize="30px"/>
+
+                <EditText
+                    android:id="@+id/real_name_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:hint="请输入真实姓名"
+                    android:gravity="right|center_vertical"
+                    android:paddingLeft="29px"
+                    android:paddingRight="40px"
+                    android:textColor="#000000"
+                    android:maxLines="1"
+                    android:textColorHint="#999999"
+                    android:textCursorDrawable="@null"
+                    android:textSize="30px"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#f3f3f3"/>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="98px"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40px"
+                    android:text="预留手机号"
+                    android:textColor="#000000"
+                    android:textSize="30px"/>
+
+                <EditText
+                    android:id="@+id/leave_phone_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:hint="请输入预留手机号"
+                    android:gravity="right|center_vertical"
+                    android:paddingLeft="29px"
+                    android:paddingRight="40px"
+                    android:maxLines="1"
+                    android:maxLength="11"
+                    android:inputType="number"
+                    android:textColor="#000000"
+                    android:textColorHint="#999999"
+                    android:textCursorDrawable="@null"
+                    android:textSize="30px"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#f3f3f3"/>
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="288px">
+
+                <Button
+                    android:id="@+id/submit_btn"
+                    android:layout_width="340px"
+                    android:layout_height="90px"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/shape_bule"
+                    android:gravity="center"
+                    android:text="提交申请"
+                    android:textColor="#FFFFFF"
+                    android:textSize="30px"/>
+
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+    </ScrollView>
+
+</com.zhy.autolayout.AutoLinearLayout>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.yifactory.daocheapp.biz.my_function.activity.MyLecturerInfoActivity">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/top_line_color"/>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="260px"
+            android:layout_marginTop="34px"
+            android:paddingLeft="35px"
+            android:paddingRight="30px">
+
+            <ImageView
+                android:id="@+id/photo_iv"
+                android:layout_width="220px"
+                android:layout_height="260px"
+                android:src="@drawable/lecturer_photo"/>
+
+            <TextView
+                android:id="@+id/creator_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="26px"
+                android:layout_marginTop="8px"
+                android:layout_toRightOf="@id/photo_iv"
+                android:text="张三 | 讲师"
+                android:textColor="#333333"
+                android:textSize="26px"/>
+
+            <TextView
+                android:id="@+id/teacher_introduce_tv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/creator_tv"
+                android:layout_marginLeft="26px"
+                android:layout_marginTop="14px"
+                android:layout_toRightOf="@id/photo_iv"
+                android:lineSpacingExtra="1px"
+                android:text="        介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介"
+                android:textColor="#333333"
+                android:textSize="24px"/>
+
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginTop="33px"
+            android:background="#f5f5f5"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="23px"
+            android:layout_marginTop="34px"
+            android:text="过往成就"
+            android:textColor="#333333"
+            android:textSize="26px"/>
+
+
+        <TextView
+            android:id="@+id/teacher_achievement_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="23px"
+            android:layout_marginRight="30px"
+            android:layout_marginTop="20px"
+            android:text="        擦是放假啊是；法律角健康收到了沙发六级考试的简历发撒开发拉开僵尸的客服经理；阿斯克了肯定是放假了卡卡是肯德基了沙发客就；阿斯弗就流口水的开发了；ask发飞机离开士大夫；阿莱克就分手咯丽江拉萨扩大进来撒jfk啦圣诞节；ask了的撒；附件撒扩大了； 就是；就发了卡萨丁吉林省；的jfk就是领导是；拉到就快疯了似的； 附近的撒；就考虑；啊是分开了；阿斯弗萨拉； ； 就度俯瞰垃圾flask发啦司法解释了看风景卢卡斯的经历；萨芬"
+            android:textColor="#666666"
+            android:textSize="24px"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="23px"
+            android:layout_marginTop="45px"
+            android:text="就业经历"
+            android:textColor="#333333"
+            android:textSize="26px"/>
+
+
+        <TextView
+            android:id="@+id/teacher_experience_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="23px"
+            android:layout_marginRight="30px"
+            android:layout_marginTop="20px"
+            android:text="        擦是放假啊是；阿拉斯加的发生考虑；的腹肌拉伤；发的家里；啊是jfk了；阿散井家里；ask发动机ask了；就看了撒；看克里斯蒂；加啊四觉得是浪费了就撒开；发艰苦拉萨的解放军凯萨琳的姐姐斯科拉到空间撒旦；健康看见了撒大了解；阿三家里睡大觉卡萨绝对疯狂了撒就发顺丰收到了金克拉撒旦艰苦艰苦拉萨；就沙迪克； 就是；罗迪克塑料袋就是看啦；就懒得看撒了jfk老师看大家卡萨； 就；撒娇加啊四了健康啊时间考虑；撒娇了分手多久啊老大法律就是法律角度俯瞰垃圾flask发啦司法解释了看风景卢卡斯的经历；萨芬"
+            android:textColor="#666666"
+            android:textSize="24px"/>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

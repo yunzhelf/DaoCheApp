@@ -1,0 +1,30 @@
+<com.zhy.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/autoLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.yifactory.daocheapp.biz.my_function.activity.MyBuyActivity">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/top_line_color"/>
+
+    <com.yifactory.daocheapp.widget.BaseSwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.yifactory.daocheapp.widget.MaxRecyclerView
+            android:id="@+id/video_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </com.yifactory.daocheapp.widget.MaxRecyclerView>
+
+    </com.yifactory.daocheapp.widget.BaseSwipeRefreshLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

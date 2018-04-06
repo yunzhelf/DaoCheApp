@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout
+    android:id="@+id/rootLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.yifactory.daocheapp.biz.my_function.activity.MyLecturerUploadVideoActivity">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/top_line_color"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:id="@+id/head_layout"
+                android:layout_width="match_parent"
+                android:layout_height="98px"
+                android:background="#FFFFFF"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24px"
+                    android:text="头像"
+                    android:textColor="#333333"
+                    android:textSize="30px"/>
+                <ImageView
+                    android:id="@+id/register_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="22px"
+                    android:src="@drawable/gengduo"/>
+                <com.yifactory.daocheapp.widget.CircleImageView
+                    android:id="@+id/user_head_iv"
+                    android:layout_width="88px"
+                    android:layout_height="88px"
+                    android:layout_marginRight="20px"
+                    android:layout_toLeftOf="@id/register_right"
+                    android:src="@drawable/touxiang"/>
+
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#f3f3f3"/>
+
+
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/register_sex_ly"
+                android:layout_width="match_parent"
+                android:layout_height="98px"
+                android:gravity="center_vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24px"
+                    android:text="性别"
+                    android:textColor="#333333"
+                    android:textSize="30px"/>
+
+                <TextView
+                    android:id="@+id/sex_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:hint="请选择性别"
+                    android:textSize="30px"
+                    android:paddingLeft="23px"
+                    android:textColor="#333333"
+                    android:textColorHint="#999999"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="22px"
+                    android:src="@drawable/gengduo"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#f3f3f3"/>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="98px"
+                android:background="#FFFFFF"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24px"
+                    android:text="姓名"
+                    android:textColor="#333333"
+                    android:textSize="30px"/>
+
+                <EditText
+                    android:id="@+id/name_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:hint="请输入姓名"
+                    android:maxLength="10"
+                    android:singleLine="true"
+                    android:paddingLeft="23px"
+                    android:textColor="#333333"
+                    android:textColorHint="#999999"
+                    android:textCursorDrawable="@null"
+                    android:textSize="30px"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#f3f3f3"/>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="98px"
+                android:background="#FFFFFF"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24px"
+                    android:text="手机号"
+                    android:textColor="#333333"
+                    android:textSize="30px"/>
+
+                <EditText
+                    android:id="@+id/mobile_phone_et"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="请输入手机号"
+                    android:singleLine="true"
+                    android:maxLength="11"
+                    android:inputType="phone"
+                    android:paddingLeft="18px"
+                    android:textColor="#333333"
+                    android:textColorHint="#999999"
+                    android:textCursorDrawable="@null"
+                    android:textSize="30px"/>
+
+                <View
+                    android:layout_width="2px"
+                    android:layout_height="62px"
+                    android:background="@color/top_line_color"/>
+
+                <TextView
+                    android:id="@+id/verifyCode_tv"
+                    android:layout_width="200px"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:paddingLeft="22px"
+                    android:paddingRight="22px"
+                    android:text="发送验证码"
+                    android:textColor="@color/theme_color"
+                    android:textSize="26px"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#f3f3f3"/>
+
+
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="98px"
+                android:layout_gravity="center_vertical"
+                android:background="#FFFFFF"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24px"
+                    android:text="验证码"
+                    android:textColor="#333333"
+                    android:textSize="30px"/>
+
+                <EditText
+                    android:id="@+id/verifyCode_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:hint="请输入验证码"
+                    android:paddingLeft="23px"
+                    android:singleLine="true"
+                    android:maxLength="6"
+                    android:textColor="#333333"
+                    android:textColorHint="#999999"
+                    android:inputType="number"
+                    android:textCursorDrawable="@null"
+                    android:textSize="30px"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#f3f3f3"/>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="98px"
+                android:background="#FFFFFF"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24px"
+                    android:text="设置密码"
+                    android:textColor="#333333"
+                    android:textSize="30px"/>
+
+                <EditText
+                    android:id="@+id/pwd_et"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="设置新密码"
+                    android:paddingLeft="23px"
+                    android:textCursorDrawable="@null"
+                    android:singleLine="true"
+                    android:textColor="#333333"
+                    android:password="true"
+                    android:maxLength="20"
+                    android:textColorHint="#999999"
+                    android:textSize="30px"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#f3f3f3"/>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="98px"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tvSex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24px"
+                    android:text="确认密码"
+                    android:textColor="#333333"
+                    android:textSize="30px"/>
+
+                <EditText
+                    android:id="@+id/again_pwd_et"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="请再次输入新密码"
+                    android:textCursorDrawable="@null"
+                    android:paddingLeft="23px"
+                    android:password="true"
+                    android:singleLine="true"
+                    android:maxLength="20"
+                    android:textColor="#333333"
+                    android:textColorHint="#999999"
+                    android:textSize="30px"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#f3f3f3"/>
+
+            <Button
+                android:id="@+id/next_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="120px"
+                android:layout_marginRight="120px"
+                android:layout_marginTop="156px"
+                android:background="@drawable/shape_bule"
+                android:text="下一步"
+                android:textColor="@color/white"
+                android:textSize="31px"/>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+    </ScrollView>
+
+</com.zhy.autolayout.AutoLinearLayout>

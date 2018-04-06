@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.yifactory.daocheapp.widget.BaseSwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeRefreshLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.yifactory.daocheapp.biz.my_function.activity.MyTopUpActivity">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/top_line_color"/>
+
+        <TextView
+            android:id="@+id/mine_jinbi_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="45px"
+            android:text="0.00"
+            android:textColor="#333333"
+            android:textSize="68px"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15px"
+            android:text="我的金币"
+            android:textColor="#999999"
+            android:textSize="30px"/>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="55px"
+            android:paddingLeft="20px"
+            android:text="充值金额"
+            android:textColor="#333333"
+            android:textSize="27px"/>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="37px"
+            android:orientation="horizontal"
+            android:paddingLeft="33px"
+            android:paddingRight="33px">
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/one_layout"
+                android:layout_width="0dp"
+                android:layout_height="123px"
+                android:layout_weight="1"
+                android:background="@drawable/shape_gray_corner_stroke"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="18金币"
+                    android:textColor="@color/theme_color"
+                    android:textSize="30px"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="17px"
+                    android:text="18元"
+                    android:textColor="#aaaaaa"
+                    android:textSize="20px"/>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/two_layout"
+                android:layout_width="0dp"
+                android:layout_height="123px"
+                android:layout_marginLeft="19px"
+                android:layout_weight="1"
+                android:background="@drawable/shape_gray_corner_stroke"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="38金币"
+                    android:textColor="@color/theme_color"
+                    android:textSize="30px"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="17px"
+                    android:text="38元"
+                    android:textColor="#aaaaaa"
+                    android:textSize="20px"/>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/three_layout"
+                android:layout_width="0dp"
+                android:layout_height="123px"
+                android:layout_marginLeft="19px"
+                android:layout_weight="1"
+                android:background="@drawable/shape_gray_corner_stroke"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="58金币"
+                    android:textColor="@color/theme_color"
+                    android:textSize="30px"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="17px"
+                    android:text="58元"
+                    android:textColor="#aaaaaa"
+                    android:textSize="20px"/>
+
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="17px"
+            android:orientation="horizontal"
+            android:paddingLeft="33px"
+            android:paddingRight="33px">
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/four_layout"
+                android:layout_width="0dp"
+                android:layout_height="123px"
+                android:layout_weight="1"
+                android:background="@drawable/shape_gray_corner_stroke"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="98金币"
+                    android:textColor="@color/theme_color"
+                    android:textSize="30px"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="17px"
+                    android:text="98元"
+                    android:textColor="#aaaaaa"
+                    android:textSize="20px"/>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/five_layout"
+                android:layout_width="0dp"
+                android:layout_height="123px"
+                android:layout_marginLeft="19px"
+                android:layout_weight="1"
+                android:background="@drawable/shape_gray_corner_stroke"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="198金币"
+                    android:textColor="@color/theme_color"
+                    android:textSize="30px"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="17px"
+                    android:text="198元"
+                    android:textColor="#aaaaaa"
+                    android:textSize="20px"/>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/six_layout"
+                android:layout_width="0dp"
+                android:layout_height="123px"
+                android:layout_marginLeft="19px"
+                android:layout_weight="1"
+                android:background="@drawable/shape_gray_corner_stroke"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="398金币"
+                    android:textColor="@color/theme_color"
+                    android:textSize="30px"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="17px"
+                    android:text="398元"
+                    android:textColor="#aaaaaa"
+                    android:textSize="20px"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="57px"
+            android:paddingLeft="20px"
+            android:text="充值方式"
+            android:textColor="#333333"
+            android:textSize="28px"/>
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1px"
+            android:layout_marginTop="38px"
+            android:background="@color/top_line_color"/>
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:id="@+id/zhifubao_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="100px"
+            android:paddingLeft="33px"
+            android:paddingRight="33px">
+
+            <ImageView
+                android:id="@+id/zhifubao_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/zhifubao"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30px"
+                android:layout_toRightOf="@id/zhifubao_icon"
+                android:text="支付宝"
+                android:textColor="#333333"
+                android:textSize="30px"/>
+
+            <ImageView
+                android:id="@+id/zhifubao_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/xuanzhongzhifu"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="33px"
+                android:background="@color/top_line_color"/>
+
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:id="@+id/wechat_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="100px"
+            android:paddingRight="33px">
+
+            <ImageView
+                android:id="@+id/weichat_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="33px"
+                android:src="@drawable/weixin"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30px"
+                android:layout_toRightOf="@id/weichat_icon"
+                android:text="微信"
+                android:textColor="#333333"
+                android:textSize="30px"/>
+
+            <ImageView
+                android:id="@+id/wechat_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/xuanzhongzhifu"
+                android:visibility="gone"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_alignParentBottom="true"
+                android:background="@color/top_line_color"/>
+
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/sure_topup_tv"
+                android:layout_width="484px"
+                android:layout_height="76px"
+                android:background="@drawable/shape_bule"
+                android:gravity="center"
+                android:text="确认充值"
+                android:textColor="@color/white"
+                android:textSize="31px"/>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+</com.yifactory.daocheapp.widget.BaseSwipeRefreshLayout>

@@ -1,0 +1,131 @@
+<com.zhy.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".biz.discover_function.DiscoverFragment">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#F5F5F5"/>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/topLayout"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="562px"
+            android:layout_height="65px"
+            android:layout_marginTop="23px"
+            android:background="@drawable/bg_study_center_tab">
+
+            <TextView
+                android:id="@+id/mood_tv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_study_center_tab_one"
+                android:gravity="center"
+                android:text="晒心情"
+                android:textColor="@color/white"
+                android:textSize="30px"/>
+
+            <TextView
+                android:id="@+id/answers_tv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="问答"
+                android:textColor="#000000"
+                android:textSize="30px"/>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginTop="23px"
+            android:background="#F5F5F5"/>
+
+        <com.zhy.autolayout.AutoFrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </com.zhy.autolayout.AutoFrameLayout>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#eeeeee"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="222px"
+            android:background="@drawable/wuxiaoxi"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60px"
+            android:text="登录后，你的个人资料，你的学习时长，你的"
+            android:textColor="#cccccc"
+            android:textSize="26px"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="收益，等级都将会在这里显示"
+            android:textColor="#cccccc"
+            android:textSize="26px"/>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80px"
+            android:layout_marginTop="105px"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/login_tv"
+                android:layout_width="250px"
+                android:layout_height="match_parent"
+                android:background="@drawable/shape_gray_corner_stroke2"
+                android:gravity="center"
+                android:text="登陆"
+                android:textColor="@color/theme_color"
+                android:textSize="26px"/>
+
+            <View
+                android:layout_width="110px"
+                android:layout_height="match_parent"/>
+
+            <TextView
+                android:id="@+id/register_tv"
+                android:layout_width="250px"
+                android:layout_height="match_parent"
+                android:background="@drawable/shape_gray_corner_stroke2"
+                android:gravity="center"
+                android:text="注册"
+                android:textColor="#999999"
+                android:textSize="26px"/>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

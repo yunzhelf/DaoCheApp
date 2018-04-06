@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name"
+            translatable="false">道车
+    </string>
+
+    <string name="hello_blank_fragment"
+            translatable="false">Hello blank fragment
+    </string>
+    <string name="expand_string"
+            translatable="false">展开
+    </string>
+    <string name="collapsed_string"
+            translatable="false">收起
+    </string>
+    <string name="ok">确定</string>
+
+    <string name="errcode_success">发送成功</string>
+    <string name="errcode_cancel">发送取消</string>
+    <string name="errcode_deny">发送被拒绝</string>
+    <string name="errcode_unsupported">不支持错误</string>
+    <string name="errcode_unknown">发送返回</string>
+
+</resources>

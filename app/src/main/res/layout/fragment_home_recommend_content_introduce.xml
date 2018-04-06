@@ -1,0 +1,133 @@
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    android:background="#f3f3f3"
+    tools:context="com.yifactory.daocheapp.biz.home_function.home_recommend_tab.fragment.HomeRecommendContentIntroduceFragment">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22px"
+            android:layout_marginTop="23px"
+            android:text="视频简介"
+            android:textColor="#000000"
+            android:textSize="26px"/>
+
+        <com.yifactory.daocheapp.widget.ExpandableTextView
+            android:id="@+id/video_introduce_etv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20px"
+            android:paddingLeft="22px"
+            android:paddingRight="22px"
+            app:expandCollapseTextColor="@color/theme_color"
+            app:DrawableAndTextGravity="right"
+            app:maxCollapsedLines="4">
+
+        </com.yifactory.daocheapp.widget.ExpandableTextView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="15px"
+            android:layout_marginTop="10px"
+            android:background="#f3f3f3"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22px"
+            android:layout_marginTop="23px"
+            android:text="视频内容"
+            android:textColor="#000000"
+            android:textSize="26px"/>
+
+        <com.yifactory.daocheapp.widget.ExpandableTextView
+            android:id="@+id/video_content_etv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20px"
+            android:paddingLeft="22px"
+            android:paddingRight="22px"
+            app:expandCollapseTextColor="@color/theme_color"
+            app:DrawableAndTextGravity="right"
+            app:maxCollapsedLines="4">
+
+        </com.yifactory.daocheapp.widget.ExpandableTextView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="15px"
+            android:layout_marginTop="10px"
+            android:background="#f3f3f3"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22px"
+            android:layout_marginTop="23px"
+            android:text="适合人群"
+            android:textColor="#000000"
+            android:textSize="26px"/>
+
+        <com.yifactory.daocheapp.widget.ExpandableTextView
+            android:id="@+id/video_fit_crowd_etv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20px"
+            android:paddingLeft="22px"
+            android:paddingRight="22px"
+            app:expandCollapseTextColor="@color/theme_color"
+            app:DrawableAndTextGravity="right"
+            app:maxCollapsedLines="4">
+
+        </com.yifactory.daocheapp.widget.ExpandableTextView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="15px"
+            android:layout_marginTop="10px"
+            android:background="#f3f3f3"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22px"
+            android:layout_marginTop="23px"
+            android:text="获得收益"
+            android:textColor="#000000"
+            android:textSize="26px"/>
+
+        <com.yifactory.daocheapp.widget.ExpandableTextView
+            android:id="@+id/video_get_earnings_etv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20px"
+            android:paddingLeft="22px"
+            android:paddingRight="22px"
+            app:expandCollapseTextColor="@color/theme_color"
+            app:DrawableAndTextGravity="right"
+            app:maxCollapsedLines="4">
+
+        </com.yifactory.daocheapp.widget.ExpandableTextView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="15px"
+            android:layout_marginTop="10px"
+            android:background="#f3f3f3"/>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

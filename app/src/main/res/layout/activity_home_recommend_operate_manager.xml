@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.yifactory.daocheapp.widget.BaseSwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeRefreshLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="com.yifactory.daocheapp.biz.home_function.home_recommend_tab.activity.HomeRecommendOperateManagerActivity">
+
+    <!--<ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">-->
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/top_line_color"/>
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.yifactory.daocheapp.widget.MaxRecyclerView
+                android:id="@+id/management_title_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="18px"
+                android:paddingLeft="28px"
+                android:paddingRight="28px"
+                android:paddingTop="18px">
+
+            </com.yifactory.daocheapp.widget.MaxRecyclerView>
+
+            <ImageView
+                android:id="@+id/more_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/management_title_rv"
+                android:layout_alignParentRight="true"
+                android:padding="3px"
+                android:src="@drawable/gengduoshou"/>
+
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="#f5f5f5"/>
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/case_layout"
+                android:layout_width="match_parent"
+                android:layout_height="77px"
+                android:gravity="center">
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:id="@+id/time_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="时间"
+                        android:textColor="#666666"
+                        android:textSize="28px"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12px"
+                        android:src="@drawable/xia"/>
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:id="@+id/buy_count_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="128px"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="购买次数"
+                        android:textColor="#666666"
+                        android:textSize="28px"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12px"
+                        android:src="@drawable/xia"/>
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:id="@+id/time_long_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="128px"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="时长"
+                        android:textColor="#666666"
+                        android:textSize="28px"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12px"
+                        android:src="@drawable/xia"/>
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View
+                android:id="@+id/line"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_below="@+id/case_layout"
+                android:background="#f5f5f5"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/video_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/line"
+                android:paddingTop="22px">
+
+            </android.support.v7.widget.RecyclerView>
+
+            <View
+                android:id="@+id/bg_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/line"
+                android:background="#70000000"
+                android:visibility="gone"/>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/time_goUpAndDown"
+                android:layout_width="match_parent"
+                android:layout_height="300px"
+                android:layout_below="@+id/line"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/time_all_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="34px"
+                    android:text="全部"
+                    android:textColor="#666666"
+                    android:textSize="28px"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="#f5f5f5"/>
+
+                <TextView
+                    android:id="@+id/time_more_little_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="34px"
+                    android:text="降序"
+                    android:textColor="#666666"
+                    android:textSize="28px"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="#f5f5f5"/>
+
+                <TextView
+                    android:id="@+id/time_little_more_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="34px"
+                    android:text="升序"
+                    android:textColor="#666666"
+                    android:textSize="28px"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/time_long"
+                android:layout_width="match_parent"
+                android:layout_height="500px"
+                android:layout_below="@+id/line"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/all_tv2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="34px"
+                    android:text="全部"
+                    android:textColor="#666666"
+                    android:textSize="28px"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="#f5f5f5"/>
+
+                <TextView
+                    android:id="@+id/ten_minute_below_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="34px"
+                    android:text="10分钟以下"
+                    android:textColor="#666666"
+                    android:textSize="28px"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="#f5f5f5"/>
+
+                <TextView
+                    android:id="@+id/ten_to_fifth_minute_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="34px"
+                    android:text="10-15分钟"
+                    android:textColor="#666666"
+                    android:textSize="28px"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="#f5f5f5"/>
+
+                <TextView
+                    android:id="@+id/fifth_to_twenty_minute_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="34px"
+                    android:text="15-20分钟"
+                    android:textColor="#666666"
+                    android:textSize="28px"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="#f5f5f5"/>
+
+                <TextView
+                    android:id="@+id/twenty_minute_above_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="34px"
+                    android:text="20分钟以上"
+                    android:textColor="#666666"
+                    android:textSize="28px"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/buy_count"
+                android:layout_width="match_parent"
+                android:layout_height="300px"
+                android:layout_below="@+id/line"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/all_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="34px"
+                    android:text="全部"
+                    android:textColor="#666666"
+                    android:textSize="28px"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="#f5f5f5"/>
+
+                <TextView
+                    android:id="@+id/more_little_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="34px"
+                    android:text="从多到少"
+                    android:textColor="#666666"
+                    android:textSize="28px"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="#f5f5f5"/>
+
+                <TextView
+                    android:id="@+id/little_more_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="34px"
+                    android:text="从少到多"
+                    android:textColor="#666666"
+                    android:textSize="28px"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <!--</ScrollView>-->
+
+</com.yifactory.daocheapp.widget.BaseSwipeRefreshLayout>

@@ -1,0 +1,191 @@
+<com.yifactory.daocheapp.widget.BaseSwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeRefreshLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.yifactory.daocheapp.biz.home_function.home_tab.HomeRecommendFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/layout_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:focusable="true"
+            android:visibility="gone"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
+
+            <cn.bingoogolapple.bgabanner.BGABanner
+                android:id="@+id/banner"
+                style="@style/BannerDefaultStyle"
+                android:layout_width="match_parent"
+                android:layout_height="225px">
+
+            </cn.bingoogolapple.bgabanner.BGABanner>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/management_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="11px"
+                android:paddingTop="11px">
+
+            </android.support.v7.widget.RecyclerView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:layout_marginLeft="20px"
+                android:layout_marginRight="20px"
+                android:background="#F4F4F4"/>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/head_msg_layout"
+                android:layout_width="match_parent"
+                android:layout_height="90px"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="20px">
+
+                <ImageView
+                    android:id="@+id/daochetoutiao_iv"
+                    android:layout_width="64px"
+                    android:layout_height="64px"/>
+
+                <View
+                    android:layout_width="2px"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="25px"
+                    android:layout_marginLeft="11px"
+                    android:layout_marginTop="25px"
+                    android:background="#F4F4F4"/>
+
+                <TextView
+                    android:id="@+id/toutiao_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="最新市场营销课程上线了"
+                    android:textColor="#FF0000"
+                    android:textSize="28px"/>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#F4F4F4"/>
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="146px"
+                android:paddingLeft="20px">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30px"
+                    android:text="军师分享"
+                    android:textColor="#000000"
+                    android:textSize="30px"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/army_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="30px"
+                    android:gravity="center"
+                    android:text="第2012期——2018年汽车市场分析"
+                    android:textColor="#000000"
+                    android:textSize="30px"/>
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:id="@+id/js_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="7px"
+                    android:layout_marginTop="20px"
+                    android:gravity="center"
+                    android:padding="13px">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="更多"
+                        android:textColor="#666666"
+                        android:textSize="23px"/>
+
+                    <ImageView
+                        android:layout_width="13px"
+                        android:layout_height="23px"
+                        android:layout_marginLeft="5px"
+                        android:src="@drawable/gengduo"/>
+                </com.zhy.autolayout.AutoLinearLayout>
+
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#F4F4F4"/>
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="82px"
+                android:paddingLeft="20px">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30px"
+                    android:text="人物专访"
+                    android:textColor="#000000"
+                    android:textSize="30px"
+                    android:textStyle="bold"/>
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:id="@+id/interview_more_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="7px"
+                    android:layout_marginTop="20px"
+                    android:gravity="center"
+                    android:padding="13px">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="更多"
+                        android:textColor="#666666"
+                        android:textSize="23px"/>
+
+                    <ImageView
+                        android:layout_width="13px"
+                        android:layout_height="23px"
+                        android:layout_marginLeft="5px"
+                        android:src="@drawable/gengduo"/>
+                </com.zhy.autolayout.AutoLinearLayout>
+
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+            <com.yifactory.daocheapp.widget.MaxRecyclerView
+                android:id="@+id/video_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </com.yifactory.daocheapp.widget.MaxRecyclerView>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+    </ScrollView>
+
+</com.yifactory.daocheapp.widget.BaseSwipeRefreshLayout>

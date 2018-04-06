@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.yifactory.daocheapp.biz.my_function.activity.MyAddBankCardActivity">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/top_line_color"/>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="22px"
+        android:paddingRight="22px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="银行卡号"
+            android:textColor="#333333"
+            android:textSize="30px"/>
+
+        <EditText
+            android:id="@+id/add_bank_num_et"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="23px"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center_vertical|right"
+            android:hint="请输入银行卡号"
+            android:text=""
+            android:textColor="#333333"
+            android:textColorHint="#999999"
+            android:textCursorDrawable="@null"
+            android:textSize="30px"/>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="#f2f2f2"/>
+
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="22px"
+        android:paddingRight="22px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="开户行"
+            android:textColor="#333333"
+            android:textSize="30px"/>
+
+        <TextView
+            android:id="@+id/add_bank_name_et"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="23px"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center_vertical|right"
+            android:hint="银行卡开户行"
+            android:text=""
+            android:textColor="#333333"
+            android:textColorHint="#999999"
+            android:textCursorDrawable="@null"
+            android:textSize="30px"/>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="#f2f2f2"/>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="22px"
+        android:paddingRight="22px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="开户行地址"
+            android:textColor="#333333"
+            android:textSize="30px"/>
+
+        <EditText
+            android:id="@+id/add_bank_address_et"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="23px"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center_vertical|right"
+            android:hint="银行卡开户行地址"
+            android:text=""
+            android:textColor="#333333"
+            android:textColorHint="#999999"
+            android:textCursorDrawable="@null"
+            android:textSize="30px"/>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="#f2f2f2"/>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="22px"
+        android:paddingRight="22px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="姓名"
+            android:textColor="#333333"
+            android:textSize="30px"/>
+
+        <EditText
+            android:id="@+id/add_bank_username_et"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="23px"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center_vertical|right"
+            android:hint="请输入真实姓名"
+            android:text=""
+            android:textColor="#333333"
+            android:textColorHint="#999999"
+            android:textCursorDrawable="@null"
+            android:textSize="30px"/>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="#f2f2f2"/>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="22px"
+        android:paddingRight="22px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="预留手机号"
+            android:textColor="#333333"
+            android:textSize="30px"/>
+
+        <EditText
+            android:id="@+id/add_bank_userphone_et"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="23px"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center_vertical|right"
+            android:hint="请输入预留手机号"
+            android:text=""
+            android:textColor="#333333"
+            android:textColorHint="#999999"
+            android:textCursorDrawable="@null"
+            android:textSize="30px"/>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="#f2f2f2"/>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/add_bank_btn"
+            android:layout_width="340px"
+            android:layout_height="90px"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="300px"
+            android:background="@drawable/shape_bule"
+            android:gravity="center"
+            android:text="添加"
+            android:textColor="#FFFFFF"
+            android:textSize="30px"/>
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

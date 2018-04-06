@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/denglubackground"
+    android:scrollbars="none">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/back_iv"
+                android:layout_width="63px"
+                android:layout_height="77px"
+                android:layout_marginLeft="9px"
+                android:layout_marginTop="78px"
+                android:padding="20px"
+                android:src="@drawable/fanhuiwhite"/>
+
+            <ImageView
+                android:layout_width="159px"
+                android:layout_height="159px"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="180px"
+                android:src="@drawable/logo"/>
+
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="93px"
+            android:layout_marginRight="93px"
+            android:layout_marginTop="150px"
+            android:paddingBottom="18px"
+            android:paddingLeft="21px"
+            android:paddingTop="24px">
+            <ImageView
+                android:id="@+id/name_iv"
+                android:layout_width="38px"
+                android:layout_height="45px"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="1px"
+                android:src="@drawable/zhanghao"/>
+            <EditText
+                android:id="@+id/account_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/name_iv"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="请输入您的账号"
+                android:inputType="number"
+                android:maxLength="11"
+                android:maxLines="1"
+                android:paddingLeft="34px"
+                android:textSize="30px"/>
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="93px"
+            android:layout_marginRight="93px"
+            android:src="@drawable/dengluxian"/>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="93px"
+            android:layout_marginRight="93px"
+            android:layout_marginTop="41px"
+            android:gravity="center_vertical"
+            android:paddingBottom="18px"
+            android:paddingLeft="21px"
+            android:paddingTop="25px">
+
+            <ImageView
+                android:layout_width="38px"
+                android:layout_height="44px"
+                android:src="@drawable/mima"/>
+
+            <EditText
+                android:id="@+id/pwd_et"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="密码"
+                android:inputType="textPassword"
+                android:maxLength="20"
+                android:maxLines="1"
+                android:paddingLeft="34px"
+                android:textSize="30px"/>
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="93px"
+            android:paddingRight="93px"
+            android:src="@drawable/dengluxian"/>
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="93px"
+            android:layout_marginRight="93px"
+            android:layout_marginTop="42px">
+            <TextView
+                android:id="@+id/forget_password_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="忘记密码"
+                android:textColor="#333333"
+                android:textSize="24px"
+            />
+            <TextView
+                android:id="@+id/login_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="免费注册"
+                android:textColor="#333333"
+                android:textSize="24px"/>
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+        <Button
+            android:id="@+id/login_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="120px"
+            android:layout_marginRight="120px"
+            android:layout_marginTop="62px"
+            android:background="@drawable/shape_bule"
+            android:text="登录"
+            android:textColor="@color/white"
+            android:textSize="31px"/>
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="93px"
+            android:layout_marginRight="93px"
+            android:layout_marginTop="150px">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/denglujianbian"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="微信授权登录"
+                android:textColor="#333333"
+                android:textSize="26px"/>
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+        <ImageView
+            android:id="@+id/wechat_login_iv"
+            android:layout_width="80px"
+            android:layout_height="80px"
+            android:layout_marginTop="34px"
+            android:layout_marginBottom="20px"
+            android:src="@drawable/weixindenglu"/>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+</ScrollView>

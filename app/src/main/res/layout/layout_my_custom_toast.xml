@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txt_toast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_custom_toast"
+        android:paddingLeft="33px"
+        android:paddingRight="33px"
+        android:paddingTop="20px"
+        android:paddingBottom="20px"
+        android:textColor="#ffffff"
+        android:textSize="25px"
+        android:text=""/>
+
+</com.zhy.autolayout.AutoLinearLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:gravity="center">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:layout_height="70dp">
+
+        <View
+            android:id="@+id/view_left"
+            android:layout_width="20px"
+            android:layout_height="3px"
+            android:background="#333333"/>
+
+        <TextView
+            android:id="@+id/title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14px"
+            android:text="热门评论"
+            android:textColor="#333333"
+            android:textSize="34px"/>
+
+        <View
+            android:id="@+id/view_right"
+            android:layout_width="20px"
+            android:layout_height="3px"
+            android:layout_marginLeft="14px"
+            android:background="#333333"/>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

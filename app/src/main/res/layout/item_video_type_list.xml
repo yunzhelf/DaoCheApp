@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10px"
+    >
+    <TextView
+        android:id="@+id/type_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="集中管理"
+        android:textSize="30px"
+        android:textColor="#bbb"
+        android:padding="20px"
+        android:layout_marginLeft="30px"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"/>
+    <ImageView
+        android:id="@+id/type_right_Iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/gengduo"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="30px"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/top_line_color"
+        android:layout_below="@id/type_name_tv"/>
+</com.zhy.autolayout.AutoRelativeLayout>

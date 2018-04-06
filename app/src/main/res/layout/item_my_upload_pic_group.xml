@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center">
+
+    <ImageView
+        android:id="@+id/pic_iv"
+        android:layout_width="135px"
+        android:layout_height="135px"
+        android:layout_marginRight="30px"
+        android:src="@drawable/shangchuantupian"/>
+
+</com.zhy.autolayout.AutoLinearLayout>

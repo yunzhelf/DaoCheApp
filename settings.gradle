@@ -1,0 +1,1 @@
+include ':app', ':library_retrofit', ':library_ninegridview', ':library_pickerview', ':library_photoPicker', ':AliyunView', ':AliyunFileDownLoader:downloadermanager', ':AliyunRecorder:record_demo', ':AliyunVideoSdk', ':AliyunImport:import_demo', ':AliyunCrop:crop_demo', ':AliyunEditor:editor_demo', ':library_glide'

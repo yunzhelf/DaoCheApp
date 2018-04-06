@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="141px"
+        android:orientation="horizontal">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/user_info_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <com.yifactory.daocheapp.widget.CircleImageView
+                android:id="@+id/author_head_iv"
+                android:layout_width="80px"
+                android:layout_height="80px"
+                android:layout_marginLeft="25px"
+                android:src="@drawable/icon_smallphoto"/>
+
+            <TextView
+                android:id="@+id/author_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22px"
+                android:text="张三"
+                android:textColor="@color/theme_color"
+                android:textSize="31px"/>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <TextView
+            android:id="@+id/author_job_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/user_info_layout"
+            android:layout_marginLeft="127px"
+            android:text="资深培训老师"
+            android:textColor="#333333"
+            android:textSize="26px"/>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="21px"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/focus_tv"
+                android:layout_width="135px"
+                android:layout_height="68px"
+                android:background="@drawable/shape_gray_corner2"
+                android:gravity="center"
+                android:text="取消关注"
+                android:textColor="@color/white"
+                android:textSize="28px"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25px"
+                android:background="@drawable/gengduo"/>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="#f3f3f3"/>
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+
+</com.zhy.autolayout.AutoLinearLayout>

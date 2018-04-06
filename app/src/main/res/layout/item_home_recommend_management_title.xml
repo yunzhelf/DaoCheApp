@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:autofit="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="12px"
+    android:paddingBottom="12px"
+    android:background="@color/white"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <!--<com.yifactory.daocheapp.widget.autoFitTextView.AutofitTextView
+        android:id="@+id/autofit_tv"
+        android:layout_width="145px"
+        android:layout_height="63px"
+        android:background="@drawable/shape_gray_corner"
+        android:gravity="center"
+        android:paddingLeft="20px"
+        android:paddingRight="20px"
+        android:textColor="#333333"
+        android:singleLine="true"
+        android:text="集团管理"
+        android:textSize="13sp"
+        autofit:minTextSize="8sp"/>-->
+
+    <TextView
+        android:id="@+id/autofit_tv"
+        android:layout_width="145px"
+        android:layout_height="63px"
+        android:background="@drawable/shape_gray_corner"
+        android:gravity="center"
+        android:paddingLeft="20px"
+        android:paddingRight="20px"
+        android:textColor="#333333"
+        android:text="集团管理"
+        android:textSize="13sp"/>
+
+</com.zhy.autolayout.AutoLinearLayout>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/inner_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="30px"
+        android:paddingTop="30px">
+
+        <TextView
+            android:id="@+id/creator_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="王三"
+            android:textColor="#000"
+            android:textSize="27px"/>
+
+        <TextView
+            android:id="@+id/zan_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="13px"
+            android:layout_marginRight="5px"
+            android:text="969"
+            android:textColor="#999999"
+            android:textSize="24px"
+            />
+
+
+        <ImageView
+            android:id="@+id/zan_iv"
+            android:layout_width="46px"
+            android:layout_height="46px"
+            android:layout_toLeftOf="@id/zan_tv"
+            android:padding="8px"
+            android:src="@drawable/zan_sel"/>
+
+        <TextView
+            android:id="@+id/shang_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="48px"
+            android:layout_marginTop="13px"
+            android:layout_toLeftOf="@id/zan_iv"
+            android:text="打赏"
+            android:textColor="#999999"
+            android:textSize="24px"
+            android:visibility="visible"/>
+
+        <ImageView
+            android:id="@+id/shang_iv"
+            android:layout_width="46px"
+            android:layout_height="46px"
+            android:layout_toLeftOf="@id/shang_tv"
+            android:padding="8px"
+            android:src="@drawable/hongbao"
+            android:visibility="visible"/>
+        <TextView
+            android:id="@+id/answer_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="48px"
+            android:layout_marginTop="13px"
+            android:layout_toLeftOf="@id/shang_iv"
+            android:text="回复"
+            android:textSize="24px"
+            android:textColor="#999999"
+            android:visibility="visible"/>
+        <ImageView
+            android:id="@+id/answer_iv"
+            android:layout_width="46px"
+            android:layout_height="46px"
+            android:src="@drawable/huida"
+            android:layout_toLeftOf="@id/answer_tv"
+            android:padding="8px"
+            android:visibility="visible"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/creator_tv"
+            android:layout_marginTop="20px"
+            android:paddingRight="22px"
+            android:text="通过开业活动，加强贝亚克专卖店在当地影响，推动销售工作。"
+            android:textColor="#000"
+            android:textSize="27px"/>
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

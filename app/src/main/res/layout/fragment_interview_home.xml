@@ -1,0 +1,42 @@
+<com.yifactory.daocheapp.widget.BaseSwipeRefreshLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/swipeRefreshLayout"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@color/white"
+tools:context="com.yifactory.daocheapp.biz.home_function.home_tab.HomeInterviewFragment">
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+        <cn.bingoogolapple.bgabanner.BGABanner
+            android:id="@+id/banner"
+            style="@style/BannerDefaultStyle"
+            android:layout_width="match_parent"
+            android:layout_height="225px">
+
+        </cn.bingoogolapple.bgabanner.BGABanner>
+
+        <com.yifactory.daocheapp.widget.MaxRecyclerView
+            android:id="@+id/video_rv"
+            android:layout_marginTop="25px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </com.yifactory.daocheapp.widget.MaxRecyclerView>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+</ScrollView>
+
+</com.yifactory.daocheapp.widget.BaseSwipeRefreshLayout>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="586px"
+        android:layout_height="675px"
+        android:background="@drawable/shape_white_corner">
+
+        <ImageView
+            android:id="@+id/close_iv"
+            android:layout_width="100px"
+            android:layout_height="100px"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/guanbi"
+            android:padding="34px"/>
+
+        <ImageView
+            android:id="@+id/icon_iv"
+            android:layout_width="100px"
+            android:layout_height="100px"
+            android:src="@drawable/dashang"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="82px"/>
+
+        <TextView
+            android:id="@+id/logo_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/icon_iv"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="34px"
+            android:text="点赞是美德，打赏是鼓励"
+            android:textColor="#000000"
+            android:textSize="30px"/>
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:id="@+id/jinbi_layout"
+            android:layout_width="440px"
+            android:layout_height="110px"
+            android:layout_below="@id/logo_tv"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="65px">
+
+
+            <EditText
+                android:id="@+id/jinbi_et"
+                android:layout_width="327px"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="16px"
+                android:background="@null"
+                android:gravity="center"
+                android:hint="0.00"
+                android:inputType="numberDecimal"
+                android:maxLines="1"
+                android:maxLength="11"
+                android:textColorHint="#eeeeee"
+                android:textSize="70px"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="20px"
+                android:layout_toRightOf="@id/jinbi_et"
+                android:text="个"
+                android:textColor="#000000"
+                android:textSize="43px"/>
+
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+        <View
+            android:id="@+id/line_view"
+            android:layout_width="440px"
+            android:layout_height="1px"
+            android:layout_below="@id/jinbi_layout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8px"
+            android:background="#d8d8d8"/>
+
+        <TextView
+            android:id="@+id/dashang_tv"
+            android:layout_width="484px"
+            android:layout_height="83px"
+            android:layout_below="@+id/line_view"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="80px"
+            android:background="@drawable/shape_bule_circle"
+            android:gravity="center"
+            android:text="打赏"
+            android:textColor="@color/white"
+            android:textSize="35px"/>
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

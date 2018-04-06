@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="255px"
+        android:orientation="vertical">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/zan_layout"
+            android:layout_width="match_parent"
+            android:layout_height="40px"
+            android:layout_marginLeft="45px"
+            android:layout_marginTop="45px"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/item_home_type_img"
+                android:layout_width="40px"
+                android:layout_height="40px"
+                android:src="@drawable/zan_sel"/>
+
+            <TextView
+                android:id="@+id/item_home_type_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10px"
+                android:text="点赞"
+                android:textColor="#666666"
+                android:textSize="25px"/>
+
+            <TextView
+                android:id="@+id/item_home_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20px"
+                android:text="09:01"
+                android:textColor="#666666"
+                android:textSize="25px"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/item_home_type_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="14px"
+                android:gravity="center"
+                android:paddingLeft="8px"
+                android:paddingRight="8px"
+                android:text="删除"
+                android:textColor="#666666"
+                android:textSize="25px"/>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <TextView
+            android:id="@+id/content_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/zan_layout"
+            android:layout_marginLeft="95px"
+            android:layout_marginTop="32px"
+            android:text="有人赞了你的评论"
+            android:textColor="#333333"
+            android:textSize="32px"/>
+
+        <TextView
+            android:id="@+id/small_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/content_tv"
+            android:layout_marginLeft="95px"
+            android:layout_marginTop="24px"
+            android:text="李斯在09:01赞了你"
+            android:textColor="#666666"
+            android:textSize="26px"/>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="15px"
+            android:layout_alignParentBottom="true"
+            android:background="#ecf1f0"/>
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.yifactory.daocheapp.biz.discover_function.activity.DiscoverPublishMoodActivity">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#f3f3f3"/>
+
+    <EditText
+        android:id="@+id/mood_et"
+        android:layout_width="match_parent"
+        android:layout_height="316px"
+        android:background="@null"
+        android:gravity="top"
+        android:hint="这一刻心情..."
+        android:paddingLeft="22px"
+        android:paddingRight="22px"
+        android:paddingTop="36px"
+        android:textColor="#333333"
+        android:textColorHint="#999999"
+        android:textCursorDrawable="@null"
+        android:textSize="31px"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/pic_rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30px"
+        android:layout_marginLeft="17px"
+        android:layout_marginRight="17px"
+        android:layout_marginTop="10px">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ebebeb"/>
+
+</com.zhy.autolayout.AutoLinearLayout>

@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.yifactory.daocheapp.widget.BaseSwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeRefreshLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.yifactory.daocheapp.biz.my_function.activity.MyTiXianActivity">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f6f6f6"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/top_line_color"/>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="308px"
+            android:background="@color/white"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我的收益"
+                android:textColor="#000000"
+                android:textSize="31px"/>
+
+            <TextView
+                android:id="@+id/golden_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="45px"
+                android:text="0.00金币"
+                android:textColor="@color/theme_color"
+                android:textSize="60px"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/renminbi_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40px"
+                android:text="折合成人民币：0.00元"
+                android:textColor="@color/theme_color"
+                android:textSize="26px"/>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="320px"
+            android:layout_marginTop="20px"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="35px"
+                android:layout_marginTop="35px"
+                android:text="提现金额"
+                android:textColor="#333333"
+                android:textSize="30px"/>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80px"
+                android:layout_marginTop="40px"
+                android:paddingLeft="35px">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10px"
+                    android:src="@drawable/money_icon"/>
+
+                <EditText
+                    android:id="@+id/money_et"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:inputType="numberDecimal"
+                    android:maxLines="1"
+                    android:maxLength="10"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="30px"
+                    android:text=""
+                    android:textColor="#333333"
+                    android:textCursorDrawable="@null"
+                    android:textSize="80px"/>
+
+                <ImageView
+                    android:id="@+id/clear_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15px"
+                    android:padding="15px"
+                    android:src="@drawable/qingkong"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="67px"
+                android:background="#d9d9d9"/>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5px">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="35px"
+                        android:text="提现标准为“百”，最多可提现金额:"
+                        android:textColor="#666666"
+                        android:textSize="26px"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" ￥"
+                        android:textColor="@color/theme_color"
+                        android:textSize="26px"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="400"
+                        android:textColor="@color/theme_color"
+                        android:textSize="26px"/>
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="26px"
+                    android:layout_marginTop="10px"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="50px"
+                        android:layout_height="50px"
+                        android:padding="9px"
+                        android:src="@drawable/tongyi"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="9px"
+                        android:text="同意"
+                        android:textColor="#999999"
+                        android:textSize="26px"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="9px"
+                        android:paddingTop="9px"
+                        android:text="提现规则"
+                        android:textColor="@color/theme_color"
+                        android:textSize="26px"/>
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="88px"
+            android:layout_marginTop="20px"
+            android:background="@color/white">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="35px"
+                android:text="提现至"
+                android:textColor="#333333"
+                android:textSize="27px"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="67px"
+                android:background="#d9d9d9"/>
+
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:id="@+id/bankCard_info_layout"
+            android:layout_width="match_parent"
+            android:layout_height="146px"
+            android:background="#FFFFFF">
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="35px"
+                android:gravity="center_vertical"
+                android:layout_toLeftOf="@+id/more_iv"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/bankCard_name_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="银行卡信息"
+                    android:textColor="#333333"
+                    android:textSize="33px"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/weihao_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="23px"
+                    android:text="尾号0000  储蓄卡"
+                    android:textColor="#999999"
+                    android:textSize="26px"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <ImageView
+                android:id="@+id/more_iv"
+                android:layout_toRightOf="@id/bankCard_info_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="30px"
+                android:src="@drawable/gengduo"/>
+
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/sure_btn"
+                android:layout_width="484px"
+                android:layout_height="76px"
+                android:background="@drawable/shape_bule"
+                android:gravity="center"
+                android:text="确认提现"
+                android:textColor="@color/white"
+                android:textSize="31px"/>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+</com.yifactory.daocheapp.widget.BaseSwipeRefreshLayout>

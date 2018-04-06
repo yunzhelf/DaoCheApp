@@ -1,0 +1,19 @@
+<resources>
+
+    <string name="pickerview_cancel"
+    translatable="false">取消</string>
+    <string name="pickerview_submit"
+    translatable="false">确定</string>
+    <string name="pickerview_year"
+    translatable="false">年</string>
+    <string name="pickerview_month"
+    translatable="false">月</string>
+    <string name="pickerview_day"
+    translatable="false">日</string>
+    <string name="pickerview_hours"
+    translatable="false">时</string>
+    <string name="pickerview_minutes"
+    translatable="false">分</string>
+    <string name="pickerview_seconds"
+    translatable="false">秒</string>
+</resources>

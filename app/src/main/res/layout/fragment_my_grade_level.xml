@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.yifactory.daocheapp.widget.BaseSwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeRefreshLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".biz.my_function.my_tab.MyStudyLevelFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="433px"
+                android:background="@drawable/beijing"
+                android:orientation="vertical">
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="280px"
+                    android:orientation="horizontal">
+
+                    <com.yifactory.daocheapp.widget.CircleImageView
+                        android:id="@+id/user_head_iv"
+                        android:layout_width="170px"
+                        android:layout_height="170px"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="45px"
+                        android:src="@drawable/icon_smallphoto"/>
+
+                    <com.zhy.autolayout.AutoLinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="23px"
+                        android:gravity="center">
+
+                        <com.zhy.autolayout.AutoLinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/study_minute_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="96分钟"
+                                android:textColor="@color/white"
+                                android:textSize="24px"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="25px"
+                                android:text="学习时长"
+                                android:textColor="@color/white"
+                                android:textSize="28px"/>
+
+                        </com.zhy.autolayout.AutoLinearLayout>
+
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="90px"
+                            android:layout_marginLeft="50px"
+                            android:background="@color/white"/>
+
+
+                        <com.zhy.autolayout.AutoLinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="50px"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/study_day_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="4天"
+                                android:textColor="@color/white"
+                                android:textSize="24px"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="25px"
+                                android:text="连续学习"
+                                android:textColor="@color/white"
+                                android:textSize="28px"/>
+
+                        </com.zhy.autolayout.AutoLinearLayout>
+
+                    </com.zhy.autolayout.AutoLinearLayout>
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <com.zhy.autolayout.AutoRelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.zhy.autolayout.AutoLinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="36px"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/cur_grade_iv"
+                            android:layout_width="78px"
+                            android:layout_height="78px"
+                            android:layout_marginTop="6px"
+                            android:src="@drawable/huizhang2"/>
+
+                        <TextView
+                            android:id="@+id/cur_grade_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="15px"
+                            android:text="小学"
+                            android:textColor="#FFFFFF"
+                            android:textSize="22px"/>
+
+                    </com.zhy.autolayout.AutoLinearLayout>
+
+                    <com.zhy.autolayout.AutoLinearLayout
+                        android:layout_width="450px"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/needTime_to_nextGrade_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text=""
+                            android:textColor="#FFFFFF"
+                            android:textSize="22px"/>
+
+                        <ProgressBar
+                            android:id="@+id/needTime_to_nextGrade_progressBar"
+                            style="@style/InitProgressBar"
+                            android:layout_width="match_parent"
+                            android:layout_height="5px"
+                            android:layout_marginTop="16px"
+                            android:max="100"
+                            android:progress="0"/>
+
+                    </com.zhy.autolayout.AutoLinearLayout>
+
+                    <com.zhy.autolayout.AutoLinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="36px"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/next_grade_iv"
+                            android:layout_width="78px"
+                            android:layout_height="78px"
+                            android:layout_marginTop="6px"
+                            android:src="@drawable/huizhang3"/>
+
+                        <TextView
+                            android:id="@+id/next_grade_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="15px"
+                            android:text="中学"
+                            android:textColor="#FFFFFF"
+                            android:textSize="22px"/>
+
+                    </com.zhy.autolayout.AutoLinearLayout>
+
+                </com.zhy.autolayout.AutoRelativeLayout>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="65px"
+                android:layout_marginTop="40px"
+                android:orientation="horizontal">
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:id="@+id/tab_layout"
+                    android:layout_width="406px"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/shape_sagement_interview"
+                    android:padding="2px">
+
+                    <TextView
+                        android:id="@+id/day_tv"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/shape_sagement_interview_txt_checked_left"
+                        android:gravity="center"
+                        android:text="日"
+                        android:textColor="#FFF"
+                        android:textSize="27px"/>
+
+                    <View
+                        android:layout_width="2px"
+                        android:layout_height="match_parent"
+                        android:background="#eeeeee"/>
+
+                    <TextView
+                        android:id="@+id/week_tv"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="周"
+                        android:textColor="#000"
+                        android:textSize="27px"/>
+
+                    <View
+                        android:layout_width="2px"
+                        android:layout_height="match_parent"
+                        android:background="#eeeeee"/>
+
+                    <TextView
+                        android:id="@+id/month_tv"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="月"
+                        android:textColor="#000"
+                        android:textSize="27px"/>
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <ImageView
+                    android:id="@+id/select_day_iv"
+                    android:layout_width="41px"
+                    android:layout_height="41px"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="18px"
+                    android:layout_toRightOf="@id/tab_layout"
+                    android:src="@drawable/rili"/>
+
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+            <com.yifactory.daocheapp.widget.MaxRecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="47px">
+
+            </com.yifactory.daocheapp.widget.MaxRecyclerView>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+    </ScrollView>
+</com.yifactory.daocheapp.widget.BaseSwipeRefreshLayout>

@@ -1,0 +1,17 @@
+<com.yifactory.daocheapp.widget.BaseSwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeRefreshLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f3f5"
+    tools:context="com.yifactory.daocheapp.biz.my_function.activity.MyCouponActivity">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/unuse_rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.RecyclerView>
+
+</com.yifactory.daocheapp.widget.BaseSwipeRefreshLayout>

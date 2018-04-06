@@ -1,0 +1,805 @@
+<com.zhy.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".biz.my_function.MyFragment">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/top_line_color"/>
+
+    <com.yifactory.daocheapp.widget.BaseSwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="433px"
+                    android:background="@drawable/beijing"
+                    android:orientation="vertical">
+
+                    <com.zhy.autolayout.AutoLinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="280px"
+                        android:orientation="horizontal">
+
+                        <com.yifactory.daocheapp.widget.CircleImageView
+                            android:id="@+id/user_head_iv"
+                            android:layout_width="170px"
+                            android:layout_height="170px"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="45px"
+                            android:src="@drawable/icon_smallphoto"/>
+
+                        <com.zhy.autolayout.AutoLinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="16px"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/username_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="张安"
+                                android:textColor="#ffffff"
+                                android:textSize="32px"/>
+
+                            <TextView
+                                android:id="@+id/company_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="24px"
+                                android:text="公司名称/职位"
+                                android:textColor="#ffffff"
+                                android:textSize="28px"/>
+
+                        </com.zhy.autolayout.AutoLinearLayout>
+
+                        <com.zhy.autolayout.AutoLinearLayout
+                            android:layout_width="183px"
+                            android:layout_height="130px"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="41px"
+                            android:background="@drawable/wodejianbian"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/learndate_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:text="86天"
+                                android:textColor="#ffffff"
+                                android:textSize="24px"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="25px"
+                                android:text="加入道车"
+                                android:textColor="#ffffff"
+                                android:textSize="28px"/>
+
+                        </com.zhy.autolayout.AutoLinearLayout>
+
+                    </com.zhy.autolayout.AutoLinearLayout>
+
+                    <com.zhy.autolayout.AutoRelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.zhy.autolayout.AutoLinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="36px"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/grade_iv1"
+                                android:layout_width="78px"
+                                android:layout_height="78px"
+                                android:layout_marginTop="6px"
+                                android:src="@drawable/huizhang2"/>
+
+                            <TextView
+                                android:id="@+id/grade_tv1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="15px"
+                                android:text="小学"
+                                android:textColor="#FFFFFF"
+                                android:textSize="22px"/>
+
+                        </com.zhy.autolayout.AutoLinearLayout>
+
+                        <com.zhy.autolayout.AutoLinearLayout
+                            android:layout_width="450px"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/laststudytime_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:text="距离下一等级还差86分钟"
+                                android:textColor="#FFFFFF"
+                                android:textSize="22px"/>
+
+                            <ProgressBar
+                                android:id="@+id/laststudytime_pbar"
+                                style="@style/InitProgressBar"
+                                android:layout_width="match_parent"
+                                android:layout_height="5px"
+                                android:layout_marginTop="16px"
+                                android:max="100"
+                                android:progress="0"/>
+
+                        </com.zhy.autolayout.AutoLinearLayout>
+
+                        <com.zhy.autolayout.AutoLinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="36px"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/grade_iv2"
+                                android:layout_width="78px"
+                                android:layout_height="78px"
+                                android:layout_marginTop="6px"
+                                android:src="@drawable/huizhang3"/>
+
+                            <TextView
+                                android:id="@+id/grade_tv2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="15px"
+                                android:text="中学"
+                                android:textColor="#FFFFFF"
+                                android:textSize="22px"/>
+
+                        </com.zhy.autolayout.AutoLinearLayout>
+
+                    </com.zhy.autolayout.AutoRelativeLayout>
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="232px"
+                    android:orientation="horizontal">
+
+                    <com.zhy.autolayout.AutoLinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="26px"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="90px"
+                            android:layout_height="90px"
+                            android:src="@drawable/qianbao"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20px"
+                            android:text="我的收益"
+                            android:textColor="#000000"
+                            android:textSize="26px"/>
+
+                    </com.zhy.autolayout.AutoLinearLayout>
+
+                    <com.zhy.autolayout.AutoRelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="36px"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/money_one_tv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginTop="69px"
+                            android:gravity="right"
+                            android:text="0金币"
+                            android:textColor="#000000"
+                            android:textSize="25px"/>
+
+                        <Button
+                            android:id="@+id/ti_xian_btn"
+                            android:layout_width="100px"
+                            android:layout_height="50px"
+                            android:layout_alignParentRight="true"
+                            android:layout_below="@id/money_one_tv"
+                            android:layout_marginTop="32px"
+                            android:background="@drawable/shape_bule"
+                            android:gravity="center"
+                            android:text="提现"
+                            android:textColor="#FFFFFF"
+                            android:textSize="25px"/>
+
+                    </com.zhy.autolayout.AutoRelativeLayout>
+
+                    <com.zhy.autolayout.AutoLinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="100px"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="90px"
+                            android:layout_height="90px"
+                            android:src="@drawable/qiandai"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20px"
+                            android:text="我的金币"
+                            android:textColor="#000000"
+                            android:textSize="26px"/>
+
+                    </com.zhy.autolayout.AutoLinearLayout>
+
+                    <com.zhy.autolayout.AutoRelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="36px"
+                        android:layout_marginRight="26px"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/money_two_tv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginTop="69px"
+                            android:text="0金币"
+                            android:textColor="#000000"
+                            android:textSize="25px"/>
+
+                        <Button
+                            android:id="@+id/top_up_btn"
+                            android:layout_width="100px"
+                            android:layout_height="50px"
+                            android:layout_alignParentRight="true"
+                            android:layout_below="@id/money_two_tv"
+                            android:layout_marginTop="32px"
+                            android:background="@drawable/shape_bule"
+                            android:gravity="center"
+                            android:text="充值"
+                            android:textColor="#FFFFFF"
+                            android:textSize="25px"/>
+
+                    </com.zhy.autolayout.AutoRelativeLayout>
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10px"
+                    android:background="#f4f4f4"/>
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:id="@+id/my_study_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="100px"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="40px"
+                    android:paddingRight="22px">
+
+                    <ImageView
+                        android:layout_width="46px"
+                        android:layout_height="46px"
+                        android:src="@drawable/shichang"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="33px"
+                        android:text="我的学习成长"
+                        android:textColor="#000000"
+                        android:textSize="30px"/>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"/>
+
+                    <TextView
+                        android:id="@+id/study_time_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:text="0分钟"
+                        android:textColor="#999999"
+                        android:textSize="30px"/>
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="#eeeeee"/>
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:id="@+id/my_coupon_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="100px"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="40px"
+                    android:paddingRight="22px">
+
+                    <ImageView
+                        android:layout_width="46px"
+                        android:layout_height="46px"
+                        android:src="@drawable/youhuiquan"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="33px"
+                        android:text="我的优惠券"
+                        android:textColor="#000000"
+                        android:textSize="30px"/>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"/>
+
+                    <TextView
+                        android:id="@+id/coupon_count_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:text="0张"
+                        android:textColor="#999999"
+                        android:textSize="30px"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10px"
+                        android:src="@drawable/gengduo"/>
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="#eeeeee"/>
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:id="@+id/my_question_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="100px"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="40px"
+                    android:paddingRight="22px">
+
+                    <ImageView
+                        android:layout_width="46px"
+                        android:layout_height="46px"
+                        android:src="@drawable/tiwen"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="33px"
+                        android:text="我的提问"
+                        android:textColor="#000000"
+                        android:textSize="30px"/>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"/>
+
+                    <TextView
+                        android:id="@+id/question_count_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:text="0个"
+                        android:textColor="#999999"
+                        android:textSize="30px"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10px"
+                        android:src="@drawable/gengduo"/>
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="#eeeeee"/>
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:id="@+id/my_answer_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="100px"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="40px"
+                    android:paddingRight="22px">
+
+                    <ImageView
+                        android:layout_width="46px"
+                        android:layout_height="46px"
+                        android:src="@drawable/huida"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="33px"
+                        android:text="我的回答"
+                        android:textColor="#000000"
+                        android:textSize="30px"/>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"/>
+
+                    <TextView
+                        android:id="@+id/answer_count_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:text="0个"
+                        android:textColor="#999999"
+                        android:textSize="30px"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10px"
+                        android:src="@drawable/gengduo"/>
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="#eeeeee"/>
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:id="@+id/my_buy_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="100px"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="40px"
+                    android:paddingRight="22px">
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="46px"
+                        android:layout_height="46px"
+                        android:src="@drawable/gouwuche"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="33px"
+                        android:text="我的购买"
+                        android:textColor="#000000"
+                        android:textSize="30px"/>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"/>
+
+                    <TextView
+                        android:id="@+id/buy_count_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:text="0个"
+                        android:textColor="#999999"
+                        android:textSize="30px"/>
+
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10px"
+                        android:src="@drawable/gengduo"/>
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="#eeeeee"/>
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:id="@+id/my_focus_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="100px"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="40px"
+                    android:paddingRight="22px">
+
+                    <ImageView
+                        android:layout_width="46px"
+                        android:layout_height="46px"
+                        android:src="@drawable/guanzhu"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="33px"
+                        android:text="我的关注"
+                        android:textColor="#000000"
+                        android:textSize="30px"/>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"/>
+
+                    <TextView
+                        android:id="@+id/focus_count_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:text="0个"
+                        android:textColor="#999999"
+                        android:textSize="30px"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10px"
+                        android:src="@drawable/gengduo"/>
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="#eeeeee"/>
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:id="@+id/my_invite_friend_earn_money_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="100px"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="40px"
+                    android:paddingRight="22px">
+
+                    <ImageView
+                        android:layout_width="46px"
+                        android:layout_height="46px"
+                        android:src="@drawable/haoyouyaoqing"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="33px"
+                        android:text="邀请好友赚金币"
+                        android:textColor="#000000"
+                        android:textSize="30px"/>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/gengduo"/>
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="#eeeeee"/>
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:id="@+id/lecturer_apply_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="100px"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="40px"
+                    android:paddingRight="22px">
+
+                    <ImageView
+                        android:layout_width="46px"
+                        android:layout_height="46px"
+                        android:src="@drawable/jiangshi"/>
+
+                    <TextView
+                        android:id="@+id/lecturer_apply_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="33px"
+                        android:text="讲师申请马上赚钱"
+                        android:textColor="#000000"
+                        android:textSize="30px"/>
+
+                    <ImageView
+                        android:layout_width="200px"
+                        android:layout_height="50px"
+                        android:layout_marginLeft="15px"
+                        android:src="@drawable/me_lecturer_share_icon"/>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/gengduo"/>
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="#eeeeee"/>
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:id="@+id/share_apply_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="100px"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="40px"
+                    android:paddingRight="22px">
+
+                    <ImageView
+                        android:layout_width="46px"
+                        android:layout_height="46px"
+                        android:src="@drawable/fenxiang"/>
+
+                    <TextView
+                        android:id="@+id/share_apply_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="33px"
+                        android:text="分享申请马上赚钱"
+                        android:textColor="#000000"
+                        android:textSize="30px"/>
+
+                    <ImageView
+                        android:layout_width="200px"
+                        android:layout_height="50px"
+                        android:layout_marginLeft="15px"
+                        android:src="@drawable/me_lecturer_share_icon"/>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/gengduo"/>
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="70px"
+                    android:background="#dcdcdc"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+        </ScrollView>
+
+    </com.yifactory.daocheapp.widget.BaseSwipeRefreshLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#eeeeee"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="222px"
+            android:background="@drawable/wuxiaoxi"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60px"
+            android:text="登录后，你的个人资料，你的学习时长，你的"
+            android:textColor="#cccccc"
+            android:textSize="26px"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="收益，等级都将会在这里显示"
+            android:textColor="#cccccc"
+            android:textSize="26px"/>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80px"
+            android:layout_marginTop="105px"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/login_tv"
+                android:layout_width="250px"
+                android:layout_height="match_parent"
+                android:background="@drawable/shape_gray_corner_stroke2"
+                android:gravity="center"
+                android:text="登陆"
+                android:textColor="@color/theme_color"
+                android:textSize="26px"/>
+
+            <View
+                android:layout_width="110px"
+                android:layout_height="match_parent"/>
+
+            <TextView
+                android:id="@+id/register_tv"
+                android:layout_width="250px"
+                android:layout_height="match_parent"
+                android:background="@drawable/shape_gray_corner_stroke2"
+                android:gravity="center"
+                android:text="注册"
+                android:textColor="#999999"
+                android:textSize="26px"/>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

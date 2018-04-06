@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.yifactory.daocheapp.biz.my_function.activity.MyUserInfoActivity">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/top_line_color"/>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/head_layout"
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:background="#FFFFFF"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="24px"
+            android:text="头像"
+            android:textColor="#333333"
+            android:textSize="30px"/>
+
+        <com.yifactory.daocheapp.widget.CircleImageView
+            android:id="@+id/user_head_iv"
+            android:layout_width="88px"
+            android:layout_height="88px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="22px"
+            android:src="@drawable/touxiang"/>
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="#f2f2f2"/>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:orientation="horizontal"
+        android:paddingLeft="22px"
+        android:paddingRight="22px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="姓名"
+            android:textColor="#333333"
+            android:textSize="30px"/>
+
+        <TextView
+            android:id="@+id/userinfo_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="昵称"
+            android:textColor="#333333"
+            android:textSize="30px"/>
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="#f2f2f2"/>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:orientation="horizontal"
+        android:paddingLeft="22px"
+        android:paddingRight="22px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="公司名称"
+            android:textColor="#333333"
+            android:textSize="30px"/>
+
+        <TextView
+            android:id="@+id/userinfo_company_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="公司名称"
+            android:textColor="#333333"
+            android:textSize="30px"/>
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="#f2f2f2"/>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:orientation="horizontal"
+        android:paddingLeft="22px"
+        android:paddingRight="22px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="在职岗位"
+            android:textColor="#333333"
+            android:textSize="30px"/>
+
+        <TextView
+            android:id="@+id/userinfo_jobname_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="职位"
+            android:textColor="#333333"
+            android:textSize="30px"/>
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="#f2f2f2"/>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:orientation="horizontal"
+        android:paddingLeft="22px"
+        android:paddingRight="22px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="所在区域"
+            android:textColor="#333333"
+            android:textSize="30px"/>
+
+        <TextView
+            android:id="@+id/userinfo_nowarea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="辽宁省沈阳市浑南区"
+            android:textColor="#333333"
+            android:textSize="30px"/>
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="#f2f2f2"/>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:orientation="horizontal"
+        android:paddingLeft="22px"
+        android:paddingRight="22px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="行业属性"
+            android:textColor="#333333"
+            android:textSize="30px"/>
+
+        <TextView
+            android:id="@+id/userinfo_jobArea_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="4S店"
+            android:textColor="#333333"
+            android:textSize="30px"/>
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="#f2f2f2"/>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:orientation="horizontal"
+        android:paddingLeft="22px"
+        android:paddingRight="22px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="从业年限"
+            android:textColor="#333333"
+            android:textSize="30px"/>
+
+        <TextView
+            android:id="@+id/userinfo_jobtime_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="3年"
+            android:textColor="#333333"
+            android:textSize="30px"/>
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="#f2f2f2"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="100px"
+        android:gravity="center_vertical"
+        android:paddingLeft="22px"
+        android:text="个人需求提升点"
+        android:textColor="#333333"
+        android:textSize="30px"/>
+
+    <com.yifactory.daocheapp.widget.flowLayout.TagFlowLayout
+        android:id="@+id/flow_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="6px"
+        android:layout_marginRight="6px"/>
+
+</com.zhy.autolayout.AutoLinearLayout>

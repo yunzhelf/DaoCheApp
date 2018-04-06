@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".biz.my_function.activity.MyStudyActivity">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/top_line_color"/>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="82px">
+
+        <com.androidkun.xtablayout.XTabLayout
+            android:id="@+id/xTabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:xTabIndicatorColor="@color/theme_color"
+            app:xTabIndicatorHeight="2dp"
+            app:xTabIndicatorWidth="51dp"
+            app:xTabMode="fixed"
+            app:xTabSelectedTextColor="@color/theme_color"
+            app:xTabSelectedTextSize="15.5dp"
+            app:xTabTextColor="#999999"
+            app:xTabTextSize="15.5dp"/>
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="56px"
+            android:layout_centerInParent="true"
+            android:background="@color/top_line_color"/>
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/top_line_color"/>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v4.view.ViewPager>
+
+</com.zhy.autolayout.AutoLinearLayout>
