@@ -10,15 +10,17 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.yifactory.daocheapp.R;
 import com.yifactory.daocheapp.bean.GetUserBuyRecordBean;
 import com.yifactory.daocheapp.bean.GetUserBuyedBean;
+import com.yifactory.daocheapp.bean.PlayVideoBean;
+import com.yifactory.daocheapp.utils.Formatter;
 
-public class StudyCenMyBuyVideoAdapter extends BaseQuickAdapter<GetUserBuyedBean.DataBean, BaseViewHolder> {
+public class StudyCenMyBuyVideoAdapter extends BaseQuickAdapter<PlayVideoBean.DataBean.HotBean, BaseViewHolder> {
 
     public StudyCenMyBuyVideoAdapter() {
         super(R.layout.item_home_recommend_video);
     }
 
     @Override
-    protected void convert(BaseViewHolder helper, GetUserBuyedBean.DataBean item) {
+    protected void convert(BaseViewHolder helper, PlayVideoBean.DataBean.HotBean item) {
         ImageView iconVideoIv = helper.getView(R.id.video_iv);
         TextView titleTv = helper.getView(R.id.title_tv);
         TextView contentTv = helper.getView(R.id.content_tv);
@@ -38,7 +40,7 @@ public class StudyCenMyBuyVideoAdapter extends BaseQuickAdapter<GetUserBuyedBean
         int showCounts = item.getShowCounts();
         playCountTv.setText(showCounts + "次");
         int totalMinute = item.getTotalMinute();
-        timeTv.setText(totalMinute + "分钟");
+        timeTv.setText(Formatter.formatTime(totalMinute) + "分钟");
         int goldCount = item.getGoldCount();
         moneyTv.setText(goldCount+"金币");
     }

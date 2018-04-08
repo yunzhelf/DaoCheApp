@@ -17,6 +17,7 @@ import com.yifactory.daocheapp.R;
 import com.yifactory.daocheapp.api.ApiService;
 import com.yifactory.daocheapp.app.fragment.BaseFragment;
 import com.yifactory.daocheapp.bean.LevelListBean;
+import com.yifactory.daocheapp.bean.PlayVideoBean;
 import com.yifactory.daocheapp.bean.UserBean;
 import com.yifactory.daocheapp.biz.my_function.activity.MyAnswerActivity;
 import com.yifactory.daocheapp.biz.my_function.activity.MyBuyActivity;
@@ -46,6 +47,9 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
@@ -140,11 +144,21 @@ public class MyFragment extends BaseFragment implements SwipeRefreshLayout.OnRef
     }
 
     private void initUser() {
+        try {
+            String studyDay = UserInfoUtil.getUserInfoBean(mActivity).getCreateTime();
+            java.text.SimpleDateFormat format = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            Date startDate = format.parse(studyDay);
+            long endTime = new Date().getTime();
+            long time = (endTime - startDate.getTime())/(24*60*60*1000);
+            learnDateTv.setText(time + "天");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
         String headImg = user.getHeadImg();
         Glide.with(mActivity).load(headImg).into(userHeadIv);
         userNameTv.setText(user.getUserName());
         companyTv.setText(user.getCompanyName() + "/" + user.getJobName());
-        learnDateTv.setText(String.valueOf(user.getLearnDays()) + "天");
 
 //        lastStudyTimeTv.setText("距离下一等级还差" + String.valueOf(user.getLastStudyTime()) + "分钟");
 //        lastStudyTimeProgressBar.setProgress(user.getLastStudyTime());

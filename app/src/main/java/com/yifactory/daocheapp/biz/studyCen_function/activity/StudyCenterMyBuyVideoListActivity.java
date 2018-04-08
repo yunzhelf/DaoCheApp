@@ -17,6 +17,7 @@ import com.yifactory.daocheapp.api.ApiConstant;
 import com.yifactory.daocheapp.api.ApiService;
 import com.yifactory.daocheapp.app.activity.BaseActivity;
 import com.yifactory.daocheapp.bean.GetUserBuyedBean;
+import com.yifactory.daocheapp.bean.PlayVideoBean;
 import com.yifactory.daocheapp.biz.studyCen_function.adapter.StudyCenMyBuyVideoAdapter;
 import com.yifactory.daocheapp.utils.SDDialogUtil;
 import com.yifactory.daocheapp.utils.SPreferenceUtil;
@@ -125,7 +126,7 @@ public class StudyCenterMyBuyVideoListActivity extends BaseActivity implements S
     }
 
     private void handleSuccess(String requestMark, GetUserBuyedBean getUserBuyedBean) {
-        List<GetUserBuyedBean.DataBean> dataBeanList = getUserBuyedBean.getData();
+        List<PlayVideoBean.DataBean.HotBean> dataBeanList = getUserBuyedBean.getData();
         if (requestMark.equals(ApiConstant.REQUEST_NORMAL)) {
             mVideoAdapter.addData(dataBeanList);
             if (mPageNum > 0) {
