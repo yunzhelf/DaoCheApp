@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
+    android:keepScreenOn="true"
     tools:context=".biz.video_function.VideoFragment">
 
     <View

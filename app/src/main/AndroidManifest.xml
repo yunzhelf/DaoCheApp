@@ -126,7 +126,8 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:exported="true"/>
-
+        <activity android:name=".biz.video_function.activity.VideoFullScreenActivity"
+            android:screenOrientation="landscape"/>
     </application>
 
 </manifest>

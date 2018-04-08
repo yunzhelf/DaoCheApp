@@ -3,39 +3,28 @@ package com.yifactory.daocheapp.biz.video_function;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
-import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.Display;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.alivc.player.VcPlayerLog;
-import com.aliyun.vodplayer.logreport.FullScreenEvent;
 import com.aliyun.vodplayer.media.AliyunVidSts;
 import com.aliyun.vodplayer.media.AliyunVodPlayer;
 import com.aliyun.vodplayer.media.IAliyunVodPlayer;
 import com.aliyun.vodplayerview.utils.NetWatchdog;
-import com.aliyun.vodplayerview.widget.AliyunScreenMode;
 import com.allen.retrofit.RxHttpUtils;
 import com.allen.retrofit.interceptor.Transformer;
 import com.allen.retrofit.observer.CommonObserver;
@@ -46,29 +35,24 @@ import com.yifactory.daocheapp.app.fragment.BaseFragment;
 import com.yifactory.daocheapp.bean.PlayVideoBean;
 import com.yifactory.daocheapp.bean.StsToken;
 import com.yifactory.daocheapp.bean.TwoVideoListBean;
-import com.yifactory.daocheapp.bean.VideoListBean;
 import com.yifactory.daocheapp.biz.video_function.activity.VideoAuthorHomePageActivity;
-//import com.yifactory.daocheapp.biz.video_function.activity.VideoFullScreenActivity;
+import com.yifactory.daocheapp.biz.video_function.activity.VideoFullScreenActivity;
 import com.yifactory.daocheapp.biz.video_function.adapter.VideoAuthorOtherProductionAdapter;
 import com.yifactory.daocheapp.biz.video_function.adapter.VideoHotRecommendAdapter;
+import com.yifactory.daocheapp.utils.AliyunPlayerUtils;
 import com.yifactory.daocheapp.utils.Formatter;
 import com.yifactory.daocheapp.utils.SDDialogUtil;
 import com.yifactory.daocheapp.utils.UserInfoUtil;
-import com.yifactory.daocheapp.widget.SDProgressDialog;
 import com.yifactory.daocheapp.widget.TitleBar;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -118,17 +102,13 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
     private List<PlayVideoBean.DataBean.HotBean> dataHotArray = new ArrayList<>();
     private PlayVideoBean.DataBean playVideoObj;
     private PlayVideoBean.DataBean.HotBean videoInfo;
-    private AliyunVodPlayer aliyunVodPlayer;
     private IAliyunVodPlayer.PlayerState mPlayerState;
     private AliyunVidSts mVidSts;
-    private boolean inSeek = false;
-    private boolean isCompleted = false;
     private List<String> logStrs = new ArrayList<>();
     private SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss.SSS");
     private int page = 0;
     private NetWatchdog netWatchDog;
     private AlertDialog netChangeDialog;
-    private boolean mAutoPlay = false;
     private Dialog mDialog;
 
     public static VideoFragment newInstance() {
@@ -138,6 +118,25 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
         return fragment;
     }
 
+    Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what){
+                case 1:
+                    showVideoProgressInfo();
+                    break;
+                case 2:
+                    playIv.setImageResource(R.drawable.bofanganniu);
+                    break;
+                case 3:
+                    playIv.setImageResource(R.drawable.bofanganniu);
+                    break;
+            }
+        }
+    };
+
+
     @Override
     protected boolean buildTitle(TitleBar bar) {
         bar.setTitleText("播放");
@@ -146,10 +145,13 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
 
     @Override
     protected void initData(Bundle arguments) {
-        aliyunVodPlayer = new AliyunVodPlayer(mActivity);
-        aliyunVodPlayer.setVolume(100);
         EventBus.getDefault().register(this);
+        AliyunPlayerUtils.handler = handler;
         startNetWatch();
+        if(AliyunPlayerUtils.aliyunVodPlayer != null){
+            int duration = (int) AliyunPlayerUtils.aliyunVodPlayer.getDuration();
+            totalDurationTv.setText(Formatter.formatTime(duration));
+        }
     }
 
     private void startNetWatch(){
@@ -157,8 +159,8 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
         netWatchDog.setNetChangeListener(new NetWatchdog.NetChangeListener() {
             @Override
             public void onWifiTo4G() {
-                if (aliyunVodPlayer.isPlaying()) {
-                    aliyunVodPlayer.pause();
+                if (AliyunPlayerUtils.aliyunVodPlayer.isPlaying()) {
+                    AliyunPlayerUtils.aliyunVodPlayer.pause();
                 }
                 if (netChangeDialog == null || !netChangeDialog.isShowing()) {
 
@@ -168,19 +170,19 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
                     alertDialog.setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-                            IAliyunVodPlayer.PlayerState playerState = aliyunVodPlayer.getPlayerState();
+                            IAliyunVodPlayer.PlayerState playerState = AliyunPlayerUtils.aliyunVodPlayer.getPlayerState();
                             if(playerState == IAliyunVodPlayer.PlayerState.Idle ||
                                     playerState == IAliyunVodPlayer.PlayerState.Completed ||
                                     playerState == IAliyunVodPlayer.PlayerState.Stopped){
 //                                mAutoPlay = true;
-                                seekTo(seekBar.getProgress());
+                                AliyunPlayerUtils.seekTo(seekBar.getProgress());
                                 prepareAsync();
                             }
                             else if (playerState == AliyunVodPlayer.PlayerState.Paused) {
-                                aliyunVodPlayer.resume();
+                                AliyunPlayerUtils.aliyunVodPlayer.resume();
                             } else {
-                                seekTo(seekBar.getProgress());
-                                aliyunVodPlayer.start();
+                                AliyunPlayerUtils.seekTo(seekBar.getProgress());
+                                AliyunPlayerUtils.aliyunVodPlayer.start();
                             }
                         }
                     });
@@ -216,8 +218,8 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
-        if(aliyunVodPlayer.isPlaying()) {
-            aliyunVodPlayer.pause();
+        if(AliyunPlayerUtils.aliyunVodPlayer.isPlaying()) {
+            AliyunPlayerUtils.aliyunVodPlayer.pause();
             playIv.setImageResource(R.drawable.bofanganniu);
         }
     }
@@ -225,25 +227,26 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
     @Override
     public void onStop() {
         super.onStop();
-        if(aliyunVodPlayer.isPlaying()) {
-            aliyunVodPlayer.pause();
-            playIv.setImageResource(R.drawable.bofanganniu);
-        }
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        if(AliyunPlayerUtils.isCompleted){
+            playIv.setImageResource(R.drawable.bofanganniu);
+            int curPosition = (int)AliyunPlayerUtils.aliyunVodPlayer.getCurrentPosition();
+            seekBar.setProgress(curPosition);
+            currentPositionTv.setText(Formatter.formatTime(curPosition));
+            AliyunPlayerUtils.aliyunVodPlayer.prepareAsync(mVidSts);
+        }
+        AliyunPlayerUtils.handler = handler;
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         EventBus.getDefault().unregister(this);
-        aliyunVodPlayer.stop();
-        aliyunVodPlayer.release();
-        stopUpdateTimer();
-        progressUpdateTimer = null;
+        AliyunPlayerUtils.aliyunVodPlayer.stop();
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -326,14 +329,14 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
 
     private void prepareAsync() {
         if (mVidSts != null) {
-            aliyunVodPlayer.prepareAsync(mVidSts);
+            AliyunPlayerUtils.aliyunVodPlayer.prepareAsync(mVidSts);
         }
     }
 
     //准备播放
     private void preparePlayVideoView(StsToken.DataBean sts){
-        if(aliyunVodPlayer != null){
-            aliyunVodPlayer.stop();
+        if(AliyunPlayerUtils.aliyunVodPlayer != null){
+            AliyunPlayerUtils.aliyunVodPlayer.stop();
             playIv.setImageResource(R.drawable.bofanganniu);
         }
         if(surfaceView != null){
@@ -345,29 +348,29 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
         mVidSts.setAcId(sts.getAccessKeyId());
         mVidSts.setAkSceret(sts.getAccessKeySecret());
         mVidSts.setSecurityToken(sts.getSecurityToken());
-        aliyunVodPlayer.prepareAsync(mVidSts);
-        aliyunVodPlayer.setVolume(50);
+        AliyunPlayerUtils.mVidSts = mVidSts;
+        AliyunPlayerUtils.aliyunVodPlayer.prepareAsync(mVidSts);
     }
 
     private void playVideo(){
-        aliyunVodPlayer.prepareAsync(mVidSts);
-        isCompleted = false;
-        mPlayerState = aliyunVodPlayer.getPlayerState();
+        AliyunPlayerUtils.aliyunVodPlayer.prepareAsync(mVidSts);
+        AliyunPlayerUtils.isCompleted = false;
+        mPlayerState = AliyunPlayerUtils.aliyunVodPlayer.getPlayerState();
         if(mPlayerState == Idle || mPlayerState == Stopped || mPlayerState == Completed){
             if(surfaceView != null){
                 surfaceView.setVisibility(View.GONE);
                 surfaceView.setVisibility(View.VISIBLE);
             }
-            aliyunVodPlayer.stop();
-            aliyunVodPlayer.prepareAsync(mVidSts);
+            AliyunPlayerUtils.aliyunVodPlayer.stop();
+            AliyunPlayerUtils.aliyunVodPlayer.prepareAsync(mVidSts);
         }else if (mPlayerState == Prepared){
-            aliyunVodPlayer.start();
+            AliyunPlayerUtils.aliyunVodPlayer.start();
             playIv.setImageResource(R.drawable.bofangzanting);
         }else if (mPlayerState == Started){
-            aliyunVodPlayer.pause();
+            AliyunPlayerUtils.aliyunVodPlayer.pause();
             playIv.setImageResource(R.drawable.bofanganniu);
         }else if (mPlayerState == Paused){
-            aliyunVodPlayer.resume();
+            AliyunPlayerUtils.aliyunVodPlayer.resume();
             playIv.setImageResource(R.drawable.bofangzanting);
         }
 
@@ -377,12 +380,12 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
         surfaceView.getHolder().addCallback(new SurfaceHolder.Callback() {
             @Override
             public void surfaceCreated(SurfaceHolder holder) {
-                aliyunVodPlayer.setDisplay(holder);
+                AliyunPlayerUtils.aliyunVodPlayer.setDisplay(holder);
             }
 
             @Override
             public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
-                aliyunVodPlayer.surfaceChanged();
+                AliyunPlayerUtils.aliyunVodPlayer.surfaceChanged();
             }
 
             @Override
@@ -393,8 +396,7 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
         surfaceView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*Intent i = new Intent(mActivity, VideoFullScreenActivity.class);
-                i.putExtra("curPosition",aliyunVodPlayer.getCurrentPosition());
+                Intent i = new Intent(mActivity, VideoFullScreenActivity.class);
                 startActivity(i);
                 Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
@@ -402,7 +404,7 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
                     public void run() {
                         EventBus.getDefault().post(mVidSts);
                     }
-                },500);*/
+                },500);
             }
         });
 
@@ -419,166 +421,30 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                if (aliyunVodPlayer != null) {
-                    seekTo(seekBar.getProgress());
+                if (AliyunPlayerUtils.aliyunVodPlayer != null) {
+                    AliyunPlayerUtils.seekTo(seekBar.getProgress());
                     logStrs.add(format.format(new Date()) + "开始播放");
-                    if (isCompleted) {
+                    if (AliyunPlayerUtils.isCompleted) {
                         //播放完成了，不能seek了
-                        inSeek = false;
+                        AliyunPlayerUtils.inSeek = false;
                     } else {
-                        inSeek = true;
+                        AliyunPlayerUtils.inSeek = true;
                     }
                 }
             }
         });
-
-        String sdDir = Environment.getExternalStorageDirectory().getAbsolutePath() + "/test_save_cache";
-        aliyunVodPlayer.setPlayingCache(true, sdDir, 60 * 60 /*时长, s */, 300 /*大小，MB*/);
-        aliyunVodPlayer.setVideoScalingMode(IAliyunVodPlayer.VideoScalingMode.VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING);
-        aliyunVodPlayer.setOnPreparedListener(new IAliyunVodPlayer.OnPreparedListener() {
-            @Override
-            public void onPrepared() {
-                //准备完成触发
-                if(mAutoPlay && mVidSts != null){
-                    aliyunVodPlayer.start();
-                }
-            }
-        });
-        aliyunVodPlayer.setOnFirstFrameStartListener(new IAliyunVodPlayer.OnFirstFrameStartListener() {
-            @Override
-            public void onFirstFrameStart() {
-                //首帧显示触发
-                firstFrameStart();
-            }
-        });
-        aliyunVodPlayer.setOnErrorListener(new IAliyunVodPlayer.OnErrorListener() {
-            @Override
-            public void onError(int arg0, int arg1, String msg) {
-                //出错时处理，查看接口文档中的错误码和错误消息
-            }
-        });
-        aliyunVodPlayer.setOnCompletionListener(new IAliyunVodPlayer.OnCompletionListener() {
-            @Override
-            public void onCompletion() {
-                //播放正常完成时触发
-                isCompleted = true;
-                inSeek = false;
-                aliyunVodPlayer.prepareAsync(mVidSts);
-                playIv.setImageResource(R.drawable.bofanganniu);
-                showVideoProgressInfo();
-                stopUpdateTimer();
-            }
-        });
-        aliyunVodPlayer.setOnSeekCompleteListener(new IAliyunVodPlayer.OnSeekCompleteListener() {
-            @Override
-            public void onSeekComplete() {
-                //seek完成时触发
-                logStrs.add(format.format(new Date()) + "播放完成");
-                inSeek = false;
-            }
-        });
-        aliyunVodPlayer.setOnStoppedListner(new IAliyunVodPlayer.OnStoppedListener() {
-            @Override
-            public void onStopped() {
-                //使用stop功能时触发
-            }
-        });
-        aliyunVodPlayer.setOnChangeQualityListener(new IAliyunVodPlayer.OnChangeQualityListener() {
-            @Override
-            public void onChangeQualitySuccess(String finalQuality) {
-                //视频清晰度切换成功后触发
-            }
-            @Override
-            public void onChangeQualityFail(int code, String msg) {
-                //视频清晰度切换失败时触发
-            }
-        });
-
-    }
-
-    private void firstFrameStart() {
-
-        //首帧显示之后再开始更新进度信息。
-        inSeek = false;
-        showVideoProgressInfo();
-        Map<String, String> debugInfo = aliyunVodPlayer.getAllDebugInfo();
-        long createPts = 0;
-        if (debugInfo.get("create_player") != null) {
-            String time = debugInfo.get("create_player");
-            createPts = (long) Double.parseDouble(time);
-            logStrs.add(format.format(new Date(createPts)) + "播放器创建成功");
-        }
-        if (debugInfo.get("open-url") != null) {
-            String time = debugInfo.get("open-url");
-            long openPts = (long) Double.parseDouble(time) + createPts;
-            logStrs.add(format.format(new Date(openPts)) + "打开成功");
-        }
-        if (debugInfo.get("find-stream") != null) {
-            String time = debugInfo.get("find-stream");
-            long findPts = (long) Double.parseDouble(time) + createPts;
-            logStrs.add(format.format(new Date(findPts)) + "获取视频流成功");
-        }
-        if (debugInfo.get("open-stream") != null) {
-            String time = debugInfo.get("open-stream");
-            long openPts = (long) Double.parseDouble(time) + createPts;
-            logStrs.add(format.format(new Date(openPts)) + "开始打开媒体流");
-        }
-        logStrs.add(format.format(new Date()) + "显示首帧");
     }
 
     private void showVideoProgressInfo() {
-        if (aliyunVodPlayer != null && !inSeek) {
-            int curPosition = (int) aliyunVodPlayer.getCurrentPosition();
+        if (AliyunPlayerUtils.aliyunVodPlayer != null && !AliyunPlayerUtils.inSeek) {
+            int curPosition = (int) AliyunPlayerUtils.aliyunVodPlayer.getCurrentPosition();
             currentPositionTv.setText(Formatter.formatTime(curPosition));
-            int duration = (int) aliyunVodPlayer.getDuration();
+            int duration = (int) AliyunPlayerUtils.aliyunVodPlayer.getDuration();
             totalDurationTv.setText(Formatter.formatTime(duration));
-            Log.d("sunxj", "duration = " + duration + " , curPosition = " + curPosition);
-            int bufferPosition = aliyunVodPlayer.getBufferingPosition();
+            int bufferPosition = AliyunPlayerUtils.aliyunVodPlayer.getBufferingPosition();
             seekBar.setMax(duration);
             seekBar.setSecondaryProgress(bufferPosition);
             seekBar.setProgress(curPosition);
-        }
-        startUpdateTimer();
-    }
-
-    private void startUpdateTimer() {
-        progressUpdateTimer.removeMessages(0);
-        progressUpdateTimer.sendEmptyMessageDelayed(0, 1000);
-    }
-
-    private void stopUpdateTimer() {
-        progressUpdateTimer.removeMessages(0);
-    }
-
-    private Handler progressUpdateTimer = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-
-            showVideoProgressInfo();
-        }
-    };
-
-    private long lastSeekTime = -1;
-    private void seekTo(int position) {
-        if (aliyunVodPlayer == null) {
-            return;
-        }
-        if (isCompleted) {
-            inSeek = false;
-            return ;
-        }
-        if (lastSeekTime < 0) {
-            lastSeekTime = System.currentTimeMillis();
-
-            inSeek = true;
-            aliyunVodPlayer.seekTo(position);
-        } else {
-            long currentTime = System.currentTimeMillis();
-            if (currentTime - lastSeekTime > 1000) {//1000ms
-                inSeek = true;
-                aliyunVodPlayer.seekTo(position);
-                lastSeekTime = currentTime;
-            }
         }
     }
 
@@ -666,7 +532,7 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
         EventBus.getDefault().unregister(this);
     }
 
-    @OnClick({R.id.author_layout, R.id.tv_guanzhu,R.id.play_iv,R.id.previous_iv,R.id.next_iv,R.id.hot_list_reflash_ly})
+    @OnClick({R.id.author_layout, R.id.tv_guanzhu, R.id.play_iv, R.id.previous_iv, R.id.next_iv, R.id.hot_list_reflash_ly})
     public void onClickEvent(View view) {
         if (view != null) {
             switch (view.getId()) {
@@ -686,10 +552,10 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
                     playVideo();
                     break;
                 case R.id.previous_iv:
-                    seekTo(seekBar.getProgress() - 1000);
+                    AliyunPlayerUtils.seekTo((int)AliyunPlayerUtils.aliyunVodPlayer.getCurrentPosition() - 1000);
                     break;
                 case R.id.next_iv:
-                    seekTo(seekBar.getProgress() + 1000);
+                    AliyunPlayerUtils.seekTo((int)AliyunPlayerUtils.aliyunVodPlayer.getCurrentPosition() + 1000);
                     break;
                 case R.id.hot_list_reflash_ly:
                     getHostlistEvent();

@@ -20,6 +20,7 @@ import com.bumptech.glide.request.RequestOptions;
 import com.lzy.ninegrid.NineGridView;
 import com.yifactory.daocheapp.R;
 import com.yifactory.daocheapp.api.ApiConstant;
+import com.yifactory.daocheapp.utils.AliyunPlayerUtils;
 import com.zhy.autolayout.config.AutoLayoutConifg;
 
 public class AppCtx extends Application {
@@ -42,9 +43,10 @@ public class AppCtx extends Application {
         initAliyunVideo();
         setDefaultFont();
 
-        AutoLayoutConifg.getInstance().useDeviceSize();
+        AliyunPlayerUtils.context = context;
+        AliyunPlayerUtils.initAliyunVideo();
 
-        AliVcMediaPlayer.init(getApplicationContext());
+        AutoLayoutConifg.getInstance().useDeviceSize();
 
         initRxHttpUtils();
 
