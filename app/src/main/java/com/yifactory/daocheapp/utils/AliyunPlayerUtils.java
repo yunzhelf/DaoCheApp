@@ -47,6 +47,7 @@ public class AliyunPlayerUtils {
             @Override
             public void onPrepared() {
                 //准备完成触发
+                handler.sendEmptyMessage(PREPARE);
                 if(mAutoPlay && mVidSts != null){
                     aliyunVodPlayer.start();
                 }
