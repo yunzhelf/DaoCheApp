@@ -140,6 +140,12 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
     @Override
     protected boolean buildTitle(TitleBar bar) {
         bar.setTitleText("播放");
+        bar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                return;
+            }
+        });
         return true;
     }
 
@@ -552,10 +558,10 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
                     playVideo();
                     break;
                 case R.id.previous_iv:
-                    AliyunPlayerUtils.seekTo((int)AliyunPlayerUtils.aliyunVodPlayer.getCurrentPosition() - 1000);
+                    AliyunPlayerUtils.seekTo((int)AliyunPlayerUtils.aliyunVodPlayer.getCurrentPosition() - 5000);
                     break;
                 case R.id.next_iv:
-                    AliyunPlayerUtils.seekTo((int)AliyunPlayerUtils.aliyunVodPlayer.getCurrentPosition() + 1000);
+                    AliyunPlayerUtils.seekTo((int)AliyunPlayerUtils.aliyunVodPlayer.getCurrentPosition() + 5000);
                     break;
                 case R.id.hot_list_reflash_ly:
                     getHostlistEvent();

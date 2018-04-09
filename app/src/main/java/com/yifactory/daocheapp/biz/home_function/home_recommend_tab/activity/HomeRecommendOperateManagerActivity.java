@@ -422,8 +422,8 @@ public class HomeRecommendOperateManagerActivity extends BaseActivity implements
                 getVideoList(ApiConstant.REQUEST_REFRESH, pageNum);
             } else if (v.getId() == R.id.time_little_more_tv) {
                 mTimeAll.setTextColor(Color.parseColor("#666666"));
-                mTimeMoreLittleTv.setTextColor(Color.parseColor("#4087fd"));
-                mTimeLittleMoreTv.setTextColor(Color.parseColor("#666666"));
+                mTimeMoreLittleTv.setTextColor(Color.parseColor("#666666"));
+                mTimeLittleMoreTv.setTextColor(Color.parseColor("#4087fd"));
                 mAllTv.setTextColor(Color.parseColor("#666666"));
                 mMoreLittleTv.setTextColor(Color.parseColor("#666666"));
                 mLittleMoreTv.setTextColor(Color.parseColor("#666666"));
