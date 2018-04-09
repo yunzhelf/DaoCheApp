@@ -7,6 +7,7 @@ import com.yifactory.daocheapp.bean.AddRewardBean;
 import com.yifactory.daocheapp.bean.AddShowMoodAppraiseBean;
 import com.yifactory.daocheapp.bean.AddShowMoodBean;
 import com.yifactory.daocheapp.bean.AddShowMoodCommentBean;
+import com.yifactory.daocheapp.bean.AddStudyRecordBean;
 import com.yifactory.daocheapp.bean.AddTeacherRegistBean;
 import com.yifactory.daocheapp.bean.AddUserBalanceBean;
 import com.yifactory.daocheapp.bean.AddUserBalanceBean2;
@@ -256,6 +257,10 @@ public interface ApiService {
     @FormUrlEncoded
     @POST("askcar/common/getStudyReocrd.do")
     Observable<GetStudyReocrdBean> getStudyReocrd(@Field("uId") String uId);
+
+    @FormUrlEncoded
+    @POST("askcar/resource/addStudyRecord.do")
+    Observable<AddStudyRecordBean> addStudyRecord(@Field("rId") String rId,@Field("uId") String uId, @Field("showTime") String showTime);
 
     @FormUrlEncoded
     @POST("askcar/common/getStudyDate.do")

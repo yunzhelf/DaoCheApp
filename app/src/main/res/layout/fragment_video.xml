@@ -36,10 +36,22 @@
                     android:layout_height="640px"
                     android:orientation="vertical">
 
-                    <SurfaceView
-                        android:id="@+id/surfaceView"
+                    <com.zhy.autolayout.AutoRelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="338px"/>
+                        android:layout_height="wrap_content">
+
+                        <SurfaceView
+                            android:id="@+id/surfaceView"
+                            android:layout_width="match_parent"
+                            android:layout_height="338px"/>
+
+                        <ProgressBar
+                            android:id="@+id/loading_progress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            />
+                    </com.zhy.autolayout.AutoRelativeLayout>
 
                     <SeekBar
                         android:id="@+id/progress"

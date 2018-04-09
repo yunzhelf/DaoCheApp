@@ -17,6 +17,7 @@ import com.allen.retrofit.interceptor.Transformer;
 import com.allen.retrofit.observer.CommonObserver;
 import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.yifactory.daocheapp.MainActivity;
 import com.yifactory.daocheapp.R;
 import com.yifactory.daocheapp.api.ApiService;
 import com.yifactory.daocheapp.app.fragment.BaseFragment;
@@ -24,7 +25,9 @@ import com.yifactory.daocheapp.bean.GetStudyReocrdBean;
 import com.yifactory.daocheapp.bean.GetUserBuyRecordBean;
 import com.yifactory.daocheapp.bean.LevelListBean;
 import com.yifactory.daocheapp.bean.LoginBean;
+import com.yifactory.daocheapp.bean.PlayVideoBean;
 import com.yifactory.daocheapp.bean.UserBean;
+import com.yifactory.daocheapp.biz.my_function.activity.MyBuyActivity;
 import com.yifactory.daocheapp.biz.my_function.activity.MyGradeExplainActivity;
 import com.yifactory.daocheapp.biz.my_function.activity.MyLoginActivity;
 import com.yifactory.daocheapp.biz.my_function.activity.MyRegisterActivity;
@@ -163,7 +166,7 @@ public class StudyCenterFragment extends BaseFragment implements SwipeRefreshLay
                     @Override
                     protected void onSuccess(GetStudyReocrdBean getUserBuyRecordBean) {
                         if (getUserBuyRecordBean.getResponseState().equals("1")) {
-                            List<GetStudyReocrdBean.DataBean> dataBeanList = getUserBuyRecordBean.getData();
+                            List<PlayVideoBean.DataBean.HotBean> dataBeanList = getUserBuyRecordBean.getData();
                             mVideoAdapter.setNewData(dataBeanList);
                         } else {
                             showToast(getUserBuyRecordBean.getMsg());
@@ -453,7 +456,10 @@ public class StudyCenterFragment extends BaseFragment implements SwipeRefreshLay
         mVideoAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter baseQuickAdapter, View view, int i) {
-                showToast("跳转视频播放页面");
+                Intent intent = new Intent(mActivity, MainActivity.class);
+                intent.putExtra("videoInfo",mVideoAdapter.getData().get(i));
+                intent.putExtra("play",true);
+                startActivity(intent);
             }
         });
     }

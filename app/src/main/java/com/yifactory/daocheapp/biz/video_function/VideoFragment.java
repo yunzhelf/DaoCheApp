@@ -16,6 +16,7 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -28,10 +29,13 @@ import com.aliyun.vodplayerview.utils.NetWatchdog;
 import com.allen.retrofit.RxHttpUtils;
 import com.allen.retrofit.interceptor.Transformer;
 import com.allen.retrofit.observer.CommonObserver;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.yifactory.daocheapp.R;
 import com.yifactory.daocheapp.api.ApiService;
 import com.yifactory.daocheapp.app.fragment.BaseFragment;
+import com.yifactory.daocheapp.bean.AddStudyRecordBean;
 import com.yifactory.daocheapp.bean.PlayVideoBean;
 import com.yifactory.daocheapp.bean.StsToken;
 import com.yifactory.daocheapp.bean.TwoVideoListBean;
@@ -52,11 +56,15 @@ import org.greenrobot.eventbus.ThreadMode;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 import io.reactivex.Observable;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 
 import static com.aliyun.vodplayer.media.IAliyunVodPlayer.PlayerState.Completed;
 import static com.aliyun.vodplayer.media.IAliyunVodPlayer.PlayerState.Idle;
@@ -95,6 +103,8 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
     ImageView playIv;
     @BindView(R.id.scrollView)
     ScrollView scrollView;
+    @BindView(R.id.loading_progress)
+    ProgressBar loadingProgress;
 
     private VideoAuthorOtherProductionAdapter productionAdapter;
     private List<PlayVideoBean.DataBean.TeacherOtherBean> dataProductionArray = new ArrayList<>();
@@ -110,6 +120,8 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
     private NetWatchdog netWatchDog;
     private AlertDialog netChangeDialog;
     private Dialog mDialog;
+    private Dialog vDialog;
+    private long studyTime = 0; //秒
 
     public static VideoFragment newInstance() {
         VideoFragment fragment = new VideoFragment();
@@ -123,6 +135,9 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             switch (msg.what){
+                case 0:
+                    loadingProgress.setVisibility(View.GONE);
+                    break;
                 case 1:
                     showVideoProgressInfo();
                     break;
@@ -224,9 +239,15 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
-        if(AliyunPlayerUtils.aliyunVodPlayer.isPlaying()) {
-            AliyunPlayerUtils.aliyunVodPlayer.pause();
-            playIv.setImageResource(R.drawable.bofanganniu);
+        if(hidden){
+            if(AliyunPlayerUtils.aliyunVodPlayer.isPlaying()) {
+                AliyunPlayerUtils.aliyunVodPlayer.pause();
+                playIv.setImageResource(R.drawable.bofanganniu);
+            }
+            long curtime = System.currentTimeMillis();
+            addStudyReocrd(curtime - studyTime);
+        }else{
+            studyTime = System.currentTimeMillis();
         }
     }
 
@@ -244,6 +265,8 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
             seekBar.setProgress(curPosition);
             currentPositionTv.setText(Formatter.formatTime(curPosition));
             AliyunPlayerUtils.aliyunVodPlayer.prepareAsync(mVidSts);
+        }else if (AliyunPlayerUtils.aliyunVodPlayer.getPlayerState() == Started){
+            playIv.setImageResource(R.drawable.bofangzanting);
         }
         AliyunPlayerUtils.handler = handler;
     }
@@ -258,6 +281,8 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void videoInfoEventBus(PlayVideoBean.DataBean.HotBean videoInfo){
         this.videoInfo = videoInfo;
+        vDialog = SDDialogUtil.newLoading(mActivity,"请求中");
+        vDialog.show();
         if(videoInfo.getVideoPath() != null && videoInfo.getUId() != null){
             getPlayVideoEvent();
             getSTStoken();
@@ -274,8 +299,8 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
                     @Override
                     protected void onError(String errorMsg) {
                         showToast("认证获取失败");
-                        if(mDialog.isShowing()){
-                            mDialog.cancel();
+                        if(vDialog.isShowing()){
+                            vDialog.dismiss();
                         }
                     }
 
@@ -309,6 +334,28 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
                         finishRefresh();
                     }
                 });
+    }
+
+    private void addStudyReocrd(long lastTime){
+        String rId = videoInfo.getRId();
+        String uId = UserInfoUtil.getUserInfoBean(mActivity).getUId();
+        String time = String.valueOf(lastTime/1000);
+
+        RxHttpUtils.createApi(ApiService.class)
+                        .addStudyRecord(rId,uId,time)
+                        .compose(Transformer.<AddStudyRecordBean>switchSchedulers())
+                        .subscribe(new CommonObserver<AddStudyRecordBean>() {
+                            @Override
+                            protected void onError(String errorMsg) {
+                                showToast(errorMsg);
+                            }
+
+                            @Override
+                            protected void onSuccess(AddStudyRecordBean addStudyRecordBean) {
+                                Log.e("videoFragment",addStudyRecordBean.getMsg());
+                            }
+                        });
+
     }
 
     private void initPlayVideo(){
@@ -356,6 +403,10 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
         mVidSts.setSecurityToken(sts.getSecurityToken());
         AliyunPlayerUtils.mVidSts = mVidSts;
         AliyunPlayerUtils.aliyunVodPlayer.prepareAsync(mVidSts);
+        if(vDialog != null && vDialog.isShowing()){
+            vDialog.dismiss();
+        }
+        studyTime = System.currentTimeMillis(); //获取当前时间为学习时长准备
     }
 
     private void playVideo(){
@@ -403,6 +454,7 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(mActivity, VideoFullScreenActivity.class);
+                i.putExtra("rId",videoInfo.getRId());
                 startActivity(i);
                 Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {

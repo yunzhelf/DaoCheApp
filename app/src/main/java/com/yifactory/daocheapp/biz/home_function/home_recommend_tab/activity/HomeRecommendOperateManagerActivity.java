@@ -156,7 +156,7 @@ public class HomeRecommendOperateManagerActivity extends BaseActivity implements
         }
         if (mCategorySecondList.size() > 0) {
             mCategorySecondList.get(categoryPosition).isSelected = true;
-            scId = mCategorySecondList.get(0).getScId();
+            scId = mCategorySecondList.get(categoryPosition).getScId();
             pageNum = 0;
             mDialog.show();
             getVideoList(ApiConstant.REQUEST_REFRESH, pageNum);
@@ -182,8 +182,8 @@ public class HomeRecommendOperateManagerActivity extends BaseActivity implements
     @Override
     protected void initData(Bundle savedInstanceState) {
         ImmersionBar.with(this).statusBarDarkFont(true, 0.2f).fitsSystemWindows(true).statusBarColor(R.color.white).init();
-        getIntentData();
         mDialog = SDDialogUtil.newLoading(this, "请求中...");
+        getIntentData();
     }
 
     private void getVideoList(final String requestMark, int pageNum) {
@@ -282,7 +282,55 @@ public class HomeRecommendOperateManagerActivity extends BaseActivity implements
             mTitleBar.setTitleText(firstCategoryContent);
             List<GetSystemInfoBean.DataBean.IndexBtnsBean.CategorySecondListBean> categorySecondList = indexBtnsBean.getCategorySecondList();
             mCategorySecondList.addAll(categorySecondList);
+        } else if (mark.equals("coupon")) {
+            String fcId = getIntent().getStringExtra("fcId");
+            String scId = getIntent().getStringExtra("scId");
+            getCategoryData(fcId,scId);
         }
+    }
+
+    private void getCategoryData(final String fcId, final String scId){
+//        final Dialog vDialog = SDDialogUtil.newLoading(this,"请求中");
+//        vDialog.show();
+        mDialog.show();
+        RxHttpUtils.createApi(ApiService.class)
+                .getCategoryList()
+                .compose(Transformer.<GetCategoryListBean>switchSchedulers())
+                .subscribe(new CommonObserver<GetCategoryListBean>() {
+                    @Override
+                    protected void onError(String errorMsg) {
+//                        vDialog.dismiss();
+                    }
+
+                    @Override
+                    protected void onSuccess(GetCategoryListBean getCategoryListBean) {
+//                        vDialog.dismiss();
+                        if(getCategoryListBean != null && getCategoryListBean.getResponseState().equals("1")){
+                            for(GetCategoryListBean.DataBean category : getCategoryListBean.getData()){
+                                if(category.getFcId().equals(fcId)){
+                                    mTitleBar.setTitleText(category.getFirstCategoryContent());
+                                    List<GetCategoryListBean.DataBean.CategorySecondListBean> categorySecondList = category.getCategorySecondList();
+                                    int i = 0;
+                                    for (GetCategoryListBean.DataBean.CategorySecondListBean categorySecondListBean : categorySecondList) {
+                                        GetSystemInfoBean.DataBean.IndexBtnsBean.CategorySecondListBean secondListBean = new GetSystemInfoBean.DataBean.IndexBtnsBean.CategorySecondListBean();
+                                        secondListBean.setCreateTime(categorySecondListBean.getCreateTime());
+                                        secondListBean.setDeleteFlag(categorySecondListBean.getDeleteFlag());
+                                        secondListBean.setFcId(categorySecondListBean.getFcId());
+                                        secondListBean.setScId(categorySecondListBean.getScId());
+                                        secondListBean.setSecondContent(categorySecondListBean.getSecondContent());
+                                        secondListBean.setUpdateTime(categorySecondListBean.getUpdateTime());
+                                        mCategorySecondList.add(secondListBean);
+                                        if(scId != null && secondListBean.getScId().equals(scId)){
+                                            categoryPosition = i;
+                                        }
+                                        i++;
+                                    }
+                                }
+                            }
+                            initManagementTitleRv();
+                        }
+                    }
+                });
     }
 
     @OnClick({R.id.naviFrameLeft, R.id.naviFrameRight, R.id.more_iv, R.id.time_layout, R.id.buy_count_layout,

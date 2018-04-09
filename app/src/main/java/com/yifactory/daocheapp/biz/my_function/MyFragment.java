@@ -100,6 +100,10 @@ public class MyFragment extends BaseFragment implements SwipeRefreshLayout.OnRef
     ProgressBar lastStudyTimeProgressBar;
     @BindView(R.id.lecturer_apply_tv)
     TextView mTv_lecturerApply;
+    @BindView(R.id.lecturer_apply_state_tv)
+    TextView mTv_lecturerApplyState;
+    @BindView(R.id.lecturer_apply_iv)
+    ImageView mIv_lecturerApply;
     @BindView(R.id.share_apply_tv)
     TextView mTv_shareApply;
 
@@ -174,8 +178,13 @@ public class MyFragment extends BaseFragment implements SwipeRefreshLayout.OnRef
 
         mTeachState = user.getTeachState();
         switch (mTeachState) {
+            case 1:
+                mTv_lecturerApplyState.setText("审核中");
+                mTv_lecturerApplyState.setVisibility(View.VISIBLE);
+                break;
             case 3:
                 mTv_lecturerApply.setText("上传视频马上赚钱");
+                mTv_lecturerApplyState.setVisibility(View.GONE);
                 break;
         }
         mShareState = user.getShareState();
@@ -443,6 +452,7 @@ public class MyFragment extends BaseFragment implements SwipeRefreshLayout.OnRef
                         lecturerApplyIntent.setClass(mActivity, MyLecturerApplyActivity.class);
                     } else if (mTeachState == 1) {
                         showToast("审核中");
+                        return;
                     } else if (mTeachState == 2) {
                         showToast("审核未通过，请重新申请");
                         lecturerApplyIntent.setClass(mActivity, MyLecturerApplyActivity.class);

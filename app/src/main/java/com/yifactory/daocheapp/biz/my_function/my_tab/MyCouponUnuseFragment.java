@@ -18,6 +18,7 @@ import com.yifactory.daocheapp.R;
 import com.yifactory.daocheapp.api.ApiService;
 import com.yifactory.daocheapp.app.fragment.BaseFragment;
 import com.yifactory.daocheapp.bean.CouponListBean;
+import com.yifactory.daocheapp.biz.home_function.home_recommend_tab.activity.HomeRecommendOperateManagerActivity;
 import com.yifactory.daocheapp.biz.my_function.adapter.MyCouponAdapter;
 import com.yifactory.daocheapp.utils.SDDialogUtil;
 import com.yifactory.daocheapp.utils.UserInfoUtil;
@@ -72,7 +73,14 @@ public class MyCouponUnuseFragment extends BaseFragment implements SwipeRefreshL
                 couponList = adapter.getData();
                 if (getActivity().getIntent().getStringExtra("state") != null && getActivity().getIntent().getStringExtra("state").equals("buy")) {
                     getActivity().setResult(Activity.RESULT_OK,new Intent().putExtra("data",couponList.get(position)));
+                    return;
                 }
+
+                Intent intent = new Intent(mActivity, HomeRecommendOperateManagerActivity.class);
+                intent.putExtra("mark", "coupon");
+                intent.putExtra("fcId",couponList.get(position).getCoupon().getFcId());
+                intent.putExtra("scId", couponList.get(position).getCoupon().getScId());
+                mActivity.startActivity(intent);
             }
         });
     }

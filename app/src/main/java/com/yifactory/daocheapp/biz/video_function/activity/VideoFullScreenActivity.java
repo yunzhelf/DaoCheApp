@@ -18,11 +18,17 @@ import com.aliyun.vodplayer.media.AliyunVidSts;
 import com.aliyun.vodplayer.media.AliyunVodPlayer;
 import com.aliyun.vodplayer.media.IAliyunVodPlayer;
 import com.aliyun.vodplayerview.utils.NetWatchdog;
+import com.allen.retrofit.RxHttpUtils;
+import com.allen.retrofit.interceptor.Transformer;
+import com.allen.retrofit.observer.CommonObserver;
 import com.gyf.barlibrary.ImmersionBar;
 import com.yifactory.daocheapp.R;
+import com.yifactory.daocheapp.api.ApiService;
 import com.yifactory.daocheapp.app.activity.BaseActivity;
+import com.yifactory.daocheapp.bean.AddStudyRecordBean;
 import com.yifactory.daocheapp.utils.AliyunPlayerUtils;
 import com.yifactory.daocheapp.utils.Formatter;
+import com.yifactory.daocheapp.utils.UserInfoUtil;
 import com.yifactory.daocheapp.widget.TitleBar;
 
 import org.greenrobot.eventbus.Subscribe;
@@ -54,18 +60,13 @@ public class VideoFullScreenActivity extends BaseActivity {
     TextView totalTimeTv;
     @BindView(R.id.full_seekbar)
     SeekBar seekBar;
-//    private AliyunVodPlayer aliyunVodPlayer;
     private IAliyunVodPlayer.PlayerState mPlayerState;
     private AliyunVidSts mVidSts;
     private boolean inSeek = false;
-    private boolean isCompleted = false;
-    private List<String> logStrs = new ArrayList<>();
-    private SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss.SSS");
-    private boolean mAutoPlay = true;
     private NetWatchdog netWatchDog;
     private AlertDialog netChangeDialog;
-    private long curTime;
-    private int seekPosition;
+    private long studyTime;
+    private String rId;
 
     Handler handler = new Handler(){
         @Override
@@ -98,6 +99,7 @@ public class VideoFullScreenActivity extends BaseActivity {
         if(state == Idle || state == Completed || state == Stopped || state == Prepared){
             playIv.setImageResource(R.drawable.bofanganniu);
         }
+        rId = getIntent().getStringExtra("rId");
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -164,6 +166,7 @@ public class VideoFullScreenActivity extends BaseActivity {
                 }
             }
         });
+        studyTime = System.currentTimeMillis();
     }
     @Override
     protected void addListener() {
@@ -173,6 +176,32 @@ public class VideoFullScreenActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        long curtime = System.currentTimeMillis();
+        addStudyReocrd(curtime - studyTime);
+    }
+
+    private void addStudyReocrd(long lastTime){
+        if(rId == null){
+            return;
+        }
+        String uId = UserInfoUtil.getUserInfoBean(this).getUId();
+        String time = String.valueOf(lastTime/1000);
+
+        RxHttpUtils.createApi(ApiService.class)
+                .addStudyRecord(rId,uId,time)
+                .compose(Transformer.<AddStudyRecordBean>switchSchedulers())
+                .subscribe(new CommonObserver<AddStudyRecordBean>() {
+                    @Override
+                    protected void onError(String errorMsg) {
+                        showToast(errorMsg);
+                    }
+
+                    @Override
+                    protected void onSuccess(AddStudyRecordBean addStudyRecordBean) {
+                        Log.e("videoFragment",addStudyRecordBean.getMsg());
+                    }
+                });
+
     }
 
     private void showVideoProgressInfo() {
