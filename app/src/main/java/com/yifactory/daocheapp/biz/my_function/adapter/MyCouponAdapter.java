@@ -43,11 +43,11 @@ public class MyCouponAdapter extends BaseQuickAdapter<CouponListBean.DataBean, B
         int percent = (int)(item.getCoupon().getPercent()*10);
         percentTv.setText(String.valueOf(percent) + "折");
         minPriceTv.setText("满" + item.getCoupon().getMinPrice() + "元可用");
-        if(item.getCoupon().getFcInfo() != null && item.getCoupon().getFcInfo().getFirstCategoryContent() != null){
-            typeTv.setText(item.getCoupon().getFcInfo().getFirstCategoryContent());
+        if(item.getCoupon().getTitle() != null){
+            typeTv.setText(item.getCoupon().getTitle());
         }
-        if(item.getCoupon().getScInfo()!= null && item.getCoupon().getScInfo().getSecondContent() != null){
-            subTypeTv.setText(item.getCoupon().getScInfo().getSecondContent());
+        if(item.getCoupon().getFcInfo() != null && item.getCoupon().getFcInfo().getFirstCategoryContent() != null){
+            subTypeTv.setText(item.getCoupon().getFcInfo().getFirstCategoryContent());
         }
         if(item.getCoupon().getDetail() != null){
             detailTv.setText(item.getCoupon().getDetail());

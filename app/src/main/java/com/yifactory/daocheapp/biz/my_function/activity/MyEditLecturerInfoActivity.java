@@ -18,6 +18,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -341,6 +342,22 @@ public class MyEditLecturerInfoActivity extends BaseActivity {
     private void closeDialog() {
         if (mDialog != null && mDialog.isShowing()) {
             mDialog.dismiss();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        hideSoftInput();
+    }
+
+    private void hideSoftInput(){
+        InputMethodManager imm = (InputMethodManager) getSystemService(this.INPUT_METHOD_SERVICE);
+        if(imm != null){
+            boolean isOpen=imm.isActive();
+            if(isOpen){
+                imm.hideSoftInputFromWindow(introduceEt.getWindowToken(),InputMethodManager.SHOW_FORCED);
+            }
         }
     }
 

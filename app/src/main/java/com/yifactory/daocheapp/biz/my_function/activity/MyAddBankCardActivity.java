@@ -6,6 +6,7 @@ import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -162,6 +163,22 @@ public class MyAddBankCardActivity extends BaseActivity {
                         }
                     }
                 });
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        hideSoftInput();
+    }
+
+    private void hideSoftInput(){
+        InputMethodManager imm = (InputMethodManager) getSystemService(this.INPUT_METHOD_SERVICE);
+        if(imm != null){
+            boolean isOpen=imm.isActive();
+            if(isOpen){
+                imm.hideSoftInputFromWindow(bankNumEt.getWindowToken(),InputMethodManager.SHOW_FORCED);
+            }
+        }
     }
 
     @Override

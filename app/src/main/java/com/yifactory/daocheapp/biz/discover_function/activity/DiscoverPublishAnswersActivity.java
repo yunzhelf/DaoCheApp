@@ -13,6 +13,7 @@ import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 import com.alibaba.sdk.android.oss.ClientException;
@@ -125,6 +126,22 @@ public class DiscoverPublishAnswersActivity extends BaseActivity {
     protected void initData(Bundle savedInstanceState) {
         ImmersionBar.with(this).statusBarDarkFont(true, 0.2f).fitsSystemWindows(true).statusBarColor(R.color.white).init();
         mDialog = SDDialogUtil.newLoading(this, "请求中...");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        hideSoftInput();
+    }
+
+    private void hideSoftInput(){
+        InputMethodManager imm = (InputMethodManager) getSystemService(this.INPUT_METHOD_SERVICE);
+        if(imm != null){
+            boolean isOpen=imm.isActive();
+            if(isOpen){
+                imm.hideSoftInputFromWindow(mEt_answer.getWindowToken(),InputMethodManager.SHOW_FORCED);
+            }
+        }
     }
 
     @Override

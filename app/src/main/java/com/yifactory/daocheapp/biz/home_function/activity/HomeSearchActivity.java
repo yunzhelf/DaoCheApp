@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -75,6 +76,22 @@ public class HomeSearchActivity extends BaseActivity {
     protected void initData(Bundle savedInstanceState) {
         ImmersionBar.with(this).statusBarDarkFont(true, 0.2f).fitsSystemWindows(true).statusBarColor(R.color.white).init();
 
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        hideSoftInput();
+    }
+
+    private void hideSoftInput(){
+        InputMethodManager imm = (InputMethodManager) getSystemService(this.INPUT_METHOD_SERVICE);
+        if(imm != null){
+            boolean isOpen=imm.isActive();
+            if(isOpen){
+                imm.hideSoftInputFromWindow(mEt_search.getWindowToken(),InputMethodManager.SHOW_FORCED);
+            }
+        }
     }
 
     @Override
