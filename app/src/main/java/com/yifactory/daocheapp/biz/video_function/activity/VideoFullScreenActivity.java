@@ -176,14 +176,13 @@ public class VideoFullScreenActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        long curtime = System.currentTimeMillis();
-        addStudyReocrd(curtime - studyTime);
+        if(rId != null && UserInfoUtil.getUserInfoBean(this) != null){
+            long curtime = System.currentTimeMillis();
+            addStudyReocrd(curtime - studyTime);
+        }
     }
 
     private void addStudyReocrd(long lastTime){
-        if(rId == null){
-            return;
-        }
         String uId = UserInfoUtil.getUserInfoBean(this).getUId();
         String time = String.valueOf(lastTime/1000);
 

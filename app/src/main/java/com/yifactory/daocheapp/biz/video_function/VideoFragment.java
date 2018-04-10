@@ -244,8 +244,10 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
                 AliyunPlayerUtils.aliyunVodPlayer.pause();
                 playIv.setImageResource(R.drawable.bofanganniu);
             }
-            long curtime = System.currentTimeMillis();
-            addStudyReocrd(curtime - studyTime);
+            if(videoInfo != null && UserInfoUtil.getUserInfoBean(mActivity) != null){
+                long curtime = System.currentTimeMillis();
+                addStudyReocrd(curtime - studyTime);
+            }
         }else{
             studyTime = System.currentTimeMillis();
         }
@@ -286,6 +288,7 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
         if(videoInfo.getVideoPath() != null && videoInfo.getUId() != null){
             getPlayVideoEvent();
             getSTStoken();
+            loadingProgress.setVisibility(View.VISIBLE);
         }else{
             showToast("数据出错");
         }

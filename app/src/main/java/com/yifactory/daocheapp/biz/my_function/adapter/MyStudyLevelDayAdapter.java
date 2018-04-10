@@ -29,7 +29,7 @@ public class MyStudyLevelDayAdapter extends BaseQuickAdapter<StudyDateBean.DataB
         final TextView dayTv = helper.getView(R.id.level_day_tv);
         final TextView minTv = helper.getView(R.id.level_min_tv);
         dayTv.setText(String.valueOf(item.getSsDay()));
-        minTv.setText(String.valueOf(item.getDaySum()));
+        minTv.setText(String.valueOf(item.getDaySum()/60));
     }
 
 }

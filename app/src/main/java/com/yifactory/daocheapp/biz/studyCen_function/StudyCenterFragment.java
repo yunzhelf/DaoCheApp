@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
@@ -33,6 +34,7 @@ import com.yifactory.daocheapp.biz.my_function.activity.MyLoginActivity;
 import com.yifactory.daocheapp.biz.my_function.activity.MyRegisterActivity;
 import com.yifactory.daocheapp.biz.studyCen_function.activity.StudyCenterMyBuyVideoListActivity;
 import com.yifactory.daocheapp.biz.studyCen_function.adapter.StudyCenMyReocrdVideoAdapter;
+import com.yifactory.daocheapp.biz.video_function.VideoFragment;
 import com.yifactory.daocheapp.event.TiXianSuccessMsg;
 import com.yifactory.daocheapp.utils.SDDialogUtil;
 import com.yifactory.daocheapp.utils.SPreferenceUtil;
@@ -460,10 +462,10 @@ public class StudyCenterFragment extends BaseFragment implements SwipeRefreshLay
                 intent.putExtra("videoInfo",mVideoAdapter.getData().get(i));
                 intent.putExtra("play",true);
                 startActivity(intent);
+                getChildFragmentManager().beginTransaction().hide(StudyCenterFragment.this);
             }
         });
     }
-
 
     @Override
     protected void addListener() {

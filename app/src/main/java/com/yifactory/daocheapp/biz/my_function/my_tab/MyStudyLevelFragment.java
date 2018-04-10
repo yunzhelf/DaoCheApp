@@ -104,19 +104,19 @@ public class MyStudyLevelFragment extends BaseFragment implements MyStudyLevelMo
         weekList.clear();
         monthList.clear();
         if(studyDateBean.getDayData().getSsDay() != null){
-            dayTotalTv.setText("本日累计学习时长" + String.valueOf(studyDateBean.getDayData().getDaySum()) + "分钟");
+            dayTotalTv.setText("本日累计学习时长" + String.valueOf(studyDateBean.getDayData().getDaySum()/60) + "分钟");
             dayList.add(studyDateBean.getDayData());
         }else{
             dayTotalTv.setText("本日累计学习时长0分钟");
         }
         if(studyDateBean.getWeekData().size() > 0){
-            weekTotalTv.setText("本周累计学习时长" + String.valueOf(studyDateBean.getWeekData().get(0).getWeekTotal()) + "分钟");
+            weekTotalTv.setText("本周累计学习时长" + String.valueOf(studyDateBean.getWeekData().get(0).getWeekTotal()/60) + "分钟");
             weekList = studyDateBean.getWeekData();
         }else{
             weekTotalTv.setText("本周累计学习时长0分钟");
         }
         if(studyDateBean.getMonthData().size() > 0){
-            monthTotalTv.setText("本月累计学习时长" + String.valueOf(studyDateBean.getMonthData().get(0).getMonthTotal()) + "分钟");
+            monthTotalTv.setText("本月累计学习时长" + String.valueOf(studyDateBean.getMonthData().get(0).getMonthTotal()/60) + "分钟");
             monthList = studyDateBean.getMonthData();
         }else{
             monthTotalTv.setText("本月累计学习时长0分钟");
@@ -186,7 +186,7 @@ public class MyStudyLevelFragment extends BaseFragment implements MyStudyLevelMo
             }
         }
         for (int i = 0; i < weekDataList.size(); i++){
-            yData[i] = weekDataList.get(i).getDaySum();
+            yData[i] = weekDataList.get(i).getDaySum()/60;
         }
         setData(xData,yData);
     }

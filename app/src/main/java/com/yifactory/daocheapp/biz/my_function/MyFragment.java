@@ -139,7 +139,6 @@ public class MyFragment extends BaseFragment implements SwipeRefreshLayout.OnRef
         if (mIsLine) {
             mBaseSwipeRefreshLayout.setVisibility(View.VISIBLE);
             bottomLayout.setVisibility(View.GONE);
-            getLevelList();
             getUserInfoById();
         } else {
             mBaseSwipeRefreshLayout.setVisibility(View.GONE);
@@ -169,7 +168,7 @@ public class MyFragment extends BaseFragment implements SwipeRefreshLayout.OnRef
 
         reciveBalanceTv.setText(String.valueOf(user.getReciveBalance()) + "金币");
         goldBalanceTv.setText(String.valueOf(user.getGoldBalance()) + "金币");
-        studyTimeTv.setText(user.getLearnTime() + "分钟");
+        studyTimeTv.setText(user.getLearnTime()/60 + "分钟");
         couponCountTv.setText(String.valueOf(user.getDiscountCouponCounts()) + "张");
         questionCountTv.setText(String.valueOf(user.getQuestionCounts()) + "个");
         answerCountTv.setText(String.valueOf(user.getAnswerCounts()) + "个");
@@ -210,7 +209,7 @@ public class MyFragment extends BaseFragment implements SwipeRefreshLayout.OnRef
                         if (levelListBean.getResponseState().equals("1")) {
                             List<LevelListBean.DataBean> dataBeanList = levelListBean.getData();
                             handleLevelTimeEvent(dataBeanList);
-                            judgeWhichStage(UserInfoUtil.getUserInfoBean(mActivity).getLevalTime());
+                            judgeWhichStage(user.getLevalTime());
                         } else {
                             showToast(levelListBean.getMsg());
                         }
@@ -398,6 +397,7 @@ public class MyFragment extends BaseFragment implements SwipeRefreshLayout.OnRef
                         if (userBean != null && userBean.getResponseState().equals("1")) {
                             user = userBean.getData().get(0);
                             initUser();
+                            getLevelList();
                         } else {
                             Toast.makeText(getActivity(), userBean.getMsg(), Toast.LENGTH_SHORT).show();
                         }
