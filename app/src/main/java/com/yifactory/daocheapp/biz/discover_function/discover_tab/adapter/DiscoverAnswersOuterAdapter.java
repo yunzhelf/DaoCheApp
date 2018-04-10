@@ -3,6 +3,7 @@ package com.yifactory.daocheapp.biz.discover_function.discover_tab.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -130,8 +131,7 @@ public class DiscoverAnswersOuterAdapter extends BaseQuickAdapter<GetUserQuestio
                     @Override
                     protected void onSuccess(DeleteUserQuestionBean getUserQuestionListBean) {
                         if (getUserQuestionListBean.getResponseState().equals("1")) {
-                            mOuterAdapter.getData().remove(itemPosition);
-                            mOuterAdapter.notifyItemRemoved(itemPosition);
+                            mOuterAdapter.remove(itemPosition);
                         } else {
                             Toast.makeText(context, getUserQuestionListBean.getMsg(), Toast.LENGTH_SHORT).show();
                         }
