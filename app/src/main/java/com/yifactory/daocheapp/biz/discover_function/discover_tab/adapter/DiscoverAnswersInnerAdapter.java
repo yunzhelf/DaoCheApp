@@ -156,7 +156,7 @@ public class DiscoverAnswersInnerAdapter extends BaseQuickAdapter<GetUserQuestio
                     protected void onSuccess(AddQuestionAnswerAppraiseBean addQuestionAnswerAppraiseBean) {
                         if (addQuestionAnswerAppraiseBean.getResponseState().equals("1")) {
                             GetUserQuestionListBean.DataBean.AnswersBean answersBean = mInnerAdapter.getData().get(itemPosition-1);
-                            int praiseCounts = answersBean.getBePraised();
+                            int praiseCounts = answersBean.getPraiseCounts();
                             if (praised == 0) {
                                 answersBean.setPraised(1);
                                 answersBean.setPraiseCounts(praiseCounts + 1);

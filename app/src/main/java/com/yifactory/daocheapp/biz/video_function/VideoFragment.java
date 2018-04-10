@@ -39,6 +39,7 @@ import com.yifactory.daocheapp.bean.AddStudyRecordBean;
 import com.yifactory.daocheapp.bean.PlayVideoBean;
 import com.yifactory.daocheapp.bean.StsToken;
 import com.yifactory.daocheapp.bean.TwoVideoListBean;
+import com.yifactory.daocheapp.biz.home_function.home_recommend_tab.activity.HomeRecommendInterviewVideoDetailsActivity;
 import com.yifactory.daocheapp.biz.video_function.activity.VideoAuthorHomePageActivity;
 import com.yifactory.daocheapp.biz.video_function.activity.VideoFullScreenActivity;
 import com.yifactory.daocheapp.biz.video_function.adapter.VideoAuthorOtherProductionAdapter;
@@ -522,13 +523,15 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
                 dataBean.setVideoPath(dataHotArray.get(position).getVideoPath());
                 dataBean.setRId(dataHotArray.get(position).getRId());
                 dataBean.setUId(dataHotArray.get(position).getUId());
-                EventBus.getDefault().post(dataBean);
                 scrollView.post(new Runnable() {
                     @Override
                     public void run() {
                         scrollView.fullScroll(ScrollView.FOCUS_UP);
                     }
                 });
+                Intent intent = new Intent(getActivity(),HomeRecommendInterviewVideoDetailsActivity.class);
+                intent.putExtra("videoInfo",dataHotArray.get(position));
+                startActivity(intent);
             }
         });
     }
@@ -546,13 +549,15 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
                 dataBean.setVideoPath(dataProductionArray.get(position).getVideoPath());
                 dataBean.setRId(dataProductionArray.get(position).getRId());
                 dataBean.setUId(dataProductionArray.get(position).getUId());
-                EventBus.getDefault().post(dataBean);
                 scrollView.post(new Runnable() {
                     @Override
                     public void run() {
                         scrollView.fullScroll(ScrollView.FOCUS_UP);
                     }
                 });
+                Intent intent = new Intent(getActivity(),HomeRecommendInterviewVideoDetailsActivity.class);
+                intent.putExtra("videoInfo",dataBean);
+                startActivity(intent);
             }
         });
     }

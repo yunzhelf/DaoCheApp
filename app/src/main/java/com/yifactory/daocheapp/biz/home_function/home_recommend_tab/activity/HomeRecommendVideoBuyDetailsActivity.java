@@ -242,7 +242,7 @@ public class HomeRecommendVideoBuyDetailsActivity extends BaseActivity {
                         if (mDialog != null && mDialog.isShowing()) {
                             mDialog.cancel();
                         }
-                        ToastUtils.showToast("支付成功");
+                        ToastUtils.showToast(userBean.msg);
                         if (userBean.responseState.equals("1")) {
                             EventBus.getDefault().post(new BuyVideoSuccessMsg());
                             finish();
