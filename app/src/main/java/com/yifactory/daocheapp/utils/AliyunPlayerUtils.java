@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 
 import com.alivc.player.AliVcMediaPlayer;
 import com.aliyun.common.httpfinal.QupaiHttpFinal;
@@ -170,14 +171,17 @@ public class AliyunPlayerUtils {
         }
         if (lastSeekTime < 0) {
             lastSeekTime = System.currentTimeMillis();
-
             inSeek = true;
             aliyunVodPlayer.seekTo(position);
         } else {
             long currentTime = System.currentTimeMillis();
             if (currentTime - lastSeekTime > 1000) {//1000ms
-                inSeek = true;
-                aliyunVodPlayer.seekTo(position);
+                if(position > aliyunVodPlayer.getDuration()){
+                    aliyunVodPlayer.seekTo((int)aliyunVodPlayer.getDuration());
+                }else{
+                    inSeek = true;
+                    aliyunVodPlayer.seekTo(position);
+                }
                 lastSeekTime = currentTime;
             }
         }

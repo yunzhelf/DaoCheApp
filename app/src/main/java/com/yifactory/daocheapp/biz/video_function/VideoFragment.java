@@ -618,10 +618,12 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
                     playVideo();
                     break;
                 case R.id.previous_iv:
-                    AliyunPlayerUtils.seekTo((int)AliyunPlayerUtils.aliyunVodPlayer.getCurrentPosition() - 5000);
+//                    AliyunPlayerUtils.seekTo((int)AliyunPlayerUtils.aliyunVodPlayer.getCurrentPosition() - 5000);
+                    AliyunPlayerUtils.seekTo(seekBar.getProgress() - 5000);
                     break;
                 case R.id.next_iv:
-                    AliyunPlayerUtils.seekTo((int)AliyunPlayerUtils.aliyunVodPlayer.getCurrentPosition() + 5000);
+//                    AliyunPlayerUtils.seekTo((int)AliyunPlayerUtils.aliyunVodPlayer.getCurrentPosition() + 5000);
+                    AliyunPlayerUtils.seekTo(seekBar.getProgress() + 5000);
                     break;
                 case R.id.hot_list_reflash_ly:
                     getHostlistEvent();

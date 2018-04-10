@@ -25,6 +25,7 @@ public class VideoHotRecommendAdapter extends BaseQuickAdapter<PlayVideoBean.Dat
         TextView playCountTv = helper.getView(R.id.play_count_tv);
         TextView timeTv = helper.getView(R.id.duration_tv);
         TextView goldTv = helper.getView(R.id.free_tv);
+        TextView autherTv = helper.getView(R.id.name_tv);
 
         oneTv.setText(item.getTitle());
         secondTv.setText(item.getSecondTitle());
@@ -35,6 +36,10 @@ public class VideoHotRecommendAdapter extends BaseQuickAdapter<PlayVideoBean.Dat
             goldTv.setText("免费");
         }else{
             goldTv.setText(item.getGoldCount() + "金币");
+        }
+        if(item.getCreator() != null && item.getCreator().getUserName() != null){
+            autherTv.setVisibility(View.VISIBLE);
+            autherTv.setText(item.getCreator().getUserName());
         }
     }
 }

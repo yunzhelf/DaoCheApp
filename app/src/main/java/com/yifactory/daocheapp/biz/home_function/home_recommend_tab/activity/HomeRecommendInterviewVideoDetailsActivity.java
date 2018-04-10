@@ -192,7 +192,7 @@ public class HomeRecommendInterviewVideoDetailsActivity extends BaseActivity imp
                 }
             }
         });
-        content.setText(data.getVideoContent());
+        content.setText(data.getSecondTitle()); //视频副标题
         count.setText(data.getShowCounts() + "次");
         longTime.setText("时长: " + Formatter.formatTime(data.getTotalMinute()));
 

@@ -28,10 +28,6 @@ import java.util.List;
 
 import butterknife.BindView;
 
-/**
- * Created by sunxj on 2018/3/13.
- */
-
 public class MyCouponUnuseFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
     private String TAG = "coupon";
     @BindView(R.id.swipeRefreshLayout)
