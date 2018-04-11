@@ -462,7 +462,6 @@ public class StudyCenterFragment extends BaseFragment implements SwipeRefreshLay
                 intent.putExtra("videoInfo",mVideoAdapter.getData().get(i));
                 intent.putExtra("play",true);
                 startActivity(intent);
-                getChildFragmentManager().beginTransaction().hide(StudyCenterFragment.this);
             }
         });
     }

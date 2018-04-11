@@ -46,8 +46,8 @@ public class MyCouponAdapter extends BaseQuickAdapter<CouponListBean.DataBean, B
         if(item.getCoupon().getTitle() != null){
             typeTv.setText(item.getCoupon().getTitle());
         }
-        if(item.getCoupon().getFcInfo() != null && item.getCoupon().getFcInfo().getFirstCategoryContent() != null){
-            subTypeTv.setText(item.getCoupon().getFcInfo().getFirstCategoryContent());
+        if(item.getCoupon().getFcInfo() != null && item.getCoupon().getFcInfo().get(0) != null){
+            subTypeTv.setText(item.getCoupon().getFcInfo().get(0).getFirstCategoryContent());
         }
         if(item.getCoupon().getDetail() != null){
             detailTv.setText(item.getCoupon().getDetail());

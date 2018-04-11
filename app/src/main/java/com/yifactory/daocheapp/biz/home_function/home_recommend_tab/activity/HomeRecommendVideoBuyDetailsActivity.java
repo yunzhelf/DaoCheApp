@@ -28,6 +28,8 @@ import com.yifactory.daocheapp.biz.my_function.activity.MyCouponActivity;
 import com.yifactory.daocheapp.biz.my_function.activity.MyTopUpActivity;
 import com.yifactory.daocheapp.event.BuyVideoSuccessMsg;
 import com.yifactory.daocheapp.utils.SDDialogUtil;
+import com.yifactory.daocheapp.utils.SPreferenceUtil;
+import com.yifactory.daocheapp.utils.SharePreferenceUtil;
 import com.yifactory.daocheapp.utils.UserInfoUtil;
 import com.yifactory.daocheapp.widget.TitleBar;
 
@@ -223,11 +225,17 @@ public class HomeRecommendVideoBuyDetailsActivity extends BaseActivity {
     }
 
     private void pay() {
+        String uId = UserInfoUtil.getUserInfoBean(HomeRecommendVideoBuyDetailsActivity.this).getUId();
+        String uuId = new SPreferenceUtil(this,"config.sp").getUserUuid();
+        if(uuId == null || uId == null){
+            showToast("请登录");
+            return;
+        }
         mDialog = SDDialogUtil.newLoading(HomeRecommendVideoBuyDetailsActivity.this, "正在加载，请稍后");
         mDialog.show();
-        String uId = UserInfoUtil.getUserInfoBean(HomeRecommendVideoBuyDetailsActivity.this).getUId();
+
         RxHttpUtils.createApi(ApiService.class)
-                .buyVideo(uId, data.getRId(), ucId)
+                .buyVideo(uId, data.getRId(), ucId, uuId)
                 .compose(Transformer.<BaseBean>switchSchedulers())
                 .subscribe(new CommonObserver<BaseBean>() {
                     @Override

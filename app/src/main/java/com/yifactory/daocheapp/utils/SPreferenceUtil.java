@@ -80,4 +80,13 @@ public class SPreferenceUtil {
         return dataList;
 
     }
+
+    public void setUserUuid(String uuid){
+        mEditor.putString("uuid",uuid);
+        mEditor.commit();
+    }
+
+    public String getUserUuid(){
+        return mSharedPreferences.getString("uuid",null);
+    }
 }

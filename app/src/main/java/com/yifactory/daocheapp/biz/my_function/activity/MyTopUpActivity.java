@@ -31,6 +31,7 @@ import com.yifactory.daocheapp.bean.UserBean;
 import com.yifactory.daocheapp.event.TiXianSuccessMsg;
 import com.yifactory.daocheapp.utils.PayResult;
 import com.yifactory.daocheapp.utils.SDDialogUtil;
+import com.yifactory.daocheapp.utils.SPreferenceUtil;
 import com.yifactory.daocheapp.utils.UserInfoUtil;
 import com.yifactory.daocheapp.widget.BaseSwipeRefreshLayout;
 import com.yifactory.daocheapp.widget.TitleBar;
@@ -263,10 +264,11 @@ public class MyTopUpActivity extends BaseActivity implements SwipeRefreshLayout.
 
     private void topUpRequest() {
         Log.i("521", "topUpRequest: payWay:" + payWay + "===mUId:" + mUId + "===jinBi:" + jinBi);
+        String uuId = new SPreferenceUtil(this,"config.sp").getUserUuid();
         mDialog.show();
         if (payWay.equals("1")) {
             RxHttpUtils.createApi(ApiService.class)
-                    .addUserBalance2(payWay, mUId, jinBi, jinBi)
+                    .addUserBalance2(payWay, mUId, jinBi, jinBi, uuId)
                     .compose(Transformer.<AddUserBalanceBean2>switchSchedulers())
                     .subscribe(new CommonObserver<AddUserBalanceBean2>() {
                         @Override
@@ -301,7 +303,7 @@ public class MyTopUpActivity extends BaseActivity implements SwipeRefreshLayout.
                     });
         } else {
             RxHttpUtils.createApi(ApiService.class)
-                    .addUserBalance(payWay, mUId, jinBi, jinBi)
+                    .addUserBalance(payWay, mUId, jinBi, jinBi, uuId)
                     .compose(Transformer.<AddUserBalanceBean>switchSchedulers())
                     .subscribe(new CommonObserver<AddUserBalanceBean>() {
                         @Override

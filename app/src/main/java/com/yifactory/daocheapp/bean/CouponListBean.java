@@ -6,7 +6,7 @@ import java.util.List;
 public class CouponListBean {
 
     /**
-     * data : [{"cId":"234","coupon":{"cId":"234","createTime":"2018-03-09 14:30:43","deleteFlag":0,"detail":"马自达钟情的情人-转子发动机","endTime":"2018-03-24 14:30:38","fcId":"1","fcInfo":{"backgroundImg":"110d75451eef4740ba9d7290abfcae5d","btnIndex":0,"categoryId":"","categoryLeval":1,"categorySecondList":[],"fcId":"1","firstCategoryContent":"运营管理","isHot":1,"isIndex":1,"updateTime":"2018-03-21 13:49:27"},"id":"234","minPrice":5,"percent":0.8,"scId":"1","scInfo":{"createTime":"2018-03-05 11:20:29","deleteFlag":0,"fcId":"1","scId":"1","secondContent":"集团管理","updateTime":"2018-03-19 15:08:35"},"startTime":"2018-03-09 14:30:35","title":"让我们荡起双桨","updateTime":"2018-03-21 15:04:33"},"createTime":null,"deleteFlag":0,"state":1,"uId":"f99bda976cde43d18ebf497fb58c4320","ucId":"10e72132f7144e44800a73e39e93deee","updateTime":"2018-03-21 13:49:31"},{"cId":"222","coupon":{"cId":"222","createTime":"2018-03-09 12:46:48","deleteFlag":0,"detail":"加油","endTime":"2018-04-08 12:46:41","fcId":"1","fcInfo":{"backgroundImg":"110d75451eef4740ba9d7290abfcae5d","btnIndex":0,"categoryId":"","categoryLeval":1,"categorySecondList":[],"fcId":"1","firstCategoryContent":"运营管理","isHot":1,"isIndex":1,"updateTime":"2018-03-21 13:49:27"},"id":"222","minPrice":10,"percent":0.8,"scId":"1","scInfo":{"createTime":"2018-03-05 11:20:29","deleteFlag":0,"fcId":"1","scId":"1","secondContent":"集团管理","updateTime":"2018-03-19 15:08:35"},"startTime":"2018-03-09 12:46:38","title":"精神的食粮不能停!","updateTime":"2018-03-13 15:33:44"},"createTime":"2018-03-09 13:55:51","deleteFlag":0,"state":0,"uId":"f99bda976cde43d18ebf497fb58c4320","ucId":"sdfadfadsf","updateTime":"2018-03-09 13:55:57"}]
+     * data : [{"cId":"250","coupon":{"cId":"250","createTime":"2018-03-30 00:02:46","deleteFlag":0,"detail":"马自达钟情的情人-转子发动机","endTime":"2018-03-30 00:00:00","fcId":"1","fcInfo":[{"backgroundImg":"http://test-ze-bj.oss-cn-beijing.aliyuncs.com/fbaf44a54215458092b908b470f08fa5","btnIndex":0,"categoryId":"","categoryLeval":1,"categorySecondList":[],"fcId":"1","firstCategoryContent":"运营管理","isHot":1,"isIndex":1,"updateTime":"2018-04-11 16:09:56"}],"id":"250","minPrice":5,"percent":0.8,"scId":"1","scInfo":[],"startTime":"2018-03-30 00:00:00","title":"让我们荡起双桨","updateTime":"2018-03-30 00:02:46"},"createTime":"2018-03-09 13:55:51","deleteFlag":0,"state":0,"uId":"f99bda976cde43d18ebf497fb58c4320","ucId":"fb78b466ede24ee0b15645963c3d4248","updateTime":"2018-04-09 10:25:47"},{"cId":"222","coupon":{"cId":"222","createTime":"2018-03-09 12:46:48","deleteFlag":1,"detail":"加油","endTime":"2018-04-08 12:46:41","fcId":"1","fcInfo":[{"backgroundImg":"http://test-ze-bj.oss-cn-beijing.aliyuncs.com/fbaf44a54215458092b908b470f08fa5","btnIndex":0,"categoryId":"","categoryLeval":1,"categorySecondList":[],"fcId":"1","firstCategoryContent":"运营管理","isHot":1,"isIndex":1,"updateTime":"2018-04-11 16:09:56"}],"id":"222","minPrice":10,"percent":0.8,"scId":"1","scInfo":[],"startTime":"2018-03-09 12:46:38","title":"精神的食粮不能停!","updateTime":"2018-03-30 00:02:34"},"createTime":"2018-03-09 13:55:51","deleteFlag":0,"state":0,"uId":"f99bda976cde43d18ebf497fb58c4320","ucId":"sdfadfadsf","updateTime":"2018-03-09 13:55:57"}]
      * msg : 查询成功
      * responseState : 1
      */
@@ -41,19 +41,19 @@ public class CouponListBean {
 
     public static class DataBean implements Serializable{
         /**
-         * cId : 234
-         * coupon : {"cId":"234","createTime":"2018-03-09 14:30:43","deleteFlag":0,"detail":"马自达钟情的情人-转子发动机","endTime":"2018-03-24 14:30:38","fcId":"1","fcInfo":{"backgroundImg":"110d75451eef4740ba9d7290abfcae5d","btnIndex":0,"categoryId":"","categoryLeval":1,"categorySecondList":[],"fcId":"1","firstCategoryContent":"运营管理","isHot":1,"isIndex":1,"updateTime":"2018-03-21 13:49:27"},"id":"234","minPrice":5,"percent":0.8,"scId":"1","scInfo":{"createTime":"2018-03-05 11:20:29","deleteFlag":0,"fcId":"1","scId":"1","secondContent":"集团管理","updateTime":"2018-03-19 15:08:35"},"startTime":"2018-03-09 14:30:35","title":"让我们荡起双桨","updateTime":"2018-03-21 15:04:33"}
-         * createTime : null
+         * cId : 250
+         * coupon : {"cId":"250","createTime":"2018-03-30 00:02:46","deleteFlag":0,"detail":"马自达钟情的情人-转子发动机","endTime":"2018-03-30 00:00:00","fcId":"1","fcInfo":[{"backgroundImg":"http://test-ze-bj.oss-cn-beijing.aliyuncs.com/fbaf44a54215458092b908b470f08fa5","btnIndex":0,"categoryId":"","categoryLeval":1,"categorySecondList":[],"fcId":"1","firstCategoryContent":"运营管理","isHot":1,"isIndex":1,"updateTime":"2018-04-11 16:09:56"}],"id":"250","minPrice":5,"percent":0.8,"scId":"1","scInfo":[],"startTime":"2018-03-30 00:00:00","title":"让我们荡起双桨","updateTime":"2018-03-30 00:02:46"}
+         * createTime : 2018-03-09 13:55:51
          * deleteFlag : 0
-         * state : 1
+         * state : 0
          * uId : f99bda976cde43d18ebf497fb58c4320
-         * ucId : 10e72132f7144e44800a73e39e93deee
-         * updateTime : 2018-03-21 13:49:31
+         * ucId : fb78b466ede24ee0b15645963c3d4248
+         * updateTime : 2018-04-09 10:25:47
          */
 
         private String cId;
         private CouponBean coupon;
-        private Object createTime;
+        private String createTime;
         private int deleteFlag;
         private int state;
         private String uId;
@@ -76,11 +76,11 @@ public class CouponListBean {
             this.coupon = coupon;
         }
 
-        public Object getCreateTime() {
+        public String getCreateTime() {
             return createTime;
         }
 
-        public void setCreateTime(Object createTime) {
+        public void setCreateTime(String createTime) {
             this.createTime = createTime;
         }
 
@@ -126,21 +126,21 @@ public class CouponListBean {
 
         public static class CouponBean {
             /**
-             * cId : 234
-             * createTime : 2018-03-09 14:30:43
+             * cId : 250
+             * createTime : 2018-03-30 00:02:46
              * deleteFlag : 0
              * detail : 马自达钟情的情人-转子发动机
-             * endTime : 2018-03-24 14:30:38
+             * endTime : 2018-03-30 00:00:00
              * fcId : 1
-             * fcInfo : {"backgroundImg":"110d75451eef4740ba9d7290abfcae5d","btnIndex":0,"categoryId":"","categoryLeval":1,"categorySecondList":[],"fcId":"1","firstCategoryContent":"运营管理","isHot":1,"isIndex":1,"updateTime":"2018-03-21 13:49:27"}
-             * id : 234
+             * fcInfo : [{"backgroundImg":"http://test-ze-bj.oss-cn-beijing.aliyuncs.com/fbaf44a54215458092b908b470f08fa5","btnIndex":0,"categoryId":"","categoryLeval":1,"categorySecondList":[],"fcId":"1","firstCategoryContent":"运营管理","isHot":1,"isIndex":1,"updateTime":"2018-04-11 16:09:56"}]
+             * id : 250
              * minPrice : 5
              * percent : 0.8
              * scId : 1
-             * scInfo : {"createTime":"2018-03-05 11:20:29","deleteFlag":0,"fcId":"1","scId":"1","secondContent":"集团管理","updateTime":"2018-03-19 15:08:35"}
-             * startTime : 2018-03-09 14:30:35
+             * scInfo : []
+             * startTime : 2018-03-30 00:00:00
              * title : 让我们荡起双桨
-             * updateTime : 2018-03-21 15:04:33
+             * updateTime : 2018-03-30 00:02:46
              */
 
             private String cId;
@@ -149,15 +149,15 @@ public class CouponListBean {
             private String detail;
             private String endTime;
             private String fcId;
-            private FcInfoBean fcInfo;
             private String id;
             private int minPrice;
             private double percent;
             private String scId;
-            private ScInfoBean scInfo;
             private String startTime;
             private String title;
             private String updateTime;
+            private List<FcInfoBean> fcInfo;
+            private List<?> scInfo;
 
             public String getCId() {
                 return cId;
@@ -207,14 +207,6 @@ public class CouponListBean {
                 this.fcId = fcId;
             }
 
-            public FcInfoBean getFcInfo() {
-                return fcInfo;
-            }
-
-            public void setFcInfo(FcInfoBean fcInfo) {
-                this.fcInfo = fcInfo;
-            }
-
             public String getId() {
                 return id;
             }
@@ -247,14 +239,6 @@ public class CouponListBean {
                 this.scId = scId;
             }
 
-            public ScInfoBean getScInfo() {
-                return scInfo;
-            }
-
-            public void setScInfo(ScInfoBean scInfo) {
-                this.scInfo = scInfo;
-            }
-
             public String getStartTime() {
                 return startTime;
             }
@@ -279,9 +263,25 @@ public class CouponListBean {
                 this.updateTime = updateTime;
             }
 
+            public List<FcInfoBean> getFcInfo() {
+                return fcInfo;
+            }
+
+            public void setFcInfo(List<FcInfoBean> fcInfo) {
+                this.fcInfo = fcInfo;
+            }
+
+            public List<?> getScInfo() {
+                return scInfo;
+            }
+
+            public void setScInfo(List<?> scInfo) {
+                this.scInfo = scInfo;
+            }
+
             public static class FcInfoBean {
                 /**
-                 * backgroundImg : 110d75451eef4740ba9d7290abfcae5d
+                 * backgroundImg : http://test-ze-bj.oss-cn-beijing.aliyuncs.com/fbaf44a54215458092b908b470f08fa5
                  * btnIndex : 0
                  * categoryId :
                  * categoryLeval : 1
@@ -290,7 +290,7 @@ public class CouponListBean {
                  * firstCategoryContent : 运营管理
                  * isHot : 1
                  * isIndex : 1
-                 * updateTime : 2018-03-21 13:49:27
+                 * updateTime : 2018-04-11 16:09:56
                  */
 
                 private String backgroundImg;
@@ -382,72 +382,6 @@ public class CouponListBean {
 
                 public void setCategorySecondList(List<?> categorySecondList) {
                     this.categorySecondList = categorySecondList;
-                }
-            }
-
-            public static class ScInfoBean {
-                /**
-                 * createTime : 2018-03-05 11:20:29
-                 * deleteFlag : 0
-                 * fcId : 1
-                 * scId : 1
-                 * secondContent : 集团管理
-                 * updateTime : 2018-03-19 15:08:35
-                 */
-
-                private String createTime;
-                private int deleteFlag;
-                private String fcId;
-                private String scId;
-                private String secondContent;
-                private String updateTime;
-
-                public String getCreateTime() {
-                    return createTime;
-                }
-
-                public void setCreateTime(String createTime) {
-                    this.createTime = createTime;
-                }
-
-                public int getDeleteFlag() {
-                    return deleteFlag;
-                }
-
-                public void setDeleteFlag(int deleteFlag) {
-                    this.deleteFlag = deleteFlag;
-                }
-
-                public String getFcId() {
-                    return fcId;
-                }
-
-                public void setFcId(String fcId) {
-                    this.fcId = fcId;
-                }
-
-                public String getScId() {
-                    return scId;
-                }
-
-                public void setScId(String scId) {
-                    this.scId = scId;
-                }
-
-                public String getSecondContent() {
-                    return secondContent;
-                }
-
-                public void setSecondContent(String secondContent) {
-                    this.secondContent = secondContent;
-                }
-
-                public String getUpdateTime() {
-                    return updateTime;
-                }
-
-                public void setUpdateTime(String updateTime) {
-                    this.updateTime = updateTime;
                 }
             }
         }

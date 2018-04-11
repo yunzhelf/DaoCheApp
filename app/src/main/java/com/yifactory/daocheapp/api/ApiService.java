@@ -61,7 +61,7 @@ public interface ApiService {
 
     @FormUrlEncoded
     @POST("askcar/user/login.do")
-    Observable<LoginBean> login(@Field("mobile") String mobile, @Field("password") String password, @Field("wxId") String wxId);
+    Observable<LoginBean> login(@Field("mobile") String mobile, @Field("password") String password, @Field("wxId") String wxId,@Field("uuId") String uuId);
 
     @FormUrlEncoded
     @POST("sns/oauth2/access_token")
@@ -276,11 +276,11 @@ public interface ApiService {
 
     @FormUrlEncoded
     @POST("askcar/pay/addUserBalance.do")
-    Observable<AddUserBalanceBean> addUserBalance(@Field("payType") String payType, @Field("uId") String uId, @Field("goldCount") String goldCount, @Field("rmb") String rmb);
+    Observable<AddUserBalanceBean> addUserBalance(@Field("payType") String payType, @Field("uId") String uId, @Field("goldCount") String goldCount, @Field("rmb") String rmb ,@Field("uuId") String uuId);
 
     @FormUrlEncoded
     @POST("askcar/pay/addUserBalance.do")
-    Observable<AddUserBalanceBean2> addUserBalance2(@Field("payType") String payType, @Field("uId") String uId, @Field("goldCount") String goldCount, @Field("rmb") String rmb);
+    Observable<AddUserBalanceBean2> addUserBalance2(@Field("payType") String payType, @Field("uId") String uId, @Field("goldCount") String goldCount, @Field("rmb") String rmb ,@Field("uuId") String uuId);
 
     @FormUrlEncoded
     @POST("askcar/common/getStudyDate.do")
@@ -321,7 +321,7 @@ public interface ApiService {
 
     @FormUrlEncoded
     @POST("askcar/resource/addUserBuyRecord.do")
-    Observable<BaseBean> buyVideo(@Field("uId") String uId, @Field("rId") String rId, @Field("ucId") String ucId);
+    Observable<BaseBean> buyVideo(@Field("uId") String uId, @Field("rId") String rId, @Field("ucId") String ucId ,@Field("uuId") String uuId);
 
 
     @FormUrlEncoded

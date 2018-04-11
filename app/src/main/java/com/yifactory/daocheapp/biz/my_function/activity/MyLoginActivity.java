@@ -36,6 +36,9 @@ import org.greenrobot.eventbus.ThreadMode;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Random;
+import java.util.UUID;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -135,9 +138,10 @@ public class MyLoginActivity extends BaseActivity {
             return;
         }
         mDialog.show();
+        final String uuId = UUID.randomUUID().toString().replace("-","");
         RxHttpUtils
                 .createApi(ApiService.class)
-                .login(accountStr, pwdStr, "")
+                .login(accountStr, pwdStr, "", uuId)
                 .compose(Transformer.<LoginBean>switchSchedulers())
                 .subscribe(new CommonObserver<LoginBean>() {
                     @Override
@@ -149,12 +153,12 @@ public class MyLoginActivity extends BaseActivity {
                     @Override
                     protected void onSuccess(LoginBean loginBean) {
                         mDialog.dismiss();
-                        handleLoginEvent(loginBean);
+                        handleLoginEvent(loginBean,uuId);
                     }
                 });
     }
 
-    private void handleLoginEvent(LoginBean loginBean) {
+    private void handleLoginEvent(LoginBean loginBean,String uuid) {
         String msg = loginBean.getMsg();
         String responseState = loginBean.getResponseState();
         if (responseState.equals("1")) {
@@ -168,7 +172,9 @@ public class MyLoginActivity extends BaseActivity {
                 startActivity(intent);
                 finish();
             }*/
-            new SPreferenceUtil(this, "config.sp").setIsLine(true);
+            SPreferenceUtil sp = new SPreferenceUtil(this, "config.sp");
+            sp.setIsLine(true);
+            sp.setUserUuid(uuid); //用于充值 、购买视频验证
             UserInfoUtil.saveUserInfo(loginBean.getData().get(0), MyLoginActivity.this);
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
