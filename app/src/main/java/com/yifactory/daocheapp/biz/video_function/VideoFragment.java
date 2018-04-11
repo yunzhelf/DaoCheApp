@@ -3,6 +3,8 @@ package com.yifactory.daocheapp.biz.video_function;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -29,10 +31,14 @@ import com.aliyun.vodplayerview.utils.NetWatchdog;
 import com.allen.retrofit.RxHttpUtils;
 import com.allen.retrofit.interceptor.Transformer;
 import com.allen.retrofit.observer.CommonObserver;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.tencent.mm.opensdk.modelmsg.SendMessageToWX;
+import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
+import com.tencent.mm.opensdk.modelmsg.WXVideoObject;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import com.yifactory.daocheapp.R;
+import com.yifactory.daocheapp.api.ApiConstant;
 import com.yifactory.daocheapp.api.ApiService;
 import com.yifactory.daocheapp.app.fragment.BaseFragment;
 import com.yifactory.daocheapp.bean.AddStudyRecordBean;
@@ -47,6 +53,7 @@ import com.yifactory.daocheapp.biz.video_function.adapter.VideoHotRecommendAdapt
 import com.yifactory.daocheapp.utils.AliyunPlayerUtils;
 import com.yifactory.daocheapp.utils.Formatter;
 import com.yifactory.daocheapp.utils.SDDialogUtil;
+import com.yifactory.daocheapp.utils.SPreferenceUtil;
 import com.yifactory.daocheapp.utils.UserInfoUtil;
 import com.yifactory.daocheapp.widget.TitleBar;
 
@@ -54,18 +61,15 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import java.io.ByteArrayOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 import io.reactivex.Observable;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
 
 import static com.aliyun.vodplayer.media.IAliyunVodPlayer.PlayerState.Completed;
 import static com.aliyun.vodplayer.media.IAliyunVodPlayer.PlayerState.Idle;
@@ -131,11 +135,11 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
         return fragment;
     }
 
-    Handler handler = new Handler(){
+    Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            switch (msg.what){
+            switch (msg.what) {
                 case 0:
                     loadingProgress.setVisibility(View.GONE);
                     break;
@@ -170,13 +174,13 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
         EventBus.getDefault().register(this);
         AliyunPlayerUtils.handler = handler;
         startNetWatch();
-        if(AliyunPlayerUtils.aliyunVodPlayer != null){
+        if (AliyunPlayerUtils.aliyunVodPlayer != null) {
             int duration = (int) AliyunPlayerUtils.aliyunVodPlayer.getDuration();
             totalDurationTv.setText(Formatter.formatTime(duration));
         }
     }
 
-    private void startNetWatch(){
+    private void startNetWatch() {
         netWatchDog = new NetWatchdog(mActivity);
         netWatchDog.setNetChangeListener(new NetWatchdog.NetChangeListener() {
             @Override
@@ -193,14 +197,13 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             IAliyunVodPlayer.PlayerState playerState = AliyunPlayerUtils.aliyunVodPlayer.getPlayerState();
-                            if(playerState == IAliyunVodPlayer.PlayerState.Idle ||
+                            if (playerState == IAliyunVodPlayer.PlayerState.Idle ||
                                     playerState == IAliyunVodPlayer.PlayerState.Completed ||
-                                    playerState == IAliyunVodPlayer.PlayerState.Stopped){
+                                    playerState == IAliyunVodPlayer.PlayerState.Stopped) {
 //                                mAutoPlay = true;
                                 AliyunPlayerUtils.seekTo(seekBar.getProgress());
                                 prepareAsync();
-                            }
-                            else if (playerState == AliyunVodPlayer.PlayerState.Paused) {
+                            } else if (playerState == AliyunVodPlayer.PlayerState.Paused) {
                                 AliyunPlayerUtils.aliyunVodPlayer.resume();
                             } else {
                                 AliyunPlayerUtils.seekTo(seekBar.getProgress());
@@ -240,16 +243,16 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
-        if(hidden){
-            if(AliyunPlayerUtils.aliyunVodPlayer.isPlaying()) {
+        if (hidden) {
+            if (AliyunPlayerUtils.aliyunVodPlayer.isPlaying()) {
                 AliyunPlayerUtils.aliyunVodPlayer.pause();
                 playIv.setImageResource(R.drawable.bofanganniu);
             }
-            if(videoInfo != null && UserInfoUtil.getUserInfoBean(mActivity) != null){
+            if (videoInfo != null && UserInfoUtil.getUserInfoBean(mActivity) != null) {
                 long curtime = System.currentTimeMillis();
                 addStudyReocrd(curtime - studyTime);
             }
-        }else{
+        } else {
             studyTime = System.currentTimeMillis();
         }
     }
@@ -262,13 +265,13 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
     @Override
     public void onResume() {
         super.onResume();
-        if(AliyunPlayerUtils.isCompleted){
+        if (AliyunPlayerUtils.isCompleted) {
             playIv.setImageResource(R.drawable.bofanganniu);
-            int curPosition = (int)AliyunPlayerUtils.aliyunVodPlayer.getCurrentPosition();
+            int curPosition = (int) AliyunPlayerUtils.aliyunVodPlayer.getCurrentPosition();
             seekBar.setProgress(curPosition);
             currentPositionTv.setText(Formatter.formatTime(curPosition));
             AliyunPlayerUtils.aliyunVodPlayer.prepareAsync(mVidSts);
-        }else if (AliyunPlayerUtils.aliyunVodPlayer.getPlayerState() == Started){
+        } else if (AliyunPlayerUtils.aliyunVodPlayer.getPlayerState() == Started) {
             playIv.setImageResource(R.drawable.bofangzanting);
         }
         AliyunPlayerUtils.handler = handler;
@@ -282,20 +285,20 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void videoInfoEventBus(PlayVideoBean.DataBean.HotBean videoInfo){
+    public void videoInfoEventBus(PlayVideoBean.DataBean.HotBean videoInfo) {
         this.videoInfo = videoInfo;
-        vDialog = SDDialogUtil.newLoading(mActivity,"请求中");
+        vDialog = SDDialogUtil.newLoading(mActivity, "请求中");
         vDialog.show();
-        if(videoInfo.getVideoPath() != null && videoInfo.getUId() != null){
+        if (videoInfo.getVideoPath() != null && videoInfo.getUId() != null) {
             getPlayVideoEvent();
             getSTStoken();
             loadingProgress.setVisibility(View.VISIBLE);
-        }else{
+        } else {
             showToast("数据出错");
         }
     }
 
-    private void getSTStoken(){
+    private void getSTStoken() {
         RxHttpUtils.createApi(ApiService.class)
                 .getSTSToken()
                 .compose(Transformer.<StsToken>switchSchedulers())
@@ -303,16 +306,16 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
                     @Override
                     protected void onError(String errorMsg) {
                         showToast("认证获取失败");
-                        if(vDialog.isShowing()){
+                        if (vDialog.isShowing()) {
                             vDialog.dismiss();
                         }
                     }
 
                     @Override
                     protected void onSuccess(StsToken stsToken) {
-                        if(stsToken != null){
+                        if (stsToken != null) {
                             StsToken.DataBean token = stsToken.getData().get(0);
-                            Log.e("sunxj","accessKeyId="+ token.getAccessKeyId() + ",accesskeySecrty = " + token.getAccessKeySecret()
+                            Log.e("sunxj", "accessKeyId=" + token.getAccessKeyId() + ",accesskeySecrty = " + token.getAccessKeySecret()
                                     + ",Expiration=" + token.getExpiration() + ",token=" + token.getSecurityToken());
                             preparePlayVideoView(token);
                         }
@@ -320,14 +323,14 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
                 });
     }
 
-    private void getPlayVideoEvent(){
+    private void getPlayVideoEvent() {
         RxHttpUtils.createApi(ApiService.class)
-                .playVideo(videoInfo.getRId(),videoInfo.getUId())
+                .playVideo(videoInfo.getRId(), videoInfo.getUId())
                 .compose(Transformer.<PlayVideoBean>switchSchedulers())
                 .subscribe(new CommonObserver<PlayVideoBean>() {
                     @Override
                     protected void onError(String errorMsg) {
-                        Log.e("sunxj",errorMsg);
+                        Log.e("sunxj", errorMsg);
                         finishRefresh();
                     }
 
@@ -340,39 +343,39 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
                 });
     }
 
-    private void addStudyReocrd(long lastTime){
+    private void addStudyReocrd(long lastTime) {
         String rId = videoInfo.getRId();
         String uId = UserInfoUtil.getUserInfoBean(mActivity).getUId();
-        String time = String.valueOf(lastTime/1000);
+        String time = String.valueOf(lastTime / 1000);
 
         RxHttpUtils.createApi(ApiService.class)
-                        .addStudyRecord(rId,uId,time)
-                        .compose(Transformer.<AddStudyRecordBean>switchSchedulers())
-                        .subscribe(new CommonObserver<AddStudyRecordBean>() {
-                            @Override
-                            protected void onError(String errorMsg) {
-                                showToast(errorMsg);
-                            }
+                .addStudyRecord(rId, uId, time)
+                .compose(Transformer.<AddStudyRecordBean>switchSchedulers())
+                .subscribe(new CommonObserver<AddStudyRecordBean>() {
+                    @Override
+                    protected void onError(String errorMsg) {
+                        showToast(errorMsg);
+                    }
 
-                            @Override
-                            protected void onSuccess(AddStudyRecordBean addStudyRecordBean) {
-                                Log.e("videoFragment",addStudyRecordBean.getMsg());
-                            }
-                        });
+                    @Override
+                    protected void onSuccess(AddStudyRecordBean addStudyRecordBean) {
+                        Log.e("videoFragment", addStudyRecordBean.getMsg());
+                    }
+                });
 
     }
 
-    private void initPlayVideo(){
+    private void initPlayVideo() {
         PlayVideoBean.DataBean.ResourceBean bean = playVideoObj.getResource();
-        if(bean != null){
+        if (bean != null) {
             playCountTv.setText(String.valueOf(bean.getShowCounts()) + "次");
-            if(bean.getCreator() != null){
+            if (bean.getCreator() != null) {
                 authorNameTv.setText("作者：" + bean.getCreator().getUserName());
                 authorLevelTv.setText(bean.getCreator().getUserLeval());
                 authorOtherWorksTv.setText(bean.getCreator().getUserName() + ": 其它作品");
-                if(playVideoObj.getResource().getCreator().getAttentioned() == 0){
+                if (playVideoObj.getResource().getCreator().getAttentioned() == 0) {
                     mTv_guanZhu.setText("+ 关注");
-                }else{
+                } else {
                     mTv_guanZhu.setText("取消关注");
                     mTv_guanZhu.setBackgroundResource(R.drawable.shape_gray_corner2);
                 }
@@ -391,12 +394,12 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
     }
 
     //准备播放
-    private void preparePlayVideoView(StsToken.DataBean sts){
-        if(AliyunPlayerUtils.aliyunVodPlayer != null){
+    private void preparePlayVideoView(StsToken.DataBean sts) {
+        if (AliyunPlayerUtils.aliyunVodPlayer != null) {
             AliyunPlayerUtils.aliyunVodPlayer.stop();
             playIv.setImageResource(R.drawable.bofanganniu);
         }
-        if(surfaceView != null){
+        if (surfaceView != null) {
             surfaceView.setVisibility(View.GONE);
             surfaceView.setVisibility(View.VISIBLE);
         }
@@ -407,37 +410,37 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
         mVidSts.setSecurityToken(sts.getSecurityToken());
         AliyunPlayerUtils.mVidSts = mVidSts;
         AliyunPlayerUtils.aliyunVodPlayer.prepareAsync(mVidSts);
-        if(vDialog != null && vDialog.isShowing()){
+        if (vDialog != null && vDialog.isShowing()) {
             vDialog.dismiss();
         }
         studyTime = System.currentTimeMillis(); //获取当前时间为学习时长准备
     }
 
-    private void playVideo(){
+    private void playVideo() {
         AliyunPlayerUtils.aliyunVodPlayer.prepareAsync(mVidSts);
         AliyunPlayerUtils.isCompleted = false;
         mPlayerState = AliyunPlayerUtils.aliyunVodPlayer.getPlayerState();
-        if(mPlayerState == Idle || mPlayerState == Stopped || mPlayerState == Completed){
-            if(surfaceView != null){
+        if (mPlayerState == Idle || mPlayerState == Stopped || mPlayerState == Completed) {
+            if (surfaceView != null) {
                 surfaceView.setVisibility(View.GONE);
                 surfaceView.setVisibility(View.VISIBLE);
             }
             AliyunPlayerUtils.aliyunVodPlayer.stop();
             AliyunPlayerUtils.aliyunVodPlayer.prepareAsync(mVidSts);
-        }else if (mPlayerState == Prepared){
+        } else if (mPlayerState == Prepared) {
             AliyunPlayerUtils.aliyunVodPlayer.start();
             playIv.setImageResource(R.drawable.bofangzanting);
-        }else if (mPlayerState == Started){
+        } else if (mPlayerState == Started) {
             AliyunPlayerUtils.aliyunVodPlayer.pause();
             playIv.setImageResource(R.drawable.bofanganniu);
-        }else if (mPlayerState == Paused){
+        } else if (mPlayerState == Paused) {
             AliyunPlayerUtils.aliyunVodPlayer.resume();
             playIv.setImageResource(R.drawable.bofangzanting);
         }
 
     }
 
-    private void initVideoView(){
+    private void initVideoView() {
         surfaceView.getHolder().addCallback(new SurfaceHolder.Callback() {
             @Override
             public void surfaceCreated(SurfaceHolder holder) {
@@ -458,7 +461,7 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(mActivity, VideoFullScreenActivity.class);
-                i.putExtra("rId",videoInfo.getRId());
+                i.putExtra("rId", videoInfo.getRId());
                 startActivity(i);
                 Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
@@ -466,7 +469,7 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
                     public void run() {
                         EventBus.getDefault().post(mVidSts);
                     }
-                },500);
+                }, 500);
             }
         });
 
@@ -529,8 +532,8 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
                         scrollView.fullScroll(ScrollView.FOCUS_UP);
                     }
                 });
-                Intent intent = new Intent(getActivity(),HomeRecommendInterviewVideoDetailsActivity.class);
-                intent.putExtra("videoInfo",dataHotArray.get(position));
+                Intent intent = new Intent(getActivity(), HomeRecommendInterviewVideoDetailsActivity.class);
+                intent.putExtra("videoInfo", dataHotArray.get(position));
                 startActivity(intent);
             }
         });
@@ -555,8 +558,8 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
                         scrollView.fullScroll(ScrollView.FOCUS_UP);
                     }
                 });
-                Intent intent = new Intent(getActivity(),HomeRecommendInterviewVideoDetailsActivity.class);
-                intent.putExtra("videoInfo",dataBean);
+                Intent intent = new Intent(getActivity(), HomeRecommendInterviewVideoDetailsActivity.class);
+                intent.putExtra("videoInfo", dataBean);
                 startActivity(intent);
             }
         });
@@ -577,7 +580,7 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
         return R.layout.fragment_video;
     }
 
-    private void finishRefresh(){
+    private void finishRefresh() {
         if (mSwipeRefreshLayout != null && mSwipeRefreshLayout.isRefreshing()) {
             mSwipeRefreshLayout.setRefreshing(false);
         }
@@ -585,9 +588,9 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
 
     @Override
     public void onRefresh() {
-        if(videoInfo != null){
+        if (videoInfo != null) {
             getPlayVideoEvent();
-        }else{
+        } else {
             finishRefresh();
         }
     }
@@ -599,17 +602,17 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
     }
 
     @OnClick({R.id.author_layout, R.id.tv_guanzhu, R.id.play_iv, R.id.previous_iv, R.id.next_iv,
-            R.id.hot_list_reflash_ly,R.id.friend_layout,R.id.friend_circle_layout})
+            R.id.hot_list_reflash_ly, R.id.friend_layout, R.id.friend_circle_layout})
     public void onClickEvent(View view) {
         if (view != null) {
             switch (view.getId()) {
                 case R.id.author_layout:
-                    if(playVideoObj == null || playVideoObj.getResource() == null){
+                    if (playVideoObj == null || playVideoObj.getResource() == null) {
                         showToast("没有作者数据");
                         return;
                     }
                     Intent intent = new Intent(mActivity, VideoAuthorHomePageActivity.class);
-                    intent.putExtra("author",playVideoObj.getResource().getCreator());
+                    intent.putExtra("author", playVideoObj.getResource().getCreator());
                     startActivity(intent);
                     break;
                 case R.id.tv_guanzhu:
@@ -630,32 +633,88 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
                     getHostlistEvent();
                     break;
                 case R.id.friend_layout:
-                    if(videoInfo != null && UserInfoUtil.getUserInfoBean(mActivity) != null){
-
-                    }else{
-                        showToast("请选择视频");
-                    }
+                    shareEvent(1);
                     break;
                 case R.id.friend_circle_layout:
-                    if(videoInfo != null && UserInfoUtil.getUserInfoBean(mActivity) != null){
-
-                    }else{
-                        showToast("请选择视频");
-                    }
+                    shareEvent(2);
                     break;
             }
         }
     }
 
+    private void shareEvent(int type) {
+        if (new SPreferenceUtil(mActivity, "config.sp").getIsLine()) {
+            int shareState = UserInfoUtil.getUserInfoBean(mActivity).getShareState();
+            if (shareState == 0) {
+                showToast("您还未发起分享申请");
+            } else if (shareState == 1) {
+                showToast("分享申请审核中");
+            } else if (shareState == 2) {
+                showToast("分享申请已驳回，请重新申请");
+            } else {
+                if (videoInfo != null) {
+                    shareTypeEvent(type);
+                } else {
+                    showToast("请选择视频");
+                }
+            }
+        } else {
+            showToast("请登陆");
+        }
+    }
+
+    private void shareTypeEvent(int type) {
+        IWXAPI api = WXAPIFactory.createWXAPI(mActivity, ApiConstant.APP_ID_WE_CHAT, false);
+        api.registerApp(ApiConstant.APP_ID_WE_CHAT);
+        WXVideoObject video = new WXVideoObject();
+        video.videoUrl = videoInfo.getVideoPath();
+        WXMediaMessage msg = new WXMediaMessage(video);
+        msg.title = videoInfo.getTitle();
+        msg.description = videoInfo.getVideoDetail();
+        Bitmap thumb = BitmapFactory.decodeResource(getResources(), R.drawable.logo);
+        msg.thumbData = bmpToByteArray(thumb, true);
+        SendMessageToWX.Req req = new SendMessageToWX.Req();
+        req.transaction = buildTransaction("video");
+        req.message = msg;
+        switch (type) {
+            case 1:
+                req.scene = SendMessageToWX.Req.WXSceneSession;
+                break;
+            case 2:
+                req.scene = SendMessageToWX.Req.WXSceneTimeline;
+                break;
+        }
+        api.sendReq(req);
+    }
+
+    private String buildTransaction(final String type) {
+        return (type == null) ? String.valueOf(System.currentTimeMillis()) : type + System.currentTimeMillis();
+    }
+
+    private byte[] bmpToByteArray(final Bitmap bmp, final boolean needRecycle) {
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        bmp.compress(Bitmap.CompressFormat.PNG, 100, output);
+        if (needRecycle) {
+            bmp.recycle();
+        }
+        byte[] result = output.toByteArray();
+        try {
+            output.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
     private void guanZhuEvent() {
-        if(playVideoObj == null || playVideoObj.getResource() == null || playVideoObj.getResource().getCreator() == null){
+        if (playVideoObj == null || playVideoObj.getResource() == null || playVideoObj.getResource().getCreator() == null) {
             showToast("没有作者数据");
             return;
         }
         final int isFocus = playVideoObj.getResource().getCreator().getAttentioned();
         String uId = UserInfoUtil.getUserInfoBean(mActivity).getUId();
         String attentionId = playVideoObj.getResource().getCreator().getUId();
-        if(attentionId == null){
+        if (attentionId == null) {
             attentionId = "";
         }
         ApiService api = RxHttpUtils.createApi(ApiService.class);
@@ -689,35 +748,35 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
                 });
     }
 
-    private void getHostlistEvent(){
-        if(playVideoObj == null || playVideoObj.getResource() == null){
+    private void getHostlistEvent() {
+        if (playVideoObj == null || playVideoObj.getResource() == null) {
             showToast("没有更多数据");
             return;
         }
-        mDialog = SDDialogUtil.newLoading(mActivity,"正在加载，请稍后");
+        mDialog = SDDialogUtil.newLoading(mActivity, "正在加载，请稍后");
         mDialog.show();
         page++;
         String scId = playVideoObj.getResource().getScId(); //当前播放视频的scId  获取热门视频列表
         RxHttpUtils.createApi(ApiService.class)
-                .getHotList(scId,String.valueOf(10),String.valueOf(page))
+                .getHotList(scId, String.valueOf(10), String.valueOf(page))
                 .compose(Transformer.<TwoVideoListBean>switchSchedulers())
                 .subscribe(new CommonObserver<TwoVideoListBean>() {
                     @Override
                     protected void onError(String errorMsg) {
-                        if (mDialog.isShowing()){
+                        if (mDialog.isShowing()) {
                             mDialog.cancel();
                         }
                     }
 
                     @Override
                     protected void onSuccess(TwoVideoListBean videoListBean) {
-                        if (mDialog.isShowing()){
+                        if (mDialog.isShowing()) {
                             mDialog.cancel();
                         }
-                        if(videoListBean != null && videoListBean.responseState.equals("1")){
+                        if (videoListBean != null && videoListBean.responseState.equals("1")) {
                             dataHotArray = videoListBean.data;
                             hotRecommendAdapter.setNewData(dataHotArray);
-                            if(videoListBean.data.size() < 1){
+                            if (videoListBean.data.size() < 1) {
                                 page = 0;
                             }
                         }
