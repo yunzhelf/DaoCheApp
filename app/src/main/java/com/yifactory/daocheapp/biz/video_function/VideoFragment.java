@@ -598,7 +598,8 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
         EventBus.getDefault().unregister(this);
     }
 
-    @OnClick({R.id.author_layout, R.id.tv_guanzhu, R.id.play_iv, R.id.previous_iv, R.id.next_iv, R.id.hot_list_reflash_ly})
+    @OnClick({R.id.author_layout, R.id.tv_guanzhu, R.id.play_iv, R.id.previous_iv, R.id.next_iv,
+            R.id.hot_list_reflash_ly,R.id.friend_layout,R.id.friend_circle_layout})
     public void onClickEvent(View view) {
         if (view != null) {
             switch (view.getId()) {
@@ -627,6 +628,20 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
                     break;
                 case R.id.hot_list_reflash_ly:
                     getHostlistEvent();
+                    break;
+                case R.id.friend_layout:
+                    if(videoInfo != null && UserInfoUtil.getUserInfoBean(mActivity) != null){
+
+                    }else{
+                        showToast("请选择视频");
+                    }
+                    break;
+                case R.id.friend_circle_layout:
+                    if(videoInfo != null && UserInfoUtil.getUserInfoBean(mActivity) != null){
+
+                    }else{
+                        showToast("请选择视频");
+                    }
                     break;
             }
         }
