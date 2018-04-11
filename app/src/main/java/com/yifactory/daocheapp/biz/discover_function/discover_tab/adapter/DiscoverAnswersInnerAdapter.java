@@ -1,9 +1,7 @@
 package com.yifactory.daocheapp.biz.discover_function.discover_tab.adapter;
 
 import android.content.Context;
-import android.text.Layout;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -133,7 +131,6 @@ public class DiscoverAnswersInnerAdapter extends BaseQuickAdapter<GetUserQuestio
 
     //点赞请求
     private void zanEvent(final Context context, String aId, final int itemPosition, final int praised) {
-        Log.i("521", "zanEvent: itemPosition;"+itemPosition);
         ApiService api = RxHttpUtils
                 .createApi(ApiService.class);
         Observable<AddQuestionAnswerAppraiseBean> addQuestionAnswerAppraiseBeanObservable;
@@ -155,16 +152,18 @@ public class DiscoverAnswersInnerAdapter extends BaseQuickAdapter<GetUserQuestio
                     @Override
                     protected void onSuccess(AddQuestionAnswerAppraiseBean addQuestionAnswerAppraiseBean) {
                         if (addQuestionAnswerAppraiseBean.getResponseState().equals("1")) {
-                            GetUserQuestionListBean.DataBean.AnswersBean answersBean = mInnerAdapter.getData().get(itemPosition-1);
-                            int praiseCounts = answersBean.getPraiseCounts();
-                            if (praised == 0) {
-                                answersBean.setPraised(1);
-                                answersBean.setPraiseCounts(praiseCounts + 1);
-                            } else {
-                                answersBean.setPraised(0);
-                                answersBean.setPraiseCounts(praiseCounts-1);
+                            GetUserQuestionListBean.DataBean.AnswersBean answersBean = mInnerAdapter.getItem(itemPosition - 1);
+                            if (answersBean != null) {
+                                int praiseCounts = answersBean.getPraiseCounts();
+                                if (praised == 0) {
+                                    answersBean.setPraised(1);
+                                    answersBean.setPraiseCounts(praiseCounts + 1);
+                                } else {
+                                    answersBean.setPraised(0);
+                                    answersBean.setPraiseCounts(praiseCounts-1);
+                                }
+                                mInnerAdapter.notifyItemChanged(itemPosition);
                             }
-                            mInnerAdapter.notifyItemChanged(itemPosition);
                         } else {
                             Toast.makeText(context, addQuestionAnswerAppraiseBean.getMsg(), Toast.LENGTH_SHORT).show();
                         }
