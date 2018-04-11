@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.alibaba.sdk.android.vod.upload.VODSVideoUploadCallback;
@@ -97,6 +98,8 @@ public class MyLecturerUploadVideoActivity extends BaseActivity {
     EditText videoHarvestEt;
     @BindView(R.id.etSex)
     TextView videoTypeTv;
+    @BindView(R.id.upload_video_processbar)
+    ProgressBar progressBar;
 
     private CustomPopWindow mCustomPopWindow_SelectedVideo;
     private String videoPath;
@@ -302,6 +305,7 @@ public class MyLecturerUploadVideoActivity extends BaseActivity {
             vClient.init();
         }
         if(videoPath != null && videoThumbnail != null){
+            progressBar.setVisibility(View.VISIBLE);
             VodHttpClientConfig vodHttpClientConfig = new VodHttpClientConfig.Builder()
                     .setMaxRetryCount(2)//重试次数
                     .setConnectionTimeout(20 * 1000)//连接超时
@@ -331,6 +335,7 @@ public class MyLecturerUploadVideoActivity extends BaseActivity {
                     videoThumbnail = null;
                     videoPath = null;
                     upLoadTeachReason(videoId,imageUrl);
+                    progressBar.setVisibility(View.GONE);
                 }
 
                 @Override
@@ -340,12 +345,14 @@ public class MyLecturerUploadVideoActivity extends BaseActivity {
                         mDialog.cancel();
                     }
                     Log.e("sunxj","upload failed");
+                    progressBar.setVisibility(View.GONE);
                 }
 
                 @Override
                 public void onUploadProgress(long uploadedSize, long totalSize) {
-                    Log.e(TAG, "====uploadedSize = " + uploadedSize + ", totalSize = " + totalSize);
-                    Log.e("sunxj","uploadedSize :" + uploadedSize);
+                    int progress = (int)(uploadedSize*1.0*100/totalSize);
+                    Log.e("sunxj", "uploadedSize = " + uploadedSize + ", totalSize = " + totalSize +", progress:" + progress);
+                    progressBar.setProgress(progress);
                 }
 
                 @Override

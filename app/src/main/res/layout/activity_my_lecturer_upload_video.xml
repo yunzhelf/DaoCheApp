@@ -281,14 +281,29 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"/>
 
-                <ImageView
-                    android:id="@+id/upload_video_choose_iv"
-                    android:layout_width="214px"
+                <com.zhy.autolayout.AutoRelativeLayout
+                    android:layout_width="234px"
                     android:layout_height="151px"
-                    android:layout_marginRight="22px"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/shangchuantupian"/>
-
+                    android:paddingLeft="10px"
+                    android:paddingRight="10px">
+                    <ImageView
+                        android:id="@+id/upload_video_choose_iv"
+                        android:layout_width="214px"
+                        android:layout_height="151px"
+                        android:layout_marginRight="22px"
+                        android:layout_centerInParent="true"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/shangchuantupian"/>
+                    <ProgressBar
+                        android:id="@+id/upload_video_processbar"
+                        android:layout_width="194px"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:paddingLeft="20px"
+                        android:paddingRight="20px"
+                        android:visibility="gone"/>
+                </com.zhy.autolayout.AutoRelativeLayout>
             </com.zhy.autolayout.AutoLinearLayout>
 
             <com.zhy.autolayout.AutoRelativeLayout
