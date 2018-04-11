@@ -17,7 +17,6 @@ import com.yifactory.daocheapp.R;
 import com.yifactory.daocheapp.api.ApiService;
 import com.yifactory.daocheapp.app.fragment.BaseFragment;
 import com.yifactory.daocheapp.bean.LevelListBean;
-import com.yifactory.daocheapp.bean.PlayVideoBean;
 import com.yifactory.daocheapp.bean.UserBean;
 import com.yifactory.daocheapp.biz.my_function.activity.MyAnswerActivity;
 import com.yifactory.daocheapp.biz.my_function.activity.MyBuyActivity;
@@ -48,7 +47,6 @@ import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -152,7 +150,7 @@ public class MyFragment extends BaseFragment implements SwipeRefreshLayout.OnRef
             java.text.SimpleDateFormat format = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             Date startDate = format.parse(studyDay);
             long endTime = new Date().getTime();
-            long time = (endTime - startDate.getTime())/(24*60*60*1000);
+            long time = (endTime - startDate.getTime()) / (24 * 60 * 60 * 1000);
             learnDateTv.setText(time + "天");
         } catch (ParseException e) {
             e.printStackTrace();
@@ -168,7 +166,7 @@ public class MyFragment extends BaseFragment implements SwipeRefreshLayout.OnRef
 
         reciveBalanceTv.setText(String.valueOf(user.getReciveBalance()) + "金币");
         goldBalanceTv.setText(String.valueOf(user.getGoldBalance()) + "金币");
-        studyTimeTv.setText(user.getLearnTime()/60 + "分钟");
+        studyTimeTv.setText(user.getLearnTime() / 60 + "分钟");
         couponCountTv.setText(String.valueOf(user.getDiscountCouponCounts()) + "张");
         questionCountTv.setText(String.valueOf(user.getQuestionCounts()) + "个");
         answerCountTv.setText(String.valueOf(user.getAnswerCounts()) + "个");
@@ -468,7 +466,7 @@ public class MyFragment extends BaseFragment implements SwipeRefreshLayout.OnRef
                     } else if (mShareState == 1) {
                         showCustomToast(R.layout.layout_my_custom_toast, "审核中，请耐心等待～", 0);
                     } else if (mShareState == 3) {//已通过
-                        showCustomToast(R.layout.layout_my_custom_toast, "暂未开通，请耐心等待～", 0);
+                        showCustomToast(R.layout.layout_my_custom_toast, "可以分享视频赚钱啦～", 0);
                     }
                     break;
                 case R.id.user_head_iv:

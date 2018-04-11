@@ -92,6 +92,7 @@ public class MainActivity extends BaseActivity {
         videoInfo = intent.getParcelableExtra("videoInfo");
         if (isPlay) {
             FragmentTransaction fragmentTransaction = mSupportFragmentManager.beginTransaction();
+            hideAllFragments(fragmentTransaction);
             initVideoFragment(fragmentTransaction);
             changeTabStyle(-1);
         }
