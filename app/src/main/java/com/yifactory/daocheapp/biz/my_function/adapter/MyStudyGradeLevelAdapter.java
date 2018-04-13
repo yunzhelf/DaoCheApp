@@ -28,7 +28,7 @@ public class MyStudyGradeLevelAdapter extends BaseQuickAdapter<GetLevalDataBean.
         ImageView personIv = helper.getView(R.id.person_iv);
 
         String createTime = item.createTime;
-        if (!TextUtils.isEmpty(createTime)) {
+        if (!TextUtils.isEmpty(createTime) && createTime.contains("-")) {
             String[] dateArray = createTime.split("-");
             dateTv.setText(dateArray[1] + "月" + dateArray[2] + "日");
         }

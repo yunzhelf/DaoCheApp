@@ -38,6 +38,8 @@ import com.yifactory.daocheapp.utils.SDDialogUtil;
 import com.yifactory.daocheapp.utils.UserInfoUtil;
 import com.yifactory.daocheapp.widget.TitleBar;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -125,7 +127,6 @@ public class DiscoverPublishMoodActivity extends BaseActivity {
     protected void initData(Bundle savedInstanceState) {
         ImmersionBar.with(this).statusBarDarkFont(true, 0.2f).fitsSystemWindows(true).statusBarColor(R.color.white).init();
         mDialog = SDDialogUtil.newLoading(this, "请求中...");
-
     }
 
     @Override
@@ -293,6 +294,9 @@ public class DiscoverPublishMoodActivity extends BaseActivity {
                         closeDialog();
                         String msg = response.getMsg();
                         showToast(msg);
+                        if(response.getData() != null && response.getData().size() > 0){
+                            EventBus.getDefault().post(response.getData().get(0));
+                        }
                         finish();
                     }
                 });

@@ -91,7 +91,7 @@ public class HomeTypeFragment extends BaseFragment implements SwipeRefreshLayout
                                     String firstCategoryContent1 = item.getSecondContent();
                                     String fcId1 = item.getScId();
                                     Log.i("521", "onSuccess: firstCategoryContent:" + firstCategoryContent1 + "===fcId:" + fcId1);
-                                    mEightModuleFcIdSp.setEightModuleFcId(firstCategoryContent1, fcId1);
+                                    mEightModuleFcIdSp.setEightModuleFcId(firstCategoryContent1+fcId1, fcId1);
                                 }
                             }
                             dataBeanList.remove(dataBeanList.size() - 1);

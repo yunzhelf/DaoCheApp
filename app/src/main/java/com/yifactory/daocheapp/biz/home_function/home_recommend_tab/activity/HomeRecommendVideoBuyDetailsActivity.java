@@ -179,6 +179,8 @@ public class HomeRecommendVideoBuyDetailsActivity extends BaseActivity {
                                 isCanPay.setText("");
                             } else {
                                 isCanPay.setText("(不足支付)");
+                                Intent i = new Intent(HomeRecommendVideoBuyDetailsActivity.this,MyTopUpActivity.class);
+                                startActivity(i);
                             }
                         }
                     }

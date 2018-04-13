@@ -16,6 +16,7 @@ import com.yifactory.daocheapp.R;
 import com.yifactory.daocheapp.api.ApiConstant;
 import com.yifactory.daocheapp.api.ApiService;
 import com.yifactory.daocheapp.app.fragment.BaseFragment;
+import com.yifactory.daocheapp.bean.AddUserQuestionBean;
 import com.yifactory.daocheapp.bean.GetUserQuestionListBean;
 import com.yifactory.daocheapp.bean.LoginBean;
 import com.yifactory.daocheapp.biz.discover_function.discover_tab.adapter.DiscoverAnswersOuterAdapter;
@@ -23,6 +24,10 @@ import com.yifactory.daocheapp.utils.SDDialogUtil;
 import com.yifactory.daocheapp.utils.UserInfoUtil;
 import com.yifactory.daocheapp.widget.TitleBar;
 import com.zhy.autolayout.AutoLinearLayout;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.List;
 
@@ -65,6 +70,7 @@ public class DiscoverAnswersFragment extends BaseFragment implements SwipeRefres
 
     @Override
     protected void initData(Bundle arguments) {
+        EventBus.getDefault().register(this);
         LoginBean.DataBean userInfoBean = UserInfoUtil.getUserInfoBean(mActivity);
         if (userInfoBean != null) {
             mUId = userInfoBean.getUId();
@@ -164,6 +170,17 @@ public class DiscoverAnswersFragment extends BaseFragment implements SwipeRefres
                 }
             }
         });
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void getAnswersData(AddUserQuestionBean.DataBean data){
+        getUserQuestionListData(ApiConstant.REQUEST_REFRESH, curPageNum);
     }
 
     @Override

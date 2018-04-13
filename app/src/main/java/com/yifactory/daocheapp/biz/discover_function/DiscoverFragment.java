@@ -26,6 +26,8 @@ import org.greenrobot.eventbus.EventBus;
 import butterknife.BindView;
 import butterknife.OnClick;
 
+import static android.app.Activity.RESULT_OK;
+
 public class DiscoverFragment extends BaseFragment {
 
     @BindView(R.id.topLayout)
@@ -112,7 +114,7 @@ public class DiscoverFragment extends BaseFragment {
                     } else if (tabPosition == 1) {
                         intent.setClass(mActivity, DiscoverPublishAnswersActivity.class);
                     }
-                    startActivity(intent);
+                    startActivityForResult(intent,tabPosition);
                     break;
                 case R.id.login_tv:
                     Intent loginIntent = new Intent(mActivity, MyLoginActivity.class);

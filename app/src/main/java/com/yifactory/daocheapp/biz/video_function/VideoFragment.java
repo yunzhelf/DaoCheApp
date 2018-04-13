@@ -142,6 +142,7 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
             switch (msg.what) {
                 case 0:
                     loadingProgress.setVisibility(View.GONE);
+                    playIv.setImageResource(R.drawable.bofangzanting);
                     break;
                 case 1:
                     showVideoProgressInfo();
@@ -758,7 +759,7 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
         page++;
         String scId = playVideoObj.getResource().getScId(); //当前播放视频的scId  获取热门视频列表
         RxHttpUtils.createApi(ApiService.class)
-                .getHotList(scId, String.valueOf(10), String.valueOf(page))
+                .getHotList(scId, String.valueOf(6), String.valueOf(page))
                 .compose(Transformer.<TwoVideoListBean>switchSchedulers())
                 .subscribe(new CommonObserver<TwoVideoListBean>() {
                     @Override

@@ -401,7 +401,7 @@
             <com.zhy.autolayout.AutoLinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="224px"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:paddingTop="36px">
 
                 <TextView
@@ -414,13 +414,14 @@
 
                 <EditText
                     android:id="@+id/working_experience_et"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
                     android:layout_weight="1"
                     android:background="@null"
                     android:gravity="top"
                     android:hint="请输入从业经历"
-                    android:paddingLeft="29px"
+                    android:paddingLeft="40px"
+                    android:paddingTop="20px"
                     android:textColor="#000000"
                     android:textColorHint="#999999"
                     android:textCursorDrawable="@null"
@@ -436,7 +437,7 @@
             <com.zhy.autolayout.AutoLinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="224px"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:paddingTop="36px">
 
                 <TextView
@@ -449,13 +450,14 @@
 
                 <EditText
                     android:id="@+id/peixun_experience_et"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
                     android:layout_weight="1"
                     android:background="@null"
                     android:gravity="top"
                     android:hint="请输入培训经历"
-                    android:paddingLeft="29px"
+                    android:paddingLeft="40px"
+                    android:paddingTop="20px"
                     android:textColor="#000000"
                     android:textColorHint="#999999"
                     android:textCursorDrawable="@null"
@@ -472,7 +474,7 @@
             <com.zhy.autolayout.AutoLinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="224px"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:paddingTop="36px">
 
                 <TextView
@@ -485,13 +487,14 @@
 
                 <EditText
                     android:id="@+id/previous_honor_et"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
                     android:layout_weight="1"
                     android:background="@null"
                     android:gravity="top"
                     android:hint="请输入曾经荣誉"
-                    android:paddingLeft="29px"
+                    android:paddingLeft="40px"
+                    android:paddingTop="20px"
                     android:textColor="#000000"
                     android:textColorHint="#999999"
                     android:textCursorDrawable="@null"
@@ -507,7 +510,7 @@
             <com.zhy.autolayout.AutoLinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="224px"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:paddingTop="36px">
 
                 <TextView
@@ -520,13 +523,14 @@
 
                 <EditText
                     android:id="@+id/field_expertise_et"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
                     android:layout_weight="1"
                     android:background="@null"
                     android:gravity="top"
                     android:hint="请输入擅长领域"
-                    android:paddingLeft="29px"
+                    android:paddingLeft="40px"
+                    android:paddingTop="20px"
                     android:textColor="#000000"
                     android:textColorHint="#999999"
                     android:textCursorDrawable="@null"
@@ -541,7 +545,7 @@
             <com.zhy.autolayout.AutoLinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="224px"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:paddingTop="36px">
 
                 <TextView
@@ -554,13 +558,14 @@
 
                 <EditText
                     android:id="@+id/introduce_myself_et"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
                     android:layout_weight="1"
                     android:background="@null"
                     android:gravity="top"
                     android:hint="请输入自我评价"
-                    android:paddingLeft="29px"
+                    android:paddingLeft="40px"
+                    android:paddingTop="20px"
                     android:textColor="#000000"
                     android:textColorHint="#999999"
                     android:textCursorDrawable="@null"
