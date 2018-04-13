@@ -28,6 +28,7 @@ import com.yifactory.daocheapp.app.activity.BaseActivity;
 import com.yifactory.daocheapp.bean.AddUserBalanceBean;
 import com.yifactory.daocheapp.bean.AddUserBalanceBean2;
 import com.yifactory.daocheapp.bean.UserBean;
+import com.yifactory.daocheapp.event.CloseTopUpActivityMsg;
 import com.yifactory.daocheapp.event.TiXianSuccessMsg;
 import com.yifactory.daocheapp.utils.PayResult;
 import com.yifactory.daocheapp.utils.SDDialogUtil;
@@ -38,6 +39,8 @@ import com.yifactory.daocheapp.widget.TitleBar;
 import com.zhy.autolayout.AutoLinearLayout;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.Map;
 
@@ -89,6 +92,7 @@ public class MyTopUpActivity extends BaseActivity implements SwipeRefreshLayout.
                         // 该笔订单是否真实支付成功，需要依赖服务端的异步通知。
                         Toast.makeText(MyTopUpActivity.this, "支付成功", Toast.LENGTH_SHORT).show();
                         EventBus.getDefault().post(new TiXianSuccessMsg());
+                        finish();
                     } else {
                         // 该笔订单真实的支付结果，需要依赖服务端的异步通知。
                         Toast.makeText(MyTopUpActivity.this, "支付失败", Toast.LENGTH_SHORT).show();
@@ -121,6 +125,7 @@ public class MyTopUpActivity extends BaseActivity implements SwipeRefreshLayout.
 
     @Override
     protected void initData(Bundle savedInstanceState) {
+        EventBus.getDefault().register(this);
         ImmersionBar.with(this).statusBarDarkFont(true, 0.2f).fitsSystemWindows(true).statusBarColor(R.color.white).init();
         mUId = UserInfoUtil.getUserInfoBean(this).getUId();
         mDialog = SDDialogUtil.newLoading(this, "请求中");
@@ -263,7 +268,6 @@ public class MyTopUpActivity extends BaseActivity implements SwipeRefreshLayout.
     }
 
     private void topUpRequest() {
-        Log.i("521", "topUpRequest: payWay:" + payWay + "===mUId:" + mUId + "===jinBi:" + jinBi);
         String uuId = new SPreferenceUtil(this,"config.sp").getUserUuid();
         mDialog.show();
         if (payWay.equals("1")) {
@@ -348,5 +352,17 @@ public class MyTopUpActivity extends BaseActivity implements SwipeRefreshLayout.
     @Override
     public void onRefresh() {
         getUserInfoById();
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void closeEvent(CloseTopUpActivityMsg closeTopUpActivityMsg) {
+        EventBus.getDefault().post(new TiXianSuccessMsg());
+        finish();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
     }
 }

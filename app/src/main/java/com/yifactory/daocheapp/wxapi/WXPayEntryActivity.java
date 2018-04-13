@@ -12,6 +12,9 @@ import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.IWXAPIEventHandler;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import com.yifactory.daocheapp.api.ApiConstant;
+import com.yifactory.daocheapp.event.CloseTopUpActivityMsg;
+
+import org.greenrobot.eventbus.EventBus;
 
 public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {
 
@@ -42,6 +45,7 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {
         if (resp.getType() == ConstantsAPI.COMMAND_PAY_BY_WX) {
             if (resp.errCode == 0) {
                 Toast.makeText(this, "支付成功！", Toast.LENGTH_SHORT).show();
+                EventBus.getDefault().post(new CloseTopUpActivityMsg());
             } else if (resp.errCode == -1) {
                 Toast.makeText(this, "支付失败！", Toast.LENGTH_SHORT).show();
             } else if (resp.errCode == -2) {

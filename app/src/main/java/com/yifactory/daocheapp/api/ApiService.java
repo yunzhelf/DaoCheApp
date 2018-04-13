@@ -18,6 +18,7 @@ import com.yifactory.daocheapp.bean.BaseBean;
 import com.yifactory.daocheapp.bean.CouponListBean;
 import com.yifactory.daocheapp.bean.DeleteShowMoodBean;
 import com.yifactory.daocheapp.bean.DeleteUserAttentionBean;
+import com.yifactory.daocheapp.bean.DeleteUserQuestionAnswerBean;
 import com.yifactory.daocheapp.bean.DeleteUserQuestionBean;
 import com.yifactory.daocheapp.bean.GetAttentionListBean;
 import com.yifactory.daocheapp.bean.GetCategoryListBean;
@@ -331,4 +332,9 @@ public interface ApiService {
     @Multipart
     @POST("askcar/user/updateRegistTeacher.do")
     Observable<TeacherBean> updateRegistTeacher(@PartMap Map<String,RequestBody> param);
+
+    @FormUrlEncoded
+    @POST("askcar/discovery/deleteUserQuestionAnswer.do")
+    Observable<DeleteUserQuestionAnswerBean> deleteUserQuestionAnswer(@Field("uId") String uId, @Field("aId") String aId);
+
 }

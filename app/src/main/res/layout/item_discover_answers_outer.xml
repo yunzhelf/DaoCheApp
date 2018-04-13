@@ -109,8 +109,8 @@
  -->
             <View
                 android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
 
             <ImageView
                 android:id="@+id/comment_iv"
@@ -122,8 +122,8 @@
                 android:id="@+id/comment_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="40px"
-                android:gravity="center"
                 android:layout_marginLeft="5px"
+                android:gravity="center"
                 android:text="0"
                 android:textColor="#666666"
                 android:textSize="19px"/>
@@ -135,22 +135,29 @@
                 android:layout_marginLeft="38px"
                 android:background="#eeeeee"/>
 
-            <ImageView
-                android:id="@+id/zan_iv"
-                android:layout_width="40px"
-                android:layout_height="40px"
-                android:layout_marginLeft="38px"
-                android:src="@drawable/zan"/>
-
-            <TextView
-                android:id="@+id/zan_tv"
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/zan_layout"
                 android:layout_width="wrap_content"
-                android:layout_height="40px"
-                android:layout_marginLeft="5px"
-                android:text="0"
-                android:gravity="center"
-                android:textColor="#666666"
-                android:textSize="19px"/>
+                android:layout_marginLeft="38px"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/zan_iv"
+                    android:layout_width="40px"
+                    android:layout_height="40px"
+                    android:src="@drawable/zan"/>
+
+                <TextView
+                    android:id="@+id/zan_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40px"
+                    android:layout_marginLeft="5px"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="#666666"
+                    android:textSize="19px"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
 
             <!--<ImageView
                 android:id="@+id/jiaobiao_iv"

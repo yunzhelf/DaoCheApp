@@ -3,7 +3,6 @@ package com.yifactory.daocheapp.biz.discover_function.discover_tab.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -28,6 +27,7 @@ import com.yifactory.daocheapp.biz.discover_function.activity.DiscoverMoodDetail
 import com.yifactory.daocheapp.utils.SPreferenceUtil;
 import com.yifactory.daocheapp.utils.UserInfoUtil;
 import com.yifactory.daocheapp.widget.CircleImageView;
+import com.zhy.autolayout.AutoLinearLayout;
 
 import java.util.ArrayList;
 
@@ -35,6 +35,7 @@ import io.reactivex.Observable;
 
 public class DiscoverMoodOuterAdapter extends BaseQuickAdapter<GetShowMoodListBean.DataBean, BaseViewHolder> {
 
+    private long mLasttime = 0;
     private DiscoverMoodOuterAdapter mOuterAdapter;
     private String userId;
 
@@ -123,6 +124,7 @@ public class DiscoverMoodOuterAdapter extends BaseQuickAdapter<GetShowMoodListBe
         commentIv.setOnClickListener(commentListener);
         commentTv.setOnClickListener(commentListener);
 
+        final AutoLinearLayout zanLayout = helper.getView(R.id.zan_layout);
         final int praised = item.getPraised();
         int praiseCount = item.getPraiseCount();
         ImageView zanIv = helper.getView(R.id.zan_iv);
@@ -138,18 +140,21 @@ public class DiscoverMoodOuterAdapter extends BaseQuickAdapter<GetShowMoodListBe
             public void onClick(View v) {
                 if (v != null) {
                     if (new SPreferenceUtil(mContext, "config.sp").getIsLine()) {
-                        zanItem(mContext, praised, layoutPosition, smId);
+                        if (System.currentTimeMillis() - mLasttime < 700) return;
+                        mLasttime = System.currentTimeMillis();
+                        zanItem(mContext, praised, layoutPosition, smId, zanLayout);
                     } else {
                         Toast.makeText(mContext, "请登录", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
         };
-        zanIv.setOnClickListener(zanListener);
-        zanTv.setOnClickListener(zanListener);
+        zanLayout.setOnClickListener(zanListener);
     }
 
-    private void zanItem(final Context context, final int praised, final int itemPosition, String smId) {
+    private void zanItem(final Context context, final int praised, final int itemPosition, String smId, final AutoLinearLayout zanLayout) {
+//        zanLayout.setEnabled(false);
+        final GetShowMoodListBean.DataBean dataBean = mOuterAdapter.getData().get(itemPosition);
         String uId = UserInfoUtil.getUserInfoBean(context).getUId();
         ApiService api = RxHttpUtils
                 .createApi(ApiService.class);
@@ -166,13 +171,13 @@ public class DiscoverMoodOuterAdapter extends BaseQuickAdapter<GetShowMoodListBe
                 .subscribe(new CommonObserver<AddShowMoodAppraiseBean>() {
                     @Override
                     protected void onError(String errorMsg) {
+//                        zanLayout.setEnabled(true);
                         Toast.makeText(context, errorMsg, Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     protected void onSuccess(AddShowMoodAppraiseBean addShowMoodAppraiseBean) {
                         if (addShowMoodAppraiseBean.getResponseState().equals("1")) {
-                            GetShowMoodListBean.DataBean dataBean = mOuterAdapter.getData().get(itemPosition);
                             int praiseCount = dataBean.getPraiseCount();
                             if (praised == 0) {
                                 dataBean.setPraised(1);
@@ -185,6 +190,7 @@ public class DiscoverMoodOuterAdapter extends BaseQuickAdapter<GetShowMoodListBe
                         } else {
                             Toast.makeText(context, addShowMoodAppraiseBean.getMsg(), Toast.LENGTH_SHORT).show();
                         }
+//                        zanLayout.setEnabled(true);
                     }
                 });
     }

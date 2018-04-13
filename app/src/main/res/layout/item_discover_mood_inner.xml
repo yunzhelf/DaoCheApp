@@ -17,8 +17,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10px"
-            android:paddingRight="22px"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical"
+            android:paddingRight="22px">
 
             <TextView
                 android:id="@+id/creator_tv"
@@ -46,6 +46,21 @@
                 android:textSize="27px"
                 android:visibility="gone"/>
 
+            <View
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"/>
+
+            <TextView
+                android:id="@+id/delete_answers_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="52px"
+                android:gravity="center"
+                android:padding="11px"
+                android:text="删除"
+                android:textColor="@color/theme_color"
+                android:textSize="24px"/>
+
         </com.zhy.autolayout.AutoLinearLayout>
 
         <TextView
@@ -63,10 +78,19 @@
             android:id="@+id/operate_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingRight="22px"
             android:layout_below="@id/answerBody_tv"
             android:layout_marginTop="20px"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical"
+            android:paddingRight="22px">
+
+            <TextView
+                android:id="@+id/time_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#666666"
+                android:textSize="20px"
+                android:visibility="visible"/>
 
             <View
                 android:layout_width="0dp"
@@ -108,28 +132,36 @@
                 android:textSize="20px"
                 android:visibility="visible"/>
 
-            <ImageView
-                android:id="@+id/zan_iv"
-                android:layout_width="46px"
-                android:layout_height="46px"
-                android:layout_marginLeft="48px"
-                android:padding="8px"
-                android:src="@drawable/zan"/>
-
-            <TextView
-                android:id="@+id/zan_tv"
+            <com.zhy.autolayout.AutoLinearLayout
+                android:id="@+id/zan_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0"
-                android:textColor="#999999"
-                android:textSize="20px"/>
+                android:layout_marginLeft="48px"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/zan_iv"
+                    android:layout_width="46px"
+                    android:layout_height="46px"
+                    android:padding="8px"
+                    android:src="@drawable/zan"/>
+
+                <TextView
+                    android:id="@+id/zan_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="#999999"
+                    android:textSize="20px"/>
+
+            </com.zhy.autolayout.AutoLinearLayout>
 
         </com.zhy.autolayout.AutoLinearLayout>
 
         <View
-            android:layout_below="@id/operate_layout"
             android:layout_width="match_parent"
             android:layout_height="1px"
+            android:layout_below="@id/operate_layout"
             android:layout_marginTop="10px"
             android:background="#eeeeee"/>
 

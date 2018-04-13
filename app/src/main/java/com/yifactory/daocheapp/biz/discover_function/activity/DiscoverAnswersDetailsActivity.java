@@ -47,7 +47,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class DiscoverAnswersDetailsActivity extends BaseActivity implements SwipeRefreshLayout.OnRefreshListener, DiscoverAnswersInnerAdapter.ReplayCallBack, DiscoverAnswersInnerAdapter.DaShangCallBack {
+public class DiscoverAnswersDetailsActivity extends BaseActivity implements SwipeRefreshLayout.OnRefreshListener, DiscoverAnswersInnerAdapter.ReplayCallBack, DiscoverAnswersInnerAdapter.DaShangCallBack, DiscoverAnswersInnerAdapter.DeleteSuccessfullyCallBack {
     @BindView(R.id.head_iv)
     CircleImageView headIv;
     @BindView(R.id.nickname_tv)
@@ -115,7 +115,7 @@ public class DiscoverAnswersDetailsActivity extends BaseActivity implements Swip
     }
 
     private void initCommentDetailsRv() {
-        mInnerAdapter = new DiscoverAnswersInnerAdapter(this, mUId, this);
+        mInnerAdapter = new DiscoverAnswersInnerAdapter(this, mUId, this, this);
         View headerView = getLayoutInflater().inflate(R.layout.header_discover_answers_details, null);
         mViewLeft = headerView.findViewById(R.id.view_left);
         mViewRight = headerView.findViewById(R.id.view_right);
@@ -166,7 +166,6 @@ public class DiscoverAnswersDetailsActivity extends BaseActivity implements Swip
                         if (getUserQuestionListBean.getResponseState().equals("1")) {
                             List<GetUserQuestionListBean.DataBean.AnswersBean> answersBeanList = getUserQuestionListBean.getData();
                             if (answersBeanList != null && answersBeanList.size() > 0) {
-                                mInnerAdapter.setNewData(answersBeanList);
                                 mViewLeft.setVisibility(View.VISIBLE);
                                 mViewRight.setVisibility(View.VISIBLE);
                                 mTitleTv.setText("热门评论");
@@ -177,6 +176,7 @@ public class DiscoverAnswersDetailsActivity extends BaseActivity implements Swip
                                 mTitleTv.setText("暂无评论！");
                                 mTitleTv.setTextColor(Color.parseColor("#999999"));
                             }
+                            mInnerAdapter.setNewData(answersBeanList);
                         } else {
                             showToast(getUserQuestionListBean.getMsg());
                         }
@@ -371,5 +371,10 @@ public class DiscoverAnswersDetailsActivity extends BaseActivity implements Swip
                         showToast(addRewardBean.getMsg());
                     }
                 });
+    }
+
+    @Override
+    public void deleteSuccess() {
+        requestMoreAnswersData(ApiConstant.REQUEST_REFRESH);
     }
 }

@@ -82,6 +82,9 @@ public class DiscoverMoodInnerAdapter extends BaseQuickAdapter<GetShowMoodCommen
 
         TextView mTv_answers = helper.getView(R.id.answerBody_tv);
         mTv_answers.setText(item.getCotentBody());
+
+        helper.getView(R.id.delete_answers_tv).setVisibility(View.GONE);
+        helper.setText(R.id.time_tv, item.getCreateTime());
     }
 
     public interface ReplayCallBack {

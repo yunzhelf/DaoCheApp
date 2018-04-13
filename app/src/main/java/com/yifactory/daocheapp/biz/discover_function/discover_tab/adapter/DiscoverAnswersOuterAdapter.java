@@ -26,6 +26,7 @@ import com.yifactory.daocheapp.bean.GetUserQuestionListBean;
 import com.yifactory.daocheapp.biz.discover_function.activity.DiscoverAnswersDetailsActivity;
 import com.yifactory.daocheapp.utils.SPreferenceUtil;
 import com.yifactory.daocheapp.widget.CircleImageView;
+import com.zhy.autolayout.AutoLinearLayout;
 
 import java.util.ArrayList;
 
@@ -109,11 +110,10 @@ public class DiscoverAnswersOuterAdapter extends BaseQuickAdapter<GetUserQuestio
         };
         commentIv.setOnClickListener(listener);
         commentTv.setOnClickListener(listener);
-        TextView zanTv = helper.getView(R.id.zan_tv);
-        ImageView zanIv = helper.getView(R.id.zan_iv);
+
+        AutoLinearLayout zanLayout = helper.getView(R.id.zan_layout);
         View view = helper.getView(R.id.view_1);
-        zanIv.setVisibility(View.GONE);
-        zanTv.setVisibility(View.GONE);
+        zanLayout.setVisibility(View.GONE);
         view.setVisibility(View.GONE);
     }
 

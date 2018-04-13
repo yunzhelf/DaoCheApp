@@ -15,25 +15,30 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.yifactory.daocheapp.R;
 import com.yifactory.daocheapp.api.ApiService;
 import com.yifactory.daocheapp.bean.AddQuestionAnswerAppraiseBean;
+import com.yifactory.daocheapp.bean.DeleteUserQuestionAnswerBean;
 import com.yifactory.daocheapp.bean.DiscoverCommentBean;
 import com.yifactory.daocheapp.bean.GetUserQuestionListBean;
 import com.yifactory.daocheapp.utils.UserInfoUtil;
+import com.zhy.autolayout.AutoLinearLayout;
 
 import io.reactivex.Observable;
 
 public class DiscoverAnswersInnerAdapter extends BaseQuickAdapter<GetUserQuestionListBean.DataBean.AnswersBean, BaseViewHolder> {
-
+    private DeleteSuccessfullyCallBack mDeleteSuccessfullyCallBack;
+    private long mLasttime = 0;
+    private long mLasttime2 = 0;
     private ReplayCallBack mReplayCallBack;
     private DaShangCallBack mDaShangCallBack;
     private DiscoverAnswersInnerAdapter mInnerAdapter;
     private String userId;
 
-    public DiscoverAnswersInnerAdapter(ReplayCallBack replayCallBack, String userId, DaShangCallBack daShangCallBack) {
+    public DiscoverAnswersInnerAdapter(ReplayCallBack replayCallBack, String userId, DaShangCallBack daShangCallBack, DeleteSuccessfullyCallBack deleteSuccessfullyCallBack) {
         super(R.layout.item_discover_mood_inner);
         mInnerAdapter = this;
         mReplayCallBack = replayCallBack;
         this.userId = userId;
         mDaShangCallBack = daShangCallBack;
+        mDeleteSuccessfullyCallBack = deleteSuccessfullyCallBack;
     }
 
     @Override
@@ -104,6 +109,7 @@ public class DiscoverAnswersInnerAdapter extends BaseQuickAdapter<GetUserQuestio
         mIvShang.setOnClickListener(listener2);
         mTvShang.setOnClickListener(listener2);
 
+        final AutoLinearLayout zanLayout = helper.getView(R.id.zan_layout);
         ImageView mIvZan = helper.getView(R.id.zan_iv);
         final int praised = item.getPraised();
         if (praised == 0) {
@@ -118,19 +124,62 @@ public class DiscoverAnswersInnerAdapter extends BaseQuickAdapter<GetUserQuestio
             @Override
             public void onClick(View v) {
                 if (v != null) {
-                    zanEvent(mContext, aId, layoutPosition, praised);
+                    if (System.currentTimeMillis() - mLasttime < 700) return;
+                    mLasttime = System.currentTimeMillis();
+                    zanEvent(mContext, aId, layoutPosition, praised, item, zanLayout);
                 }
             }
         };
-        mIvZan.setOnClickListener(listener3);
-        mTvZan.setOnClickListener(listener3);
+        zanLayout.setOnClickListener(listener3);
 
         TextView mTv_answers = helper.getView(R.id.answerBody_tv);
         mTv_answers.setText(item.getAnswerBody());
+
+        TextView deleteAnswersTv = helper.getView(R.id.delete_answers_tv);
+        if (userId.equals(uId)) {
+            deleteAnswersTv.setVisibility(View.VISIBLE);
+        } else {
+            deleteAnswersTv.setVisibility(View.GONE);
+        }
+        deleteAnswersTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (System.currentTimeMillis() - mLasttime2 < 700) return;
+                mLasttime2 = System.currentTimeMillis();
+                deleteAnswersEvent(uId, item.getAId(), layoutPosition);
+            }
+        });
+
+        TextView timeTv = helper.getView(R.id.time_tv);
+        timeTv.setText(item.getCreateTime());
+    }
+
+    private void deleteAnswersEvent(String uId, String aId, final int itemPosition) {
+        RxHttpUtils
+                .createApi(ApiService.class)
+                .deleteUserQuestionAnswer(uId, aId)
+                .compose(Transformer.<DeleteUserQuestionAnswerBean>switchSchedulers())
+                .subscribe(new CommonObserver<DeleteUserQuestionAnswerBean>() {
+                    @Override
+                    protected void onError(String errorMsg) {
+                        Toast.makeText(mContext, errorMsg, Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    protected void onSuccess(DeleteUserQuestionAnswerBean deleteUserQuestionAnswerBean) {
+                        String msg = deleteUserQuestionAnswerBean.getMsg();
+                        if (deleteUserQuestionAnswerBean.getResponseState().equals("1")) {
+                            mDeleteSuccessfullyCallBack.deleteSuccess();
+                        } else {
+                            Toast.makeText(mContext, msg, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
 
     //点赞请求
-    private void zanEvent(final Context context, String aId, final int itemPosition, final int praised) {
+    private void zanEvent(final Context context, String aId, final int itemPosition, final int praised, final GetUserQuestionListBean.DataBean.AnswersBean answersBean, final AutoLinearLayout zanLayout) {
+//        zanLayout.setEnabled(false);
         ApiService api = RxHttpUtils
                 .createApi(ApiService.class);
         Observable<AddQuestionAnswerAppraiseBean> addQuestionAnswerAppraiseBeanObservable;
@@ -146,36 +195,39 @@ public class DiscoverAnswersInnerAdapter extends BaseQuickAdapter<GetUserQuestio
                 .subscribe(new CommonObserver<AddQuestionAnswerAppraiseBean>() {
                     @Override
                     protected void onError(String errorMsg) {
+//                        zanLayout.setEnabled(true);
                         Toast.makeText(context, errorMsg, Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     protected void onSuccess(AddQuestionAnswerAppraiseBean addQuestionAnswerAppraiseBean) {
                         if (addQuestionAnswerAppraiseBean.getResponseState().equals("1")) {
-                            GetUserQuestionListBean.DataBean.AnswersBean answersBean = mInnerAdapter.getItem(itemPosition - 1);
-                            if (answersBean != null) {
-                                int praiseCounts = answersBean.getPraiseCounts();
-                                if (praised == 0) {
-                                    answersBean.setPraised(1);
-                                    answersBean.setPraiseCounts(praiseCounts + 1);
-                                } else {
-                                    answersBean.setPraised(0);
-                                    answersBean.setPraiseCounts(praiseCounts-1);
-                                }
-                                mInnerAdapter.notifyItemChanged(itemPosition);
+                            int praiseCounts = answersBean.getPraiseCounts();
+                            if (praised == 0) {
+                                answersBean.setPraised(1);
+                                answersBean.setPraiseCounts(praiseCounts + 1);
+                            } else {
+                                answersBean.setPraised(0);
+                                answersBean.setPraiseCounts(praiseCounts - 1);
                             }
+                            mInnerAdapter.notifyItemChanged(itemPosition);
                         } else {
                             Toast.makeText(context, addQuestionAnswerAppraiseBean.getMsg(), Toast.LENGTH_SHORT).show();
                         }
+//                        zanLayout.setEnabled(true);
                     }
                 });
     }
 
-    public interface ReplayCallBack{
+    public interface ReplayCallBack {
         void replay(DiscoverCommentBean commentBean);
     }
 
-    public interface DaShangCallBack{
+    public interface DaShangCallBack {
         void shang(String aId);
+    }
+
+    public interface DeleteSuccessfullyCallBack {
+        void deleteSuccess();
     }
 }
