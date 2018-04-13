@@ -18,6 +18,7 @@ import com.yifactory.daocheapp.R;
 import com.yifactory.daocheapp.api.ApiConstant;
 import com.yifactory.daocheapp.api.ApiService;
 import com.yifactory.daocheapp.app.fragment.BaseFragment;
+import com.yifactory.daocheapp.bean.AddShowMoodBean;
 import com.yifactory.daocheapp.bean.GetShowMoodListBean;
 import com.yifactory.daocheapp.bean.LoginBean;
 import com.yifactory.daocheapp.biz.discover_function.discover_tab.adapter.DiscoverMoodOuterAdapter;
@@ -26,6 +27,10 @@ import com.yifactory.daocheapp.utils.SoftInputUtils;
 import com.yifactory.daocheapp.utils.UserInfoUtil;
 import com.yifactory.daocheapp.widget.TitleBar;
 import com.zhy.autolayout.AutoLinearLayout;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.List;
 
@@ -68,12 +73,19 @@ public class DiscoverMoodFragment extends BaseFragment implements SwipeRefreshLa
 
     @Override
     protected void initData(Bundle arguments) {
+        EventBus.getDefault().register(this);
         LoginBean.DataBean userInfoBean = UserInfoUtil.getUserInfoBean(mActivity);
         if (userInfoBean != null) {
             mUId = userInfoBean.getUId();
         }
         mDialog = SDDialogUtil.newLoading(mActivity, "加载中");
         getShowMoodList(ApiConstant.REQUEST_NORMAL, curPageNum);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
     }
 
     private void getShowMoodList(final String requestMark, int pageNum) {
@@ -160,6 +172,11 @@ public class DiscoverMoodFragment extends BaseFragment implements SwipeRefreshLa
                 }
             }
         });
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void getMoodData(AddShowMoodBean.DataBean data){
+        getShowMoodList(ApiConstant.REQUEST_REFRESH, curPageNum);
     }
 
     @Override

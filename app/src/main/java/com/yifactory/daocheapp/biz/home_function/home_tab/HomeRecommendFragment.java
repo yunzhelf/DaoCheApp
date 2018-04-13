@@ -73,6 +73,7 @@ public class HomeRecommendFragment extends BaseFragment implements SwipeRefreshL
     private Dialog mDialog;
     private HomeRecommendManagementAdapter mManagementAdapter;
 
+
     public static HomeRecommendFragment newInstance() {
         HomeRecommendFragment fragment = new HomeRecommendFragment();
         Bundle args = new Bundle();

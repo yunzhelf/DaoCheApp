@@ -12,5 +12,20 @@
         android:layout_width="match_parent"
         android:layout_height="1px"
         android:background="#f3f3f3"/>
+    <!--<WebView
+        android:id="@+id/head_line_wv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></WebView>-->
+    <com.yifactory.daocheapp.widget.BaseSwipeRefreshLayout
+        android:id="@+id/head_line_rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/head_line_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </android.support.v7.widget.RecyclerView>
+    </com.yifactory.daocheapp.widget.BaseSwipeRefreshLayout>
 
 </com.zhy.autolayout.AutoLinearLayout>

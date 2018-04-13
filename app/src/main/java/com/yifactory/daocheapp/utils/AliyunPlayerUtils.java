@@ -28,7 +28,7 @@ public class AliyunPlayerUtils {
     public static AliyunVidSts mVidSts;
     public static boolean inSeek = false;
     public static boolean isCompleted = false;
-    public static boolean mAutoPlay = false;
+    public static boolean mAutoPlay = true;
     public static List<String> logStrs = new ArrayList<>();
     public static SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss.SSS");
     public static Handler handler = new Handler();
@@ -48,7 +48,9 @@ public class AliyunPlayerUtils {
             @Override
             public void onPrepared() {
                 //准备完成触发
-                handler.sendEmptyMessage(PREPARE);
+                if( !isCompleted){
+                    handler.sendEmptyMessage(PREPARE);
+                }
                 if(mAutoPlay && mVidSts != null){
                     aliyunVodPlayer.start();
                 }
@@ -73,6 +75,7 @@ public class AliyunPlayerUtils {
                 //播放正常完成时触发
                     AliyunPlayerUtils.isCompleted = true;
                     AliyunPlayerUtils.inSeek = false;
+                    mAutoPlay = false;
                     AliyunPlayerUtils.aliyunVodPlayer.prepareAsync(mVidSts);
                     handler.sendEmptyMessage(COMPLETE);
                     showVideoProgressInfo();
@@ -84,6 +87,7 @@ public class AliyunPlayerUtils {
             public void onSeekComplete() {
                 //seek完成时触发
                 AliyunPlayerUtils.inSeek = false;
+                mAutoPlay = false;
             }
         });
         AliyunPlayerUtils.aliyunVodPlayer.setOnStoppedListner(new IAliyunVodPlayer.OnStoppedListener() {

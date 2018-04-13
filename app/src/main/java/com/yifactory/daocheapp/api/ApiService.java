@@ -21,6 +21,7 @@ import com.yifactory.daocheapp.bean.DeleteUserAttentionBean;
 import com.yifactory.daocheapp.bean.DeleteUserQuestionBean;
 import com.yifactory.daocheapp.bean.GetAttentionListBean;
 import com.yifactory.daocheapp.bean.GetCategoryListBean;
+import com.yifactory.daocheapp.bean.GetIndexNewsBean;
 import com.yifactory.daocheapp.bean.GetLevalDataBean;
 import com.yifactory.daocheapp.bean.GetShowMoodCommentBean;
 import com.yifactory.daocheapp.bean.GetShowMoodListBean;
@@ -331,4 +332,8 @@ public interface ApiService {
     @Multipart
     @POST("askcar/user/updateRegistTeacher.do")
     Observable<TeacherBean> updateRegistTeacher(@PartMap Map<String,RequestBody> param);
+
+    @FormUrlEncoded
+    @POST("askcar/common/getIndexNews.do")
+    Observable<GetIndexNewsBean> getIndexNews(@Field("page") int page, @Field("pageSize") int pageSize );
 }
