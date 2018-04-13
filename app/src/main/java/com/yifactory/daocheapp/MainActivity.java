@@ -295,6 +295,9 @@ public class MainActivity extends BaseActivity {
     public void exitEvent(AppExitMsg appExitMsg) {
         AppCtx.isHomeTabPlayed = false;
         UserInfoUtil.clearUserInfoBean(this);
+        if(mSPreferenceUtil == null){
+            mSPreferenceUtil = new SPreferenceUtil(this,"config.sp");
+        }
         mSPreferenceUtil.setIsLine(false);
         Intent intent = new Intent(this, MyLoginActivity.class);
         startActivity(intent);

@@ -173,6 +173,8 @@
             android:screenOrientation="landscape"/>
         <activity android:name=".biz.home_function.home_recommend_tab.activity.HomeRecommendHeadLineDetailActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".biz.home_function.home_recommend_tab.activity.HomeRecommendBannerDetailActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

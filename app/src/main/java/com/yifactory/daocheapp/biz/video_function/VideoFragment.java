@@ -142,7 +142,11 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
             switch (msg.what) {
                 case 0:
                     loadingProgress.setVisibility(View.GONE);
-                    playIv.setImageResource(R.drawable.bofangzanting);
+                    if(AliyunPlayerUtils.isCompleted){
+                        playIv.setImageResource(R.drawable.bofanganniu);
+                    }else{
+                        playIv.setImageResource(R.drawable.bofangzanting);
+                    }
                     break;
                 case 1:
                     showVideoProgressInfo();
@@ -288,6 +292,8 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void videoInfoEventBus(PlayVideoBean.DataBean.HotBean videoInfo) {
         this.videoInfo = videoInfo;
+        AliyunPlayerUtils.isCompleted = false;
+        AliyunPlayerUtils.mAutoPlay = true;
         vDialog = SDDialogUtil.newLoading(mActivity, "请求中");
         vDialog.show();
         if (videoInfo.getVideoPath() != null && videoInfo.getUId() != null) {

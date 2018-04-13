@@ -25,9 +25,11 @@ import com.yifactory.daocheapp.R;
 import com.yifactory.daocheapp.api.ApiConstant;
 import com.yifactory.daocheapp.api.ApiService;
 import com.yifactory.daocheapp.app.fragment.BaseFragment;
+import com.yifactory.daocheapp.bean.GetIndexNewsBean;
 import com.yifactory.daocheapp.bean.GetSystemInfoBean;
 import com.yifactory.daocheapp.bean.PlayVideoBean;
 import com.yifactory.daocheapp.bean.VideoListBean;
+import com.yifactory.daocheapp.biz.home_function.home_recommend_tab.activity.HomeRecommendBannerDetailActivity;
 import com.yifactory.daocheapp.biz.home_function.home_recommend_tab.activity.HomeRecommendHeadLineActivity;
 import com.yifactory.daocheapp.biz.home_function.home_recommend_tab.activity.HomeRecommendInterviewVideoDetailsActivity;
 import com.yifactory.daocheapp.biz.home_function.home_recommend_tab.activity.HomeRecommendJsListActivity;
@@ -53,7 +55,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import cn.bingoogolapple.bgabanner.BGABanner;
 
-public class HomeRecommendFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
+public class HomeRecommendFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener{
     @BindView(R.id.swipeRefreshLayout)
     SwipeRefreshLayout mSwipeRefreshLayout;
     @BindView(R.id.layout_container)
@@ -134,10 +136,10 @@ public class HomeRecommendFragment extends BaseFragment implements SwipeRefreshL
                 if (dataBean != null) {
                     List<GetSystemInfoBean.DataBean.BannersBean> bannersBeanList = dataBean.getBanners();
                     if (bannersBeanList != null && bannersBeanList.size() > 0) {
-                        List<String> imgUrlList = new ArrayList<>();
+                        List<GetSystemInfoBean.DataBean.BannersBean> imgUrlList = new ArrayList<>();
                         for (GetSystemInfoBean.DataBean.BannersBean bannersBean : bannersBeanList) {
                             if (bannersBean.getBannerLeval() == 0) {
-                                imgUrlList.add(ApiConstant.BASE_URL + bannersBean.getBgImg());
+                                imgUrlList.add(bannersBean); //ApiConstant.BASE_URL +
                             }
                         }
                         if (imgUrlList.size() > 0) {
@@ -253,19 +255,27 @@ public class HomeRecommendFragment extends BaseFragment implements SwipeRefreshL
         return R.layout.fragment_recommend_home;
     }
 
-    private void setAdvData(List<String> imgUrlList) {
+    private void setAdvData(List<GetSystemInfoBean.DataBean.BannersBean> imgUrlList) {
         List<String> imgTitleList = new ArrayList<>();
         for (int i = 0; i < imgUrlList.size(); i++) {
             imgTitleList.add("");
         }
-        BGABanner.Adapter<ImageView, String> bgaBannerAdapter = new BGABanner.Adapter<ImageView, String>() {
+        BGABanner.Adapter<ImageView, GetSystemInfoBean.DataBean.BannersBean> bgaBannerAdapter = new BGABanner.Adapter<ImageView, GetSystemInfoBean.DataBean.BannersBean>() {
             @Override
-            public void fillBannerItem(BGABanner banner, ImageView itemView, String model, int position) {
-                Glide.with(mActivity).setDefaultRequestOptions(new RequestOptions().centerCrop().placeholder(R.drawable.banner1)).load(model).into(itemView);
+            public void fillBannerItem(BGABanner banner, ImageView itemView, final GetSystemInfoBean.DataBean.BannersBean model, int position) {
+                Glide.with(mActivity).setDefaultRequestOptions(new RequestOptions().centerCrop().placeholder(R.drawable.banner1)).load(model.getBgImg()).into(itemView);
             }
         };
         mBGABanner.setAdapter(bgaBannerAdapter);
         mBGABanner.setData(imgUrlList, imgTitleList);
+        mBGABanner.setDelegate(new BGABanner.Delegate<ImageView,GetSystemInfoBean.DataBean.BannersBean>() {
+            @Override
+            public void onBannerItemClick(BGABanner banner, ImageView itemView, GetSystemInfoBean.DataBean.BannersBean model, int position) {
+                Intent i = new Intent(mActivity, HomeRecommendBannerDetailActivity.class);
+                i.putExtra("banner", model);
+                startActivity(i);
+            }
+        });
     }
 
     @Override

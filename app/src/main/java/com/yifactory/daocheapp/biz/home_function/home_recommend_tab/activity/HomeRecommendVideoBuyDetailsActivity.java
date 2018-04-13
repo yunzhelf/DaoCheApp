@@ -179,8 +179,6 @@ public class HomeRecommendVideoBuyDetailsActivity extends BaseActivity {
                                 isCanPay.setText("");
                             } else {
                                 isCanPay.setText("(不足支付)");
-                                Intent i = new Intent(HomeRecommendVideoBuyDetailsActivity.this,MyTopUpActivity.class);
-                                startActivity(i);
                             }
                         }
                     }
@@ -233,6 +231,12 @@ public class HomeRecommendVideoBuyDetailsActivity extends BaseActivity {
             showToast("请登录");
             return;
         }
+        if(isCanPay.getText().equals("(不足支付)")){
+            Intent i = new Intent(HomeRecommendVideoBuyDetailsActivity.this,MyTopUpActivity.class);
+            startActivity(i);
+            return;
+        }
+
         mDialog = SDDialogUtil.newLoading(HomeRecommendVideoBuyDetailsActivity.this, "正在加载，请稍后");
         mDialog.show();
 
