@@ -139,7 +139,7 @@ public class HomeRecommendFragment extends BaseFragment implements SwipeRefreshL
                         List<GetSystemInfoBean.DataBean.BannersBean> imgUrlList = new ArrayList<>();
                         for (GetSystemInfoBean.DataBean.BannersBean bannersBean : bannersBeanList) {
                             if (bannersBean.getBannerLeval() == 0) {
-                                imgUrlList.add(bannersBean); //ApiConstant.BASE_URL +
+                                imgUrlList.add(bannersBean);
                             }
                         }
                         if (imgUrlList.size() > 0) {

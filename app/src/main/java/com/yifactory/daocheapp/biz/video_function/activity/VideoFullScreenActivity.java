@@ -135,8 +135,9 @@ public class VideoFullScreenActivity extends BaseActivity {
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            playIv.setVisibility(View.GONE);
-
+                            if(playIv != null){
+                                playIv.setVisibility(View.GONE);
+                            }
                         }
                     },2000);
                 }
