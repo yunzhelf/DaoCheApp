@@ -4,7 +4,6 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
@@ -36,7 +35,6 @@ import org.greenrobot.eventbus.ThreadMode;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.Random;
 import java.util.UUID;
 
 import butterknife.BindView;
@@ -52,7 +50,7 @@ public class MyLoginActivity extends BaseActivity {
     EditText mEt_pwd;
     private Dialog mDialog;
     private Dialog weChatDialog;
-
+    private String openId = "";
     private IWXAPI api;
 
     @Override
@@ -141,7 +139,7 @@ public class MyLoginActivity extends BaseActivity {
         final String uuId = UUID.randomUUID().toString().replace("-","");
         RxHttpUtils
                 .createApi(ApiService.class)
-                .login(accountStr, pwdStr, "", uuId)
+                .login(accountStr, pwdStr, openId, uuId)
                 .compose(Transformer.<LoginBean>switchSchedulers())
                 .subscribe(new CommonObserver<LoginBean>() {
                     @Override
@@ -153,7 +151,7 @@ public class MyLoginActivity extends BaseActivity {
                     @Override
                     protected void onSuccess(LoginBean loginBean) {
                         mDialog.dismiss();
-                        handleLoginEvent(loginBean,uuId);
+                        handleLoginEvent(loginBean, uuId);
                     }
                 });
     }
@@ -163,22 +161,22 @@ public class MyLoginActivity extends BaseActivity {
         String responseState = loginBean.getResponseState();
         if (responseState.equals("1")) {
             AppDavikActivityMgr.getScreenManager().removeMainActivity();
-           /* String wxId = loginBean.getData().get(0).getWxId();
+            String wxId = loginBean.getData().get(0).getWxId();
             if (TextUtils.isEmpty(wxId)) {
                 showToast("请您进行微信授权登陆");
             } else {
+               /* UserInfoUtil.saveUserInfo(loginBean.getData().get(0), MyLoginActivity.this);
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+                finish();*/
+                SPreferenceUtil sp = new SPreferenceUtil(this, "config.sp");
+                sp.setIsLine(true);
+                sp.setUserUuid(uuid); //用于充值 、购买视频验证
                 UserInfoUtil.saveUserInfo(loginBean.getData().get(0), MyLoginActivity.this);
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
                 finish();
-            }*/
-            SPreferenceUtil sp = new SPreferenceUtil(this, "config.sp");
-            sp.setIsLine(true);
-            sp.setUserUuid(uuid); //用于充值 、购买视频验证
-            UserInfoUtil.saveUserInfo(loginBean.getData().get(0), MyLoginActivity.this);
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
-            finish();
+            }
         } else {
             showToast(msg);
         }
@@ -255,11 +253,10 @@ public class MyLoginActivity extends BaseActivity {
                     @Override
                     protected void onSuccess(String userWeChatInfo) {
                         weChatDialog.dismiss();
-                        Log.i("521", "onSuccess: userWeChatInfo:" + userWeChatInfo);
                         try {
                             JSONObject jsonObject = new JSONObject(userWeChatInfo);
-                            String unionidStr = jsonObject.optString("unionid");
-
+                            openId = jsonObject.optString("openid");
+                            loginEvent();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
