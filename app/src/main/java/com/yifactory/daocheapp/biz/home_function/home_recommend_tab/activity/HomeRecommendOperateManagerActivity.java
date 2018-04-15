@@ -345,8 +345,8 @@ public class HomeRecommendOperateManagerActivity extends BaseActivity implements
                     /*AppDavikActivityMgr.getScreenManager().removeMainActivity();
                     Intent intent = new Intent(this, MainActivity.class);
                     startActivity(intent);*/
-                    EventBus.getDefault().post(new HomeTabChangedTwoMessage());
                     finish();
+                    EventBus.getDefault().post(new HomeTabChangedTwoMessage());
                     break;
                 case R.id.more_iv:
                     hideAllShow();
