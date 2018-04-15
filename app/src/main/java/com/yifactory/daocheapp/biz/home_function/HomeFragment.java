@@ -70,6 +70,7 @@ public class HomeFragment extends BaseFragment {
     @BindView(R.id.new_activity_tv)
     TextView mTv_new;
 
+    private BaseFragment mCurShowFragment;
     private HomeTypeFragment mHomeTypeFragment;
     private HomeRecommendFragment mHomeRecommendFragment;
     private HomeInterviewFragment mHomeInterviewFragment;
@@ -79,7 +80,7 @@ public class HomeFragment extends BaseFragment {
     private HomeCarSupermarketFragment mHomeCarSupermarketFragment;
     private HomeOfflineActivityFragment mHomeOfflineActivityFragment;
     private HomePromoteProfitFragment mHomePromoteProfitFragment;
-    private HomeNewActivityFragment homeNewActivityFragment;
+    private HomeNewActivityFragment mHomeNewActivityFragment;
     private HomeAftermarketFragment mHomeAftermarketFragment;
     private FragmentManager mChildFragmentManager;
 
@@ -107,7 +108,9 @@ public class HomeFragment extends BaseFragment {
         initTabTitleList();
         mChildFragmentManager = getChildFragmentManager();
         FragmentTransaction fragmentTransaction = mChildFragmentManager.beginTransaction();
-        initHomeRecommendFragment(fragmentTransaction);
+        mHomeRecommendFragment = HomeRecommendFragment.newInstance();
+        fragmentTransaction.add(R.id.fragment_container, mHomeRecommendFragment).commitAllowingStateLoss();
+        mCurShowFragment = mHomeRecommendFragment;
     }
 
     private void initTabTitleList() {
@@ -154,7 +157,7 @@ public class HomeFragment extends BaseFragment {
     public void onClickTabEvent(View view) {
         if (view != null) {
             FragmentTransaction fragmentTransaction = mChildFragmentManager.beginTransaction();
-            hideAllFragments(fragmentTransaction);
+//            hideAllFragments(fragmentTransaction);
             switch (view.getId()) {
                 case R.id.type_tv:
                     changedTabStyle(0);
@@ -261,8 +264,8 @@ public class HomeFragment extends BaseFragment {
         if (mHomePromoteProfitFragment != null) {
             fragmentTransaction.hide(mHomePromoteProfitFragment);
         }
-        if (homeNewActivityFragment != null) {
-            fragmentTransaction.hide(homeNewActivityFragment);
+        if (mHomeNewActivityFragment != null) {
+            fragmentTransaction.hide(mHomeNewActivityFragment);
         }
         if (mHomeAftermarketFragment != null) {
             fragmentTransaction.hide(mHomeAftermarketFragment);
@@ -272,71 +275,73 @@ public class HomeFragment extends BaseFragment {
     private void initHomeTypeFragment(FragmentTransaction fragmentTransaction) {
         if (mHomeTypeFragment == null) {
             mHomeTypeFragment = HomeTypeFragment.newInstance();
-            fragmentTransaction.add(R.id.fragment_container, mHomeTypeFragment);
+            fragmentTransaction.hide(mCurShowFragment).add(R.id.fragment_container, mHomeTypeFragment).commitAllowingStateLoss();
         } else {
-            fragmentTransaction.show(mHomeTypeFragment);
+            fragmentTransaction.hide(mCurShowFragment).show(mHomeTypeFragment).commitAllowingStateLoss();
         }
-        fragmentTransaction.commit();
+        mCurShowFragment = mHomeTypeFragment;
     }
 
     private void initHomeRecommendFragment(FragmentTransaction fragmentTransaction) {
         if (mHomeRecommendFragment == null) {
             mHomeRecommendFragment = HomeRecommendFragment.newInstance();
-            fragmentTransaction.add(R.id.fragment_container, mHomeRecommendFragment);
+            fragmentTransaction.hide(mCurShowFragment)
+                    .add(R.id.fragment_container, mHomeRecommendFragment)
+                    .commitAllowingStateLoss();
         } else {
-            fragmentTransaction.show(mHomeRecommendFragment);
+            fragmentTransaction.hide(mCurShowFragment).show(mHomeRecommendFragment).commitAllowingStateLoss();
         }
-        fragmentTransaction.commit();
+        mCurShowFragment = mHomeRecommendFragment;
     }
 
     private void initHomeInterviewFragment(FragmentTransaction fragmentTransaction) {
         if (mHomeInterviewFragment == null) {
             mHomeInterviewFragment = HomeInterviewFragment.newInstance();
-            fragmentTransaction.add(R.id.fragment_container, mHomeInterviewFragment);
+            fragmentTransaction.hide(mCurShowFragment).add(R.id.fragment_container, mHomeInterviewFragment).commitAllowingStateLoss();
         } else {
-            fragmentTransaction.show(mHomeInterviewFragment);
+            fragmentTransaction.hide(mCurShowFragment).show(mHomeInterviewFragment).commitAllowingStateLoss();
         }
-        fragmentTransaction.commit();
+        mCurShowFragment = mHomeInterviewFragment;
     }
 
     private void initHomeShareFragment(FragmentTransaction fragmentTransaction) {
         if (mHomeShareFragment == null) {
             mHomeShareFragment = HomeShareFragment.newInstance();
-            fragmentTransaction.add(R.id.fragment_container, mHomeShareFragment);
+            fragmentTransaction.hide(mCurShowFragment).add(R.id.fragment_container, mHomeShareFragment).commitAllowingStateLoss();
         } else {
-            fragmentTransaction.show(mHomeShareFragment);
+            fragmentTransaction.hide(mCurShowFragment).show(mHomeShareFragment).commitAllowingStateLoss();
         }
-        fragmentTransaction.commit();
+        mCurShowFragment = mHomeShareFragment;
     }
 
     private void initHomeIndustryAnalysisFragment(FragmentTransaction fragmentTransaction) {
         if (mHomeIndustryAnalysisFragment == null) {
             mHomeIndustryAnalysisFragment = HomeIndustryAnalysisFragment.newInstance();
-            fragmentTransaction.add(R.id.fragment_container, mHomeIndustryAnalysisFragment);
+            fragmentTransaction.hide(mCurShowFragment).add(R.id.fragment_container, mHomeIndustryAnalysisFragment).commitAllowingStateLoss();
         } else {
-            fragmentTransaction.show(mHomeIndustryAnalysisFragment);
+            fragmentTransaction.hide(mCurShowFragment).show(mHomeIndustryAnalysisFragment).commitAllowingStateLoss();
         }
-        fragmentTransaction.commit();
+        mCurShowFragment = mHomeIndustryAnalysisFragment;
     }
 
     private void initHomeSecondHandCarFragment(FragmentTransaction fragmentTransaction) {
         if (mHomeSecondHandCarFragment == null) {
             mHomeSecondHandCarFragment = HomeSecondHandCarFragment.newInstance();
-            fragmentTransaction.add(R.id.fragment_container, mHomeSecondHandCarFragment);
+            fragmentTransaction.hide(mCurShowFragment).add(R.id.fragment_container, mHomeSecondHandCarFragment).commitAllowingStateLoss();
         } else {
-            fragmentTransaction.show(mHomeSecondHandCarFragment);
+            fragmentTransaction.hide(mCurShowFragment).show(mHomeSecondHandCarFragment).commitAllowingStateLoss();
         }
-        fragmentTransaction.commit();
+        mCurShowFragment = mHomeSecondHandCarFragment;
     }
 
     private void initHomeAutoTradeFragment(FragmentTransaction fragmentTransaction) {
         if (mHomeCarSupermarketFragment == null) {
             mHomeCarSupermarketFragment = HomeCarSupermarketFragment.newInstance();
-            fragmentTransaction.add(R.id.fragment_container, mHomeCarSupermarketFragment);
+            fragmentTransaction.hide(mCurShowFragment).add(R.id.fragment_container, mHomeCarSupermarketFragment).commitAllowingStateLoss();
         } else {
-            fragmentTransaction.show(mHomeCarSupermarketFragment);
+            fragmentTransaction.hide(mCurShowFragment).show(mHomeCarSupermarketFragment).commitAllowingStateLoss();
         }
-        fragmentTransaction.commit();
+        mCurShowFragment = mHomeCarSupermarketFragment;
     }
 
     private void initHomeOfflineActivityFragment(FragmentTransaction fragmentTransaction) {
@@ -360,23 +365,23 @@ public class HomeFragment extends BaseFragment {
     }
 
     private void initHomeNewFragment(FragmentTransaction fragmentTransaction) {
-        if (homeNewActivityFragment == null) {
-            homeNewActivityFragment = HomeNewActivityFragment.newInstance();
-            fragmentTransaction.add(R.id.fragment_container, homeNewActivityFragment);
+        if (mHomeNewActivityFragment == null) {
+            mHomeNewActivityFragment = HomeNewActivityFragment.newInstance();
+            fragmentTransaction.hide(mCurShowFragment).add(R.id.fragment_container, mHomeNewActivityFragment).commitAllowingStateLoss();
         } else {
-            fragmentTransaction.show(homeNewActivityFragment);
+            fragmentTransaction.hide(mCurShowFragment).show(mHomeNewActivityFragment).commitAllowingStateLoss();
         }
-        fragmentTransaction.commit();
+        mCurShowFragment = mHomeNewActivityFragment;
     }
 
     private void initHomeAftermarketFragment(FragmentTransaction fragmentTransaction) {
         if (mHomeAftermarketFragment == null) {
             mHomeAftermarketFragment = HomeAftermarketFragment.newInstance();
-            fragmentTransaction.add(R.id.fragment_container, mHomeAftermarketFragment);
+            fragmentTransaction.hide(mCurShowFragment).add(R.id.fragment_container, mHomeAftermarketFragment).commitAllowingStateLoss();
         } else {
-            fragmentTransaction.show(mHomeAftermarketFragment);
+            fragmentTransaction.hide(mCurShowFragment).show(mHomeAftermarketFragment).commitAllowingStateLoss();
         }
-        fragmentTransaction.commit();
+        mCurShowFragment = mHomeAftermarketFragment;
     }
 
     @Override
@@ -388,7 +393,7 @@ public class HomeFragment extends BaseFragment {
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void homeTabChangedEvent(HomeTabChangedMessage homeTabChangedMessage) {
         FragmentTransaction fragmentTransaction = mChildFragmentManager.beginTransaction();
-        hideAllFragments(fragmentTransaction);
+//        hideAllFragments(fragmentTransaction);
         changedTabStyle(2);
         initHomeInterviewFragment(fragmentTransaction);
     }
@@ -396,7 +401,7 @@ public class HomeFragment extends BaseFragment {
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void homeTabChangedTwoEvent(HomeTabChangedTwoMessage homeTabChangedMessage) {
         FragmentTransaction fragmentTransaction = mChildFragmentManager.beginTransaction();
-        hideAllFragments(fragmentTransaction);
+//        hideAllFragments(fragmentTransaction);
         changedTabStyle(0);
         initHomeTypeFragment(fragmentTransaction);
     }

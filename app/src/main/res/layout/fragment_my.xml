@@ -790,7 +790,7 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/shape_gray_corner_stroke2"
                 android:gravity="center"
-                android:text="登陆"
+                android:text="登录"
                 android:textColor="@color/theme_color"
                 android:textSize="26px"/>
 

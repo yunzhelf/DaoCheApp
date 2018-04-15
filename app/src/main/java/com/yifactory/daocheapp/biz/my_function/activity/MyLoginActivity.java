@@ -70,7 +70,7 @@ public class MyLoginActivity extends BaseActivity {
         EventBus.getDefault().register(this);
         ImmersionBar.with(this).fitsSystemWindows(false).transparentStatusBar().init();
         regToWx();
-        mDialog = SDDialogUtil.newLoading(this, "登陆中...");
+        mDialog = SDDialogUtil.newLoading(this, "登录中...");
         weChatDialog = SDDialogUtil.newLoading(this, "请求中");
 
     }
