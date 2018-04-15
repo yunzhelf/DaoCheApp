@@ -108,10 +108,19 @@ public class HomeRecommendJsListActivity extends BaseActivity {
                         if (getSysArmyAnasBean.getResponseState().equals("1")) {
                             successRequest(requestMark, getSysArmyAnasBean);
                         } else {
-                            failedRequest(requestMark, getSysArmyAnasBean.getMsg());
+                            successRequestFinish(requestMark, getSysArmyAnasBean.getMsg());
                         }
                     }
                 });
+    }
+
+    private void successRequestFinish(String requestMark, String msg) {
+        if (requestMark.equals(ApiConstant.REQUEST_NORMAL)) {
+            mJsListAdapter.loadMoreEnd();
+            if (pageNum != 0) {
+                pageNum -= 1;
+            }
+        }
     }
 
     private void failedRequest(String requestMark, String errorMsg) {
