@@ -289,6 +289,10 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
         AliyunPlayerUtils.aliyunVodPlayer.stop();
     }
 
+    /**
+     * 接收视频信息，请求需要的数据
+     * @param videoInfo
+     */
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void videoInfoEventBus(PlayVideoBean.DataBean.HotBean videoInfo) {
         this.videoInfo = videoInfo;
@@ -330,6 +334,9 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
                 });
     }
 
+    /**
+     * 获取页面数据 包括作者信息、其它作品以及热门列表
+     */
     private void getPlayVideoEvent() {
         RxHttpUtils.createApi(ApiService.class)
                 .playVideo(videoInfo.getRId(), videoInfo.getUId())
@@ -350,6 +357,7 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
                 });
     }
 
+    // 添加学习时间
     private void addStudyReocrd(long lastTime) {
         String rId = videoInfo.getRId();
         String uId = UserInfoUtil.getUserInfoBean(mActivity).getUId();
@@ -372,6 +380,7 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
 
     }
 
+    //加载作者信息、其它作品列表、热门列表
     private void initPlayVideo() {
         PlayVideoBean.DataBean.ResourceBean bean = playVideoObj.getResource();
         if (bean != null) {
@@ -393,7 +402,7 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
             hotRecommendAdapter.setNewData(dataHotArray);
         }
     }
-
+   //  准备视频资源
     private void prepareAsync() {
         if (mVidSts != null) {
             AliyunPlayerUtils.aliyunVodPlayer.prepareAsync(mVidSts);
@@ -423,6 +432,7 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
         studyTime = System.currentTimeMillis(); //获取当前时间为学习时长准备
     }
 
+    //根据视频不同状态执行不同操作
     private void playVideo() {
         AliyunPlayerUtils.aliyunVodPlayer.prepareAsync(mVidSts);
         AliyunPlayerUtils.isCompleted = false;
@@ -507,6 +517,7 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
         });
     }
 
+    //更新界面上视频显示时间及seekBar进度
     private void showVideoProgressInfo() {
         if (AliyunPlayerUtils.aliyunVodPlayer != null && !AliyunPlayerUtils.inSeek) {
             int curPosition = (int) AliyunPlayerUtils.aliyunVodPlayer.getCurrentPosition();
@@ -520,6 +531,7 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
         }
     }
 
+    //热门视频列表
     private void initHotRecommendRv() {
         hotRecommendAdapter = new VideoHotRecommendAdapter();
         mRv_hotRecommend.setNestedScrollingEnabled(false);
@@ -546,6 +558,8 @@ public class VideoFragment extends BaseFragment implements SwipeRefreshLayout.On
         });
     }
 
+
+    // 其它作品列表
     private void initAuthorProductionRv() {
         productionAdapter = new VideoAuthorOtherProductionAdapter();
         mRv_authorProduction.setNestedScrollingEnabled(false);
